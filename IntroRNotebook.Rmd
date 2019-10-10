@@ -95,12 +95,22 @@ Finally, to extract values from a non-sequential combination of specific positio
 first_letter_name[c(1,3,5)]
 ```
 
-We can perform operations on vectors - finding their sum or their average, for example. However, we may get an error if we have any empty values in the dataset. To avoid this, we need to communicate to R to remove NA values. 
+We can perform operations on vectors - finding their max, their min, their sum, their average, for example. However, we may get an error if we have any empty values in the dataset. To avoid this, we need to communicate to R to remove NA values. 
 ```{r}
+max(time_on_phone)
+min(time_on_phone)
 sum(time_on_phone)
 mean(time_on_phone)
+
+max(time_on_phone, na.rm=TRUE)
+min(time_on_phone, na.rm=TRUE)
 sum(time_on_phone, na.rm=TRUE)
 mean(time_on_phone, na.rm=TRUE)
+```
+
+We can also get a list of all of the unique values in a vector by calling "unique()". So, for instance, if we had a vector of values 1, 4, 5, 1, 4, the unique values would be 1, 4, and 5. 
+```{r}
+unique(first_letter_name)
 ```
 
 
@@ -186,8 +196,7 @@ str(scorecard)
 
 Just like as we had done with matrices, we can extract particular rows and columns in a data frame by referring to their indexes in brackets. 
 ```{r}
-scorecard[1,]
-scorecard[,1]
+scorecard[2,4]
 ```
 
 The scorecard dataset is a great example of a dataset for which we we're not going to want to have to determine the column index number to extract the values from it. With almost 1000 columns, this could be incredibly tedious. Instead, we can refer to the column name using the same "$" notation that we discussed above. To see a list of column names, we could refer to the data dictionary. We could also use the function "colnames()".

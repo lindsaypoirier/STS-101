@@ -1,0 +1,223 @@
+---
+title: "Selecting and Summarizing Eviction Lab Data"
+output: html_notebook
+---
+
+The R community has developed a series of *packages* or collections of functions that we can use when coding in R. In this course we will be leveraging a series of packages known as the Tidyverse - designed to help users clean, transform, analyze, and visualize data. The tidyverse package has already been installed in our shared JupyterHub environment. To load the package, we call the function library(), which let's R know that we will be referencing the functions encoded for this package in our code. 
+```{r}
+library(tidyverse)
+```
+
+Oftentimes, R will read strings into the code as *factors*. Factors are a type of variable in R (in the same way that we have numeric or character variables). They are typically used to represent *ordinal categorical* variables (e.g. High, Medium, and Low). With factors, each variable is conceptually associated with an integer (1: High, 2: Medium, 3: Low). This makes it possible to order the factor values and to perform certain operations on factor values. By default, R imports string data from a CSV as a factor. However, since most of the time in this class, we will be treating strings as *nominal categorical* variables, we need to tell R not to import strings this way. We do this by appending "stringsAsFactors = FALSE" in the read.csv function. 
+
+```{r}
+eviction_CA <- read.csv("Eviction/tracts.csv", stringsAsFactors = FALSE)
+```
+
+Today, we will start working extensively with the dplyr package - a package with functions that enable you to select variables in a dataset, filter to certain observations, and perform calcuations across filtered variables. Over the course of the quarter we will learn how to apply several functions in dplyr. Today, specifically, we will learn 4 functions: select(), n_distinct(), filter(), and summarize(). 
+
+The dplyr library is particularly cool in the way that it allows us to string together several functions with what is called a pipe. Placing a pipe in between two function in dplyr is sorting of like saying "and then do this..." To type a pipe, you use: %>%
+
+When writing code that makes use of the dplyr package, we often begin with a reference to the datafame, and then call a series of functiona:
+
+df %>% select(____) %>% filter(____)
+
+Because we reference the dataframe from the start, we do not need to reference it again when referring to specific columns. Remember how last week, we used the $ to refer to specific columns in a specific dataframe (e.g. df$name). We don't have to do this with dplyr.
+
+df %>% select(name) %>% filter(name == "Sally")
+
+Before we perform operations across variables in R, it is important that we understand how a dataset is structured. There are recommended practices for structuring data in R in ways that best represented the meaning of the data. Most importantly, each row of the dataset should represent a single observation. Let's say that we were to conduct a survey every year from 2013 to 2015 of the population of a county. We then produce a dataset structured like this:
+
+```{r}
+# Don't worry about how this works for now.
+library(knitr)
+eviction_CA_counties <- read.csv("Eviction/counties.csv", stringsAsFactors = FALSE)
+
+pop_eviction_CA_counties <- 
+  eviction_CA_counties %>% 
+  filter(year %in% c(2013:2015) & name %in% c('Alameda County','Sacramento County','Yolo County')) %>%
+  select(name, year, population) %>%
+  spread(key = year, value = population)
+
+kable(pop_eviction_CA_counties)
+
+```
+Can you summarize what each row represents in the table above?
+
+Does each row here represent one single observation? No. Each row represents three observations - the population taken in the designated county in 2013, 2014, and 2015. This is not tidy data. We actually want this data to be structured so that each row represents the population taken in a given county and given year. In this way, each row will be a unique observation that we can later refer to when analyzing and visualizing the data. We will see throughout the quarter how important this is. 
+
+```{r}
+# Don't worry about how this works for now.
+pop_eviction_CA_counties <- 
+  pop_eviction_CA_counties %>%
+  gather(key = year, value = population, -name)
+
+kable(pop_eviction_CA_counties)
+```
+Can you summarize what each row represents in the table above?
+
+Oftentimes when we are working with datasets like this, it is helpful to identify a variable or set of variables than can serve as a unique key for the data. A *unique key* is a variable (or set of variables) that uniquely identifies an observation in the dataset. Think of a unique key as a way to identify a row and all of the values in it. With tidy data, there should never be more than one row with the same unique key. In the above table, can you identify a unique key for representing the population values?
+
+Can you figure out the unique key in the eviction dataset below?
+```{r}
+#Display the first 6 rows of the dataset
+_____(eviction_CA)
+```
+
+We can double check that this is truly a unique key by making sure that the number of distinct values in these variables match the number of rows in the dataset. Dplyr has a function called *n_distinct()* which will let us check the number of distinct observations in a dataset, (or rows that are not exact duplicates of each other). 
+
+```{r}
+#Calculate the number of distinct observations (rows) in the dataset
+eviction_CA %>% n_distinct()
+```
+
+Here we are not interested in the distinctness of all the variables in an observation, but just those that would make a unique key. We need to *select()* those variables, and then call n_distinct() on the selected variables. Select() is a dplyr function that allows us to refer to different variables (columns) in the dataset and perform operations on just those variables. Let's select the variables we believe make up our unique key, check if the number of distinct observations when these variables are selected, and store the value in the variable n_unique_keys
+
+```{r}
+#Select the variables that make up a unique key from this dataset and then calculate the number of distinct observations for the selected variables. Store this in the variable "n_unique_keys"
+_____ <- 
+  eviction_CA %>% 
+  select(_____, _____) %>% 
+  _____()
+
+```
+
+Now we can check to see if this number matches the number of rows in the dataset. If it does, then we can assume that this combination of variables will designate a unique key for the observation. Do you remember from last week how to check the number of rows in a dataset?
+```{r}
+#Check the number of rows in the eviction dataframe
+n_rows <- _____(eviction_CA)
+
+#Check if the number of unique keys matches the number of rows in the dataset.
+n_unique_keys == n_rows
+```
+
+Before performing calculations with tidy data, we have to think about how to appropriately subset the observations to include only those observations that are relevant to the calculation. With the eviction dataset, would it be appropriate for me to sum the population column to determine the total population in CA? Why or why not?
+
+We know from our unique key that the values in the dataset represent multiple points in time for a single geography. To calculate the total population, we need to *filter()* the data to a specific point in time. The filter() function in dplyr allows me to extract from the dataset only the observations that meet a certain criteria. You can think of select() as a way to subset columns and filter() as a way to subset rows. To get all of the observations in the eviction dataset for the year 2016, I would:
+
+```{r}
+#Filter to the rows where year == (or "equals") 2016 and store the result in the variable eviction_CA_2016
+
+eviction_CA_2016 <- 
+  eviction_CA %>% 
+  filter(year == 2016)
+```
+
+What would be the unique key of eviction_CA_2016? Fill in the code below to check.
+
+```{r}
+  n_unique_keys <-
+  _____ %>% 
+  select(_____) %>%
+  _____()
+
+  n_rows <- _____(eviction_CA_2016)
+
+  n_unique_keys == n_rows
+```
+
+Now that I've filtered to the relevant observations, I can sum across the population value to get the California popluation in 2016. We will use the dplyr function *summarize()* to do this. The summarize() function allows us to perform a calculation across a variable, and returns a single value. There are a series of calculations that we can perform. We can:
+ - Add the values and store the sum in value_name with *summarize(value_name = sum(variable_name))*
+ - Average the values and store the average in value_name with *summarize(value_name = mean(variable_name))*
+ - Find the maximum value and store it in value_name with *summarize(value_name = max(variable_name))*
+ - Find the minimum value and store it in value_name with *summarize(value_name = min(variable_name))*
+ - Calculate the median value and store it in value_name with *summarize(value_name = median(variable_name))*
+ - Calculate the number of distinct values and store it in value_name with *summarize(value_name = n_distinct(variable_name))*
+ 
+```{r}
+#Calculate the sum of population 
+eviction_CA_2016 %>% summarize(population_sum = sum(population))
+```
+
+Why am I getting an NA here? Does anyone remember how to remove NAs?
+```{r}
+eviction_CA_2016 %>% summarize(population_sum = sum(population, ______))
+```
+
+How would I calculate the average population per census tract in CA?
+```{r}
+eviction_CA_2016 %>% _____(population_average = _____(population, ______))
+```
+
+How would I find the size of the largest census tract in CA in terms of population? How would I check which county this is in?
+```{r}
+_____ %>% _____(population_max = _____(_____, _____))
+
+_____ %>% _____(_____ == _____) %>% select(_____)
+```
+
+
+Practice Problems:
+
+Calculate the distinct number of parent locations in the dataset.
+```{r}
+eviction_CA %>%
+  _____(_____) %>%
+  _____()
+```
+How many evictions occurred in CA in 2016?
+```{r}
+eviction_CA_2016 %>%
+  _____(eviction_sum = _____(_____, ______))
+```
+
+How many evictions occurred in CA in 2000?
+```{r}
+eviction_CA %>%
+  ______(_____ == _____) %>%
+  _____(eviction_sum = _____(_____, ______))
+```
+
+What percentage of eviction filings across CA resulted in an eviction in 2016?
+```{r}
+eviction_CA_2016 %>%
+  _____(eviction_judgment_rate = (_____(_____, na.rm=TRUE)/_____(_____, na.rm=TRUE))*100)
+```
+
+Filter to the census tract for UCDavis (6113010501) and store it in eviction_CA_UCDavis.
+```{r}
+_____ <-
+  eviction_CA %>% 
+  _____(______ == 6113010501)
+```
+
+What is the unique key for eviction_CA_UCDavis? Check to be sure.
+```{r}
+#Calculate the number of distinct observations for the variable you believe to be the unique key
+n_unique_keys <- 
+  eviction_CA_UCDavis %>%
+  select(year) %>%
+  n_distinct()
+
+#Calculate number of rows in eviction_CA_UCDavis
+n_rows <- _____(_____)
+
+#Check to see if these two values match.
+n_rows == n_unique_keys
+```
+
+Calculate the total evictions in the census tract containing UCDavis from 2000 to 2016.
+```{r}
+_____ %>%
+  _____(evictions_sum = _____(_____, na.rm = TRUE)) 
+```
+
+Select the columns to determine when these evictions occurred. 
+```{r}
+eviction_CA_UCDavis %>%
+  _____(_____, _____)
+```
+
+Select the year, and then all columns referring to the percent of a particular demographic. Do not add any additional lines to the code below. Hint: Do you remember the syntax for *combining* multiple variables in a list, and referncing consecutive variables?
+```{r}
+eviction_CA_UCDavis %>%
+  _____(_____(_____, _____ _____ _____))
+```
+
+What do you notice?
+
+see: https://www.pewsocialtrends.org/2010/03/15/college-students-count-in-the-census-but-where/
+
+*Cherrypicking* refers to the purposeful selection of variables that confirm a certain statement (and the neglect to select others that may contracdict that statement). When working with data, there are often many opportunities to cherrypick variables that confirm a certain statement. How might different stakeholders cherrpick variables for analysis in this dataset to advance a particular narrative?
+
+

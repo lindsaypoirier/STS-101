@@ -1,0 +1,212 @@
+---
+title: "Filtering and Summarizing TRI Data"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+tri_2017 <- read.csv("TRI/tri_2017_us.csv", stringsAsFactors = FALSE)
+colnames(tri_2017) <- gsub("X[0-9]*..","",colnames(tri_2017))
+```
+
+Reviewing from last week, what will be the unique key of this dataset?
+```{r}
+#Check the dinstinct unique keys in the dataframe
+n_unique_keys <- 
+  tri_2017 %>% 
+  _____(_____, _____) %>% 
+  _____()
+
+#Check the number of rows in the dataframe
+n_rows <- _____(tri_2017)
+
+#Check if the number of unique keys matches the number of rows in the dataset.
+n_unique_keys == n_rows
+```
+
+^Why is this false?
+```{r}
+tri_2017 %>% 
+  filter(FRS.ID == 110000342102 & CHEMICAL == "AMMONIA") %>% 
+  select(TRIFD, FRS.ID, CHEMICAL, TOTAL.RELEASES)
+
+tri_2017 %>% 
+  filter(FRS.ID == 110000503722 & CHEMICAL == "BENZENE") %>% 
+  select(TRIFD, FRS.ID, CHEMICAL, TOTAL.RELEASES)
+
+```
+
+Last week we discussed how we can find the number of unique observations (rows) across a set of variables (columns) in a dataset using n_distinct(). What if we want to know what those unique observations are rather than just how many unique observations there are? In this case, we would use *distinct()*. Distinct will return the unique values across a designated set of varaibles. So let's say I wanted to determine all of the industry sectors represnted in the TRI. 
+
+```{r}
+#Determine unique industry sectors in TRI 2017
+tri_2017 %>% select(INDUSTRY.SECTOR) %>% distinct()
+```
+
+... or let's say I wanted to determine the unique units of measure represented in the TRI. 
+```{r}
+#Determine unique units of measures in TRI 2017
+tri_2017 %>% _____(_____) %>% _____
+```
+
+Now that we know that we know that TRI chemicals are reported in both Pounds and Grams, let's see which chemicals are reported in Grams. To do so, we are going to use a combination of filter, select, and distinct. First we, filter to the observations where unit of measure is equal to grams, and then we select the chemical column, and call distinct() to determine the unique names of the chemicals measured in grams. 
+```{r}
+#Determine which chemicals are reported in Grams in TRI 2017
+tri_2017 %>% 
+  _____(_____ == _____) %>% 
+  select(_____) %>% 
+  distinct()
+```
+
+For the sake of today's lesson, we are not going to deal with the TRI chemicals reported in grams, so let's go ahead and filter those out. Last week, we went over dplyr's *filter* function and discussed how it can be used to extract observations (or rows) from a dataset that meet a certain condition. We focused on filtering rows in which the value in a given variable matched (or was equal (==) to) a value that we supplied.
+
+There are many types of conditions we can provide to filter rows in dplyr. For instance, we can filter when:
+1. The stored value is equal to the supplied value (==)
+2. The stored value is equal to the supplied value (!=)
+3. The stored value is greater than the supplied value (>)
+4. The stored value is less than the supplied value (<)
+5. The stored value is greater than or equal to the supplied value (>=)
+6. The stored value is less than or equal to the supplied value (<=)
+```{r}
+#Remove all rows reported in grams
+tri_2017 <- tri_2017 %>% 
+  filter(UNIT.OF.MEASURE _____ "Grams")
+```
+
+
+
+Practice problem: Produce a unique list of chemicals that are carcinogens
+
+```{r}
+#Determine which chemicals are Carcinogens
+tri_2017 %>% 
+  _____(_____ == _____) %>% 
+  _____(_____) %>% 
+  _____
+```
+
+dplyr offers tools for us to combine multiple filter conditions so that we can extract the observations that meet these multiple conditions. I can combine filter conditions with an '&' to filter to the rows that meet BOTH conditions, or I can combine conditions with an '|' to filter to the rows that meet EITHER conditions.
+
+```{r}
+#Calculate total releases (across all chemicals and facilities) in CA AND Yolo County in 2017
+tri_2017 %>% 
+  filter(ST == "CA"  & COUNTY == "YOLO") %>% 
+  summarize(releases = sum(TOTAL.RELEASES, na.rm = TRUE))
+
+#Calculate total releases (across all chemicals and facilities) in CA AND Sacramento in 2017
+tri_2017 %>% 
+  filter(ST == "CA"  _____ COUNTY == ______) %>% 
+  _____(releases = _____(TOTAL.RELEASES, _____))
+
+#Calculate total releases (across all chemicals and facilities) in CA AND (Sacramento OR YOLO) in 2017
+tri_2017 %>% 
+  _____(ST == "CA"  & (COUNTY == "SACRAMENTO" _____ COUNTY == "YOLO")) %>% 
+  _____(releases = _____(TOTAL.RELEASES, na.rm = TRUE))
+```
+
+Practice problems:
+```{r}
+#Filter to the rows where total releases are greater than 100,000,000 pounds, select facility name, state, chemical, and total releases
+tri_2017 %>% 
+  _____(_____ _____ _____) %>% 
+  _____(_____, _____, _____, _____)
+
+#Filter to the unique facilities in Sacramento, CA where total releases is not equal to 0
+tri_2017 %>% 
+  _____(_____ == _____ & CITY == "SACRAMENTO" _____ _____ _____ _____) %>% 
+  _____(_____) %>%
+  _____
+
+```
+
+We can also filter to the observations with the maximum or minimum value within a particular variable (column). For instance, let's say we wanted to identify the facility that released the greatest amount of a chemical in 2017. Last week, we applied two functions to do this. First we summarized the greatest total releases, and then we filtered to the row in the dataset that matched that value. There's a simpler way to do this with filter. We will filter to the rows in the dataset where a variable (column) value is equal to (==) the max value for that variable (column).
+```{r}
+#Filter to row with greatest total releases
+tri_2017 %>% 
+  filter(_____ == _____(______)) %>% 
+  select(FACILITY.NAME, ST, CHEMICAL, TOTAL.RELEASES)
+```
+
+We're going to learn one more paired set of functions today - *group_by()* and *ungroup()*. We use group_by() in order to group observations (rows) that share values in a designated variable (column) and perform an operation across those values. So let's say I wanted to find the total releases across all chemicals for EACH facility in the TRI. Since we know that each row in the dataset is not unique to a facility (and that instead each row tells us the releases of a particular chemical at that facility), we need to first group_by() the facilities and the sum the releases aross all chemicals at that facility. We use group_by to do this:
+
+```{r}
+#Calculate the total releases across all chemicals for each facility in CA
+tri_2017 %>% 
+  _____(_____ == _____) %>% 
+  _____(FRS.ID, FACILITY.NAME) %>% 
+  _____(releases = _____(TOTAL.RELEASES))
+
+```
+^ Who can tell me why I'm grouping by both FRS.ID and FACILITY.NAME here?
+
+Or we can group by industry sector and sum total releases across the industry sector to determine which industries emitted more chemicals in 2017:
+```{r}
+#Calculate the total releases across all chemicals for each industry sector in CA
+tri_2017 %>% 
+  _____(ST == "CA") %>% 
+  _____(_____) %>% 
+  _____(releases = _____(_____))
+```
+*group_by()* and *summarize()* are very powerful when used together. They allow us to perform the same operation across different groups of observations. *group_by()* and *filter()* are also very powerful when used together. They allow us to filter across different groups of observations. So let's say I wanted to find the facility that released the most of each chemical in the TRI:
+```{r}
+tri_2017 %>%
+  group_by(CHEMICAL) %>%
+  filter(TOTAL.RELEASES == max(TOTAL.RELEASES, na.rm = TRUE)) %>%
+  select(FACILITY.NAME, CHEMICAL, TOTAL.RELEASES)
+```
+
+
+
+Once certain observations are grouped, all of the functions that come after the group_by() statement will be applied to the grouped data. Often we don't want this. For example, let's say after calculating the total releases across all chemicals for each facility, we decide that we then want to filter to the row with the max releases. In other words, we want to return the facility that has released the most toxic chemicals total. If we try and do this immediately after summarizing, it will apply our filter to each group (or in this case it will return max releases at each facility). This doesn't make sense right? Since we've summarized the releases at each facility, there's only one release value, so calling this filter on the grouped data will return all of the rows in our new dataset:
+
+```{r}
+#This is incorrect!
+tri_2017 %>% 
+  filter(ST == "CA") %>% 
+  group_by(FRS.ID, FACILITY.NAME) %>% 
+  summarize(releases = sum(TOTAL.RELEASES)) %>% 
+  filter(releases == max(releases))
+```
+
+In such cases, we use *ungroup()* to ungroup our data after the desired functions have been run, so that we may apply additional functions across the entire data set, not just across the grouped functions. 
+
+```{r}
+#This is correct!
+tri_2017 %>% 
+  _____(ST _____ "CA") %>% 
+  _____(FRS.ID, FACILITY.NAME) %>% 
+  ______(releases = sum(TOTAL.RELEASES)) %>% 
+  _____ %>% 
+  _____(releases == _____(releases))
+```
+
+ Which industry sector has released the max total releases?
+```{r}
+tri_2017 %>% 
+  _____(_____) %>% 
+  _____(releases = _____(_____)) %>% 
+  _____ %>% 
+  _____(releases == _____(_____))
+```
+
+For each industry sector, which chemical was emitted the most in 2017?
+```{r}
+tri_2017 %>% 
+  group_by(INDUSTRY.SECTOR, CHEMICAL) %>% 
+  summarize(releases = sum(TOTAL.RELEASES)) %>% 
+  ungroup() %>% 
+  group_by(INDUSTRY.SECTOR) %>%
+  filter(releases == max(releases)) %>%
+  ungroup() %>% 
+  select(INDUSTRY.SECTOR, CHEMICAL)
+```
+
+```{r}
+View(tri_2017 %>% filter(INDUSTRY.SECTOR == "Coal Mining"))
+```
+

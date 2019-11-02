@@ -30,7 +30,7 @@ Part I. Practice Problems
 
 ```{r}
 scorecard %>% 
-  _____(_____ _____ _____ & _____ _____ _____ & _____ _____ _____) %>%
+  _____(_____ > _____ & _____ == _____ & _____ > _____) %>%
   _____(_____, _____, _____, _____)
 ```
 
@@ -38,13 +38,13 @@ scorecard %>%
 ```{r}
 #List the names, cities, states, and undergraduate enrollments of college towns
 scorecard %>% 
-  _____((_____ _____ _____ | _____ ______ _____) & (_____ _____ _____)) %>%
-  _____(_____, _____, _____, _____)
+  filter((_____ == _____ | _____ == _____) & (_____ > _____)) %>% 
+  _____(_____, _____, _____, _____) #List
 
 #Calculate the number of college towns in each state
 scorecard %>% 
-  _____((_____ %in% c(_____, _____)) & (_____ _____ _____)) %>% #%in% tests whether the value in a given row matches the values listed in c(__,__) Hint: Here you will fill in the same values in your "or" statement above
-  _____(_____) %>%
+  _____ %>% #copy filter statement above
+  _____(_____) %>% 
   _____(total = _____)
 ```
 3. What are the names, cities, states, and undergraduate enrollments of the institution with the largest undergraduate enrollment in each region? What are the names, cities, states, and admission rates for the institution wtih the lowest admission rate in each state?
@@ -53,15 +53,15 @@ scorecard %>%
 #List the names, cities, states, and undergraduate enrollments of the institution with the largest undergraduate enrollment in each region
 scorecard %>% 
   _____(_____) %>%
-  ____(_____ _____ _____(_____, na.rm = TRUE)) %>%
-  _____ %>%
+  _____(_____ == _____(_____, na.rm = TRUE)) %>%
+  ungroup() %>%
   _____(_____, _____, _____, _____)
 
 #Following same logic as above list the names, cities, states, and admission rates for the institution wtih the lowest admission rate in each state
 scorecard %>%
   _____ %>%
   _____ %>% 
-  _____ %>%
+  ungroup() %>%
   _____
 ```
 
@@ -69,7 +69,7 @@ scorecard %>%
 ```{r}
 #Calculate how many public institutions are in each state
 scorecard %>%
-  _____(______ ______ _____) %>%
+  _____(______ == _____) %>% 
   _____(_____) %>%
   _____(publicschools = _____)
 

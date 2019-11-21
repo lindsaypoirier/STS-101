@@ -1,0 +1,20 @@
+---
+title: "311: Final"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+
+sf311_zip <- unzip("../311/2018.zip")
+sf311 <- read.csv(sf311_zip[1]) 
+sf311$Opened <- mdy_hms(sf311$Opened)
+sf311$Closed <- mdy_hms(sf311$Closed)
+sf311$Updated <- mdy_hms(sf311$Updated)
+sf311$Category <- tolower(sf311$Category)
+sf311$Police.District <- tolower(sf311$Police.District)
+sf311$Category <- gsub("general request - ", "", sf311$Category)
+sf311 <- sf311 %>%
+  mutate(Month = as.character(month(Opened)))
+```

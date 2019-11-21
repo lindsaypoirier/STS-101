@@ -1,0 +1,15 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+nics <- read.csv("nics-firearm-background-checks.csv")
+nics <- nics %>% 
+  separate(month, into = c("year", "month"), sep = "-") %>% 
+  group_by(year, state) %>% 
+  summarize_at(vars(permit:totals), sum, na.rm = TRUE)
+```
+
+

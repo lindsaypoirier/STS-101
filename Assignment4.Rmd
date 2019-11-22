@@ -1,0 +1,116 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+#Read in the csv.
+scorecard <- read.csv("Scorecard/MERGED2017_18_PP.csv", stringsAsFactors = FALSE)
+
+#Convert all values entered as "NULL" to NAs. 
+is.na(scorecard) <- scorecard == "NULL"
+
+#Convert columns 12 - 1899 to numeric.
+for(i in c(12:1899)){
+  scorecard[,i]<-as.numeric(scorecard[,i])
+}
+```
+1. Calculate the number of historically black colleges and universities in each region AND for each control type. Then plot the number of historically black colleges and universities in each region as a column chart. Use the fill aesthetic to show how many of each historically black colleges and universities in each region are of each control type. Add a title to the plot, and an x and y axis. 
+```{r}
+scorecard %>% 
+  _____(_____, _____) %>% 
+  _____(HBCU = _____(_____, na.rm=TRUE)) %>% 
+  ggplot(aes(x = as.factor(_____), y = _____, fill = as.factor(_____))) +
+  _____ +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE", col = "ADD LEGEND TITLE HERE")  + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+In 1-2 sentences, summarize what the plot represents.
+
+
+List one insight that you can draw from this plot:
+1. 
+
+California has been particularly progressive in passing legislation to support both documented and undocumented non-citizens and non-green card holders in having access to higher education. Filter the data to California public universities that are predominantly bachelor's degree-granting. Plot the share of undergraduates that are documented and undocumented non-citizens and non-green card holders at each university as a line plot. Add a title to the plot, and an x and y axis. 
+
+*Please note that in this dataset, this share of the population is referred to as "non-resident a..." However, as we have been discussing throughout the quarter, these categorization systems have consequences in shaping how people see themselves and how others see them. In this class, we will not refer to "non-resident a...", but instead will refer to this population of students as documented and undocumented non-citizens and non-green card holders.
+
+```{r fig.height=8, fig.width=10}
+scorecard %>% 
+  _____(_____ == ______ & _____ == _____ & _____ == _____ ) %>%
+  _____(aes(x = _____, y = _____)) + 
+  _____(group = 1) +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+In 1-2 sentences, summarize what the plot represents.
+
+List one insight that you can draw from this plot:
+1. 
+
+3. Filter to universities with a Basic Carnegie Classification: "Special Focus Four-Year: Arts, Music & Design Schools". Create a bar plot displaying the number of universities in each state with this Carnegie Classification. 
+```{r}
+scorecard %>%
+  _____(_____ == _____) %>%
+  _____(_____(x = _____)) +
+  _____ +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+What does the height of each bar represent?
+
+
+List one insights that you can draw from this plot:
+1. 
+
+
+4. Using a histogram, show the distribution of values for average total cost of attendance for academic year institutions in increments of 5000. Use the fill aesthetic to color the bars according to the control type.  Facet the plot to create a separate panel for each state. Add a title to the plot, an x and y axis, and a legend title. 
+
+```{r fig.height=10, fig.width=10}
+scorecard %>% 
+  _____(_____(x = _____, fill = as.factor(_____))) +
+  _____(_____ = 5000) + 
+  _____(~_____) +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE", fill = "ADD LEGEND TITLE HERE") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+What does the height of each bar represent?
+
+List one insight that you can draw from this plot:
+1. 
+
+
+5. Filter to predominantly bachelor-degree granting universities in which the Percentage of degrees awarded in Agriculture, Agriculture Operations, And Related Sciences is greater than 0. Then create a frequency plot that shows the distribution of values for the Percentage of degrees awarded in Agriculture, Agriculture Operations, And Related Sciences in increments of 0.05. Use the color aesthetic to display the frequency of these values for each locale in the dataset. Add a title to the plot, and an x and y axis. 
+
+```{r}
+scorecard %>% 
+  _____(_____ > _____ & _____ == _____) %>%
+  _____(_____(x = _____, col = as.factor(_____), group = as.factor(_____))) +
+  _____(_____ = 0.05) +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE", col = "ADD LEGEND TITLE HERE") 
+
+#Bonus (+1): Write code that would help us find UC Davis on this plot. Identify below exactly where UCDavis is represented on this plot. 
+
+```
+What does the height of each frequency line represent?
+
+List one insight that you can draw from this plot:
+1. 
+
+6. Create a boxplot that shows the distribution of average faculty salaries for each state. 
+```{r}
+scorecard %>% 
+  _____(_____(x = _____, y = _____)) +
+  _____ +
+  labs(title = "ADD TITLE HERE", x = "ADD X AXIS HERE", y = "ADD Y AXIS HERE") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+What does the middle line in each box represent in the context of this plot? (It is not enough to say what it statistically refers to.)
+
+List one insight that you can draw from this plot:
+1. 

@@ -1,0 +1,365 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Introduction
+
+## What is R? What is RStudio?
+
+* R is a computing language for statistics.
+* R allows you to:
+  * Store data in a variety of formats,
+  * Perform calculations on data and variables, 
+  * Build functions and applications, and 
+  * Transform and graphically represent data
+* RStudio is an Integrated Development Environment (IDE) for statistical computing. It is a platform for using R.
+
+## What are R Notebooks?
+
+* R Notebooks allow you to write pieces of code and execute them independently.
+* When executing code in a Notebook, the output appears directly beneath the code.
+* Most importantly, notebooks are a reproducible environment for R code. They keep track of the code someone executes to get a certain result, so that the code can be run again. 
+
+> R IS CASE-SENSTIVE!
+
+## What are packages?
+
+Packages are collections of functions that we can use when coding in R. In this course, we will be leveraging a series of packages known as the Tidyverse - designed to help users clean, transform, analyze, and visualize data. I've already installed these packages in our environment. 
+
+To load them, we call the function library(), which let’s R know that we will be referencing the functions encoded for this package in our code. 
+
+```{r}
+library(tidyverse)
+```
+
+
+# R Data Structures for This Course
+
+## Variables
+
+Variables are used to store data in R. We can change the values in a variable as needed. We use “<-” to assign a variable. Notice how running this code adds these variable to the Environment tab to the left. 
+
+```{r}
+#You can add a COMMENT to a code chunk by placing a hashtag sign '#' before the line in R. This will indicate that you are adding explanatory text that should not be run when you execute the code chunk.
+
+class_name <- "FILL"
+class_dept <- "FILL"
+class_number <- "FILL"
+class_size <- 999
+
+sts_majors <- 999
+stats_majors <- 999
+other<- 999 
+```
+
+> Variable names should be descriptive, indicating what is stored in the variable. This is both so that you can return to your code and remember what is stored in the variable and so that others (your professor and TA for example) can read your code and understand what is stored in that variable. I will also ask that all of your variable names in this course be in snake_case, meaning that you use underscores to separate words. This will make it easier for me to review your code. 
+
+Every object in R has a particular *class*, which designates the variable's "type" and how functions can be applied to it. We can check the class of a variable by calling it in "class()".
+
+```{r}
+class(class_name)
+class(class_size)
+class(class_number)
+```
+
+If someone drops a class, we can easily change the value of the variable.
+
+```{r}
+class_size <- class_size - 1
+```
+
+We can also perform calculations on variables, such as addition, subtraction, multiplication, and division. Checking whether variables are greater than, less than, or equal to each other will return TRUE or FALSE.
+
+```{r}
+sts_stats_majors <- sts_majors + stats_majors
+
+residual <- class_size - sts_stats_majors
+
+sts_majors > stats_majors
+residual == other
+```
+
+How would I use these variables to determine the percentage of the class that are STS majors? Store it in a variable.
+
+```{r}
+
+```
+
+We can also perform operations on strings - concatenating them with the *paste* function. For instance, we can paste the class_dept string with the class_number string to create a class code. When we do this, we need to tell R what characters should separate the strings.
+
+```{r}
+class_code <- paste(class_dept, class_number, sep=" ")
+class_code
+```
+
+
+If I wanted to change the class of class number from a character to a numeric, I would call "as.numeric()". Why might I want to do this?
+
+```{r}
+class_number <- as.numeric(class_number)
+class(class_number)
+```
+
+Now run this code again.
+
+```{r}
+class_code <- paste(class_dept, class_number, sep=" ")
+class_code
+```
+
+## Vectors
+
+A vector is a set of values (organized like a list) that are all of the same type. A vector can be of type integer, double, characters, logical, for example. We create a vector by placing a set of values in "c(___)". Here c stands for "combine" - indicating that we are combining values. 
+
+```{r}
+birth_months <- c(4, 7, 12, 3, 1)
+first_letter_name <- c("A","B","C","D","E")
+time_on_phone <- c(34, 90, 2, 6, NA)
+```
+
+We can measure the length of a vector by calling the function *length*. This counts how many values are listed in the vector. 
+
+> The Tidyverse package is particularly cool in the way that it allows us to string together several functions with what is called a pipe. Placing a pipe in between two function in Tidyverse is sorting of like saying "and then do this..." To type a pipe, you use: %>%
+
+```{r}
+birth_months %>% length()
+```
+
+We can also extract values from specific positions in the vector by referencing the index in brackets. So let's say I want to extract the third value in the vector. 
+
+```{r}
+birth_months[3]
+```
+
+To extract all values except the value in a particular position, we will use the "-" sign before the index in brackets. So let's say I want to extract all values except the third in the vector.
+
+```{r}
+birth_months[-3]
+```
+
+We can also extract a range of values from specific positions in the vector by referencing that range of indexes in brackets separated by a ":". So let's say I want to extract the first through the third value in the vector.
+
+```{r}
+first_letter_name[1:3]
+```
+
+Finally, to extract values from a non-sequential combination of specific positions in the vector, we can reference each of their indexes in brackets in "c()".
+
+```{r}
+first_letter_name[c(1,3,5)]
+```
+
+We can perform operations on vectors - finding their max, their min, their sum, their average, for example. However, we may get an error if we have any empty values in the dataset. To avoid this, we need to communicate to R to remove NA values. 
+
+```{r}
+time_on_phone %>% max()
+time_on_phone %>% min()
+
+#Add code for calculating the sum and mean.
+#time_on_phone %>% _____()
+#time_on_phone %>% _____()
+
+time_on_phone %>% max(na.rm = TRUE)
+time_on_phone %>% min(na.rm = TRUE)
+#time_on_phone %>% _____(_____)
+#time_on_phone %>% _____(_____)
+
+```
+
+We can also get a list of all of the unique values in a vector by calling "unique()". So, for instance, if we had a vector of values 1, 4, 5, 1, 4, the unique values would be 1, 4, and 5. 
+
+```{r}
+first_letter_name %>% unique()
+```
+
+## Lists
+
+I will only briefly go over *lists* because, for the most part, we will not be using them in this class. *Lists* are collections of objects in R. For instance, you can have a collection of numeric vectors, character matrices, and other lists. You can assign names to the objects in lists so that you can more easily reference them. Once a name has been assigned to the object, you can reference it by listing the name of the list followed by the *$* followed by the name of the object. 
+
+```{r}
+first_list<-list(x=first_letter_name, y=time_on_phone, z=birth_months)
+
+first_list$x[2:3]
+first_list$y[c(1,4)]
+first_list$z[2]
+```
+
+Now let's clean up our environment. Notice how this removes the variables from the Environment tab to the left.
+
+```{r}
+rm(birth_months)
+rm(class_dept)
+rm(class_dept)
+rm(class_name)
+rm(class_number)
+rm(class_size)
+rm(first_letter_name)
+rm(first_list)
+rm(other)
+rm(residual)
+rm(stats_majors)
+rm(sts_majors)
+rm(time_on_phone)
+```
+
+## Data Frames
+
+In R rectangular datasets are most often stored as *data frames*. Technically, a data frame is a list of *vectors* of all the same length. In this course, we will often read rectangular datasets from external web sources, using a function called read.csv, which reads a CSV file into a data frame.
+
+```{r}
+covid_19_us <- read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv")
+#covid_19_states <- ____("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv")
+#covid_19_colleges <- ____("https://raw.githubusercontent.com/nytimes/covid-19-data/master/colleges/colleges.csv")
+```
+
+When working with very large datasets, we need tools to help us get a sense of the dataset without having to load the entire data frame. For instance, we can view the first 6 rows of the dataset by calling *head()*.
+
+```{r}
+covid_19_us %>% head()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+```
+
+*dim()* will tell us the dimensions of the data frame - i.e. the number of rows and the number of columns in the data frame. 
+
+```{r}
+covid_19_us %>% dim()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+```
+
+To see the number of rows, we use *nrow()* and to determine the number of columns, we use *ncol().*
+
+```{r}
+covid_19_us %>% nrow()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+
+covid_19_us %>% ncol()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+```
+
+*str()* provides a great deal of information about the observations in the data frame, including the number of variables, the number of observations, the variable names, their data types, and a list of observations.
+
+```{r}
+covid_19_us %>% str()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+```
+
+To see a list of column names (variables), we could refer to the data dictionary. We could also use the function *colnames()*.
+
+```{r}
+covid_19_us %>% colnames()
+#covid_19_states %>% _____()
+#covid_19_colleges %>% _____()
+```
+We determined how to see all of the variables in the dataset, but how do we figure out what each observation in the dataset refers to? Oftentimes when we are working with datasets like this, it is helpful to identify a variable or set of variables than can serve as a unique key for the data. A *unique key* is a variable (or set of variables) that uniquely identifies an observation in the dataset. Think of a unique key as a way to identify a row and all of the values in it. With tidy data, there should never be more than one row with the same unique key. 
+
+We can double check that this is truly a unique key by making sure that the number of distinct values in these variables match the number of rows in the dataset. dplyr (a package in the Tidyverse) has a function called *n_distinct()* which will let us check the number of distinct observations in a dataset, (or rows that are not exact duplicates of each other). 
+
+```{r}
+number_of_distinct_rows <- covid_19_us %>% n_distinct()
+```
+
+Here we are not interested in the distinctness of all the variables in an observation, but just those that would make a unique key. We need to *select()* those variables, and then call n_distinct() on the selected variables. Select() is a dplyr function that allows us to refer to different variables (columns) in the dataset and perform operations on just those variables. Let's select the variables we believe make up our unique key, check if the number of distinct observations when these variables are selected, and store the value in the variable n_unique_keys
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_us %>% 
+  select(date) %>%
+  n_distinct()
+```
+
+Now we can check to see if this number matches the number of rows in the dataset. If it does, then we can assume that this combination of variables will designate a unique key for the observation. 
+
+```{r}
+#Check the number of rows
+number_rows <- covid_19_us %>% nrow()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+What does each row refer to in covid_19_states? Which variables make each row unique?
+
+```{r}
+covid_19_states %>% head()
+```
+
+Note how date cannot uniquely identify each row. This means that a given date will appear multiple times in the dataset. Why does a given date appear multiple times in the dataset?
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_states %>% 
+  select(date) %>%
+  n_distinct()
+
+#Check the number of rows
+number_rows <- covid_19_states %>% nrow()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_states %>% 
+#  _____(_____, _____) %>%
+#  _____()
+
+#Check the number of rows
+#number_rows <- covid_19_states %>% _____()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+
+What about covid_19_colleges?
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_colleges %>% 
+#  _____(_____, _____) %>%
+#  _____()
+
+#Check the number of rows
+#number_rows <- covid_19_colleges %>% _____()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+
+#Practice
+
+What function would I use if I wanted to see a list of all of the column names in covid_19_colleges?
+
+```{r}
+#covid_19_colleges %>% _____()
+```
+
+
+What function would I use if I wanted to see a list of all of the states represented in covid_19_states?
+
+```{r}
+covid_19_states %>%
+  select(state) %>%
+#  _____()
+```
+ 
+What would I do if I wanted to see the second value in the date variable in covid_19_us?
+
+```{r}
+#covid_19_us_____
+```
+What function would I use if I wanted to know how many cases were reported in the state with the most number of cases?
+
+```{r}
+covid_19_states %>%
+  select(cases) %>%
+#  _____()
+```
+

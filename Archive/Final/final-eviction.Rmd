@@ -1,0 +1,12 @@
+---
+title: "Eviction: Final"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+eviction_CA_counties <- read.csv("../Eviction/counties.csv", stringsAsFactors = FALSE)
+eviction_CA_tracts <- read.csv("../Eviction/tracts.csv", stringsAsFactors = FALSE)
+```
+
+

@@ -1,0 +1,266 @@
+---
+title: "R Review - Stop, Question, and Frisk"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(tidyverse)
+sqf_zip <- unzip("SQF/sqf-2011-csv.zip")
+sqf_2011 <- read.csv(sqf_zip, stringsAsFactors = FALSE) 
+sqf_2011_race_cat <- read.csv("SQF/sqf_race_categories.csv", stringsAsFactors = FALSE) 
+```
+
+```{r}
+#for(i in c(13:15, 17, 21:73, 76:78)){
+#  sqf_2011[,i]<-ifelse(sqf_2011[,i]=="Y", 1, 0)
+#}
+
+sqf_2011 <- sqf_2011 %>% left_join(sqf_2011_race_cat, by = "race")
+```
+
+Added variables for 1) weapon found, 2) arrestsumm, 3) forceused
+```{r}
+sqf_2011 <- 
+  sqf_2011 %>%
+  mutate(wpnfound=ifelse((pistol=="Y"|riflshot=="Y"|asltweap=="Y"|knifcuti=="Y"|machgun=="Y"|othrweap=="Y"),"Y","N"))
+
+sqf_2011 <- 
+  sqf_2011 %>%
+  mutate(arrestsumm=ifelse((sumissue=="Y"|arstmade=="Y"),"Y","N"))
+
+sqf_2011 <- 
+  sqf_2011 %>%
+  mutate(forceused=ifelse((pf_hands=="Y"|pf_wall=="Y"|pf_grnd=="Y"|pf_drwep=="Y"|pf_ptwep=="Y"|pf_baton=="Y"|pf_hcuff=="Y"|pf_pepsp=="Y"|pf_other=="Y"),"Y","N"))
+
+```
+
+----Added----
+
+```{r}
+sqf_2011 %>%
+  ggplot(aes(x=age)) +
+  geom_histogram(binwidth = 10, boundary = 14, fill = "#7cae00") + 
+  xlim(100, 1000) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "NYPD Stops by Age 100+ in 2011", x ="Age (in brackets of 10)", y = "Number of Stops") +
+  theme_minimal()
+
+sqf_2011 %>%
+  ggplot(aes(x=age)) +
+  geom_histogram(binwidth = 10, boundary = 14, fill = "#7cae00") +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "NYPD Stops by Age in 2011", x ="Age (in brackets of 10)", y = "Number of Stops") +
+  theme_minimal()
+  
+
+sqf_2011 %>%
+  ggplot(aes(x=age)) +
+  geom_histogram(binwidth = 10) 
+
+sqf_2011 %>%
+  filter(age > 100 & age < 999) %>% summary()
+
+
+sqf_2011 %>%
+  filter(arstmade == 0 & sumissue == 0) %>% nrow()
+```
+
+
+```{r}
+library(lubridate)
+sqf_2011$dob1 <- mdy(sqf_2011$dob)
+sqf_2011$datestop1 <- mdy(sqf_2011$datestop)
+
+sqf_2011 <- sqf_2011 %>%
+  mutate(age1 = (datestop1 - dob1) %/% as.duration(years(1)))
+
+sqf_2011 %>%
+  filter(age >= 14 & age <= 24) #off NYCLU by 4645
+
+sqf_2011 %>%
+  filter(age >= 14 & age <= 24) %>%
+  filter(age1 < 14 | age1 > 24) %>%
+  filter(age1 != 110 & age1 != 0 & age1 < 100)
+
+sqf_2011 %>%
+  filter(age1 >= 14 & age1 <= 24) #Not this because excludes all dates coded as december 31, 1900
+
+sqf_2011 %>%
+  filter(age1 !=110 & age!=age1) %>% select(age, age1, dob, dob1)
+```
+```{r height = 10}
+sqf_2011 %>%
+  ggplot(aes(x = str_to_title(race_cat))) + 
+  geom_bar(fill = "#7cae00") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust=1)) +#Changes x-axis tick labels 90 degrees 
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "NYPD Stops by Race in 2011", x = "Race", y = "Number of Stops")
+```
+
+```{r}
+sqf_2011 %>%
+  ggplot(aes(x = str_to_title(race_cat), fill = as.factor(frisked))) + 
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust=1)) +#Changes x-axis tick labels 90 degrees 
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Percent Stops Resulting in Frisk by Race in 2011", x = "Race", y = "Percent Stops", fill = "Frisked?")
+
+sqf_2011 %>%
+  ggplot(aes(x = str_to_title(race_cat), fill = as.factor(frisked))) + 
+  geom_bar(position = "dodge") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust=1)) +#Changes x-axis tick labels 90 degrees 
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Stops Resulting in Frisk by Race in 2011", x = "Race", y = "Stops", fill = "Frisked?")
+
+```
+
+```{r}
+sqf_2011 %>%
+  filter(frisked == "Y") %>%
+  ggplot(aes(x = str_to_title(race_cat), fill = wpnfound)) + 
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust=1)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Percent Frisks Resulting in Weapon Found by Race in 2011", x = "Race", y = "Percent Frisks", fill = "Weapon Found?")
+
+sqf_2011 %>%
+  filter(frisked == "Y") %>%
+  ggplot(aes(x = str_to_title(race_cat), fill = wpnfound)) + 
+  geom_bar(position = "dodge") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, hjust=1)) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Frisks Resulting in Weapon Found by Race in 2011", x = "Race", y = "Frisks", fill = "Weapon Found?")
+```
+
+
+----Added----
+
+How many stops occurred in 2011?
+```{r}
+sqf_2011 %>%
+  _____
+```
+
+What was the age of the oldest individual stopped? What was the age of the youngest individual stopped?
+```{r}
+sqf_2011 %>%
+  _____(max_age = _____(_____))
+
+sqf_2011 %>%
+  _____
+
+```
+
+In 2011, for how many stops was the officer uniformed? In what percentage of the total stops was the officer uniformed?
+```{r}
+sqf_2011 %>%
+  _____(uniformed = _____(_____))
+
+sqf_2011 %>%
+  _____(uniformed = _____(_____)/_____) * 100
+```
+
+In 2011, how many stops involved a frisk? What percentage of the total stops involved a frisk?
+```{r}
+sqf_2011 %>%
+  _____
+
+sqf_2011 %>%
+  _____
+```
+
+In 2011, how many stops in which an individual was frisked resulted in a weapon found? What percentage of the frisk stops resulted in a weapon found?
+```{r}
+sqf_2011 %>%
+  _____(_____ == _____) %>%
+  _____(weapon = _____(_____))
+
+sqf_2011 %>%
+  _____(_____ == _____) %>%
+  _____(weapon_pct = _____(_____)/_____) * 100
+```
+
+In 2011, how many stops resulted in an arrest or summons? What percentage of the total stops resulted in an arrest or summons?
+```{r}
+sqf_2011 %>%
+  _____
+
+sqf_2011 %>%
+  _____
+```
+
+In 2011, how many stopped invdividuals refused to present identification?
+```{r}
+sqf_2011 %>%
+  _____(______ == _____) %>%
+  _____(refused = _____)
+```
+
+How many individuals of each race were stopped in 2011?
+```{r}
+sqf_2011 %>%
+  _____(_____) %>%
+  _____(stopsrace = _____) 
+```
+
+How many individuals of each sex were stopped in 2011?
+```{r}
+sqf_2011 %>%
+  _____
+```
+
+How many individuals of each sex were stopped in instances where force was used?
+```{r}
+sqf_2011 %>%
+  _____(_____ == _____) %>%
+  _____(_____) %>%
+  _____(_____ = _____)
+```
+
+For each racial group represented in the dataset, what were the 1) total number of frisks, 2) total numbers of stops, and 3) percentage of stops that resulted in a frisk.
+
+For each racial group represented in the dataset, what were the 1) total number of instances a weapon was found, 2) total numbers of stops, and 3) percentage of stops that resulted in a weapon found.
+```{r}
+sqf_2011 %>%
+  _____(_____) %>%
+  _____(frisked=_____(_____), stopped = _____, pctfrisked = _____/_____*100)
+
+sqf_2011 %>%
+  _____
+```
+
+Which police precinct had the greatest number of stops? Was this the same precinct with the greatest number of frisks?
+```{r}
+sqf_2011 %>%
+  _____(_____) %>%
+  _____(stopspct = _____) %>%
+  _____ %>%
+  _____(_____ == _____(_____))
+
+sqf_2011 %>%
+  _____
+
+
+```
+
+
+For each precinct represented in the dataset, what were the 1) total number of frisks, 2) total numbers of stops, and 3) percentage of stops that resulted in a frisk.
+
+For each precinct represented in the dataset, what were the 1) total number of instances a weapon was found, 2) total numbers of stops, and 3) percentage of stops that resulted in a weapon found.
+```{r}
+sqf_2011 %>%
+  _____
+
+sqf_2011 %>%
+  _____
+
+```
+
+
+

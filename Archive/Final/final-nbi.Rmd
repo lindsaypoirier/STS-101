@@ -1,0 +1,47 @@
+---
+title: "NBI: Final"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+
+nbi_ca<-read.csv("../NBI/nbi_CA18.csv")
+nbi_ny<-read.csv("../NBI/nbi_NY18.csv", quote = "")
+nbi_fips_lookup<-read.csv("../NBI/fips.csv")
+nbi_mat_lookup<-read.csv("../NBI/nbi_mat_lookup.csv")
+nbi_ser_lookup<-read.csv("../NBI/nbi_service_lookup.csv")
+nbi_age_lookup<-read.csv("../NBI/nbi_agency_lookup.csv")
+
+#Added categorical labels associated with numeric labels
+nbi_ca <- nbi_ca %>% left_join(nbi_mat_lookup)
+nbi_ny <- nbi_ny %>% left_join(nbi_mat_lookup)
+
+nbi_ca <- nbi_ca %>% left_join(nbi_ser_lookup)
+nbi_ny <- nbi_ny %>% left_join(nbi_ser_lookup)
+
+nbi_ca <- nbi_ca %>% left_join(nbi_age_lookup)
+nbi_ny <- nbi_ny %>% left_join(nbi_age_lookup)
+
+#Formatted County Code field to match FIPS and joined county names
+nbi_ca$COUNTY_CODE_003<-str_pad(nbi_ca$COUNTY_CODE_003, 3, pad = "0")
+nbi_ny$COUNTY_CODE_003<-str_pad(nbi_ny$COUNTY_CODE_003, 3, pad = "0")
+nbi_fips_lookup$FIPS<-as.character(nbi_fips_lookup$FIPS)
+nbi_ca <- nbi_ca %>% mutate(FIPS = paste(STATE_CODE_001, COUNTY_CODE_003, sep="")) %>% left_join(nbi_fips_lookup) 
+nbi_ny <- nbi_ny %>% mutate(FIPS = paste(STATE_CODE_001, COUNTY_CODE_003, sep="")) %>% left_join(nbi_fips_lookup)
+
+#Changed all instances of "N" to NA
+is.na(nbi_ca) <- nbi_ca == "N"
+is.na(nbi_ca) <- nbi_ca == "N "
+is.na(nbi_ny) <- nbi_ny == "N"
+is.na(nbi_ny) <- nbi_ny == "N "
+
+#Converted character columns to numeric
+cols<-c(32, 37:40, 42, 67:71, 76:78, 80)
+nbi_ca[,cols]<-sapply(nbi_ca[,cols], function(x) as.numeric(x))
+nbi_ny[,cols]<-sapply(nbi_ny[,cols], function(x) as.numeric(x))
+
+nbi_ca$TOTAL_IMP_COST_096 <- nbi_ca$TOTAL_IMP_COST_096*1000
+nbi_ny$TOTAL_IMP_COST_096 <- nbi_ny$TOTAL_IMP_COST_096*1000
+```
+

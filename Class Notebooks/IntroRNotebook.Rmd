@@ -425,6 +425,14 @@ WRITE NOTES HERE
 
 ---
 
+## What is a fips code? What is a UID?
+
+---
+
+WRITE NOTES HERE
+
+---
+
 ```{r}
 #ONLY RUN THIS CODE ONCE.
 library(lubridate)

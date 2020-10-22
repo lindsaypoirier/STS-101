@@ -1,6 +1,8 @@
 ---
 title: "Selecting and Summarizing Eviction Lab Data"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
 The R community has developed a series of *packages* or collections of functions that we can use when coding in R. In this course we will be leveraging a series of packages known as the Tidyverse - designed to help users clean, transform, analyze, and visualize data. The tidyverse package has already been installed in our shared JupyterHub environment. To load the package, we call the function library(), which let's R know that we will be referencing the functions encoded for this package in our code. 

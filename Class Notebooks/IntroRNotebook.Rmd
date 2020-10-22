@@ -333,7 +333,7 @@ number_of_distinct_rows <-
 number_of_distinct_rows == number_rows
 ```
 
-#Practice
+# Practice
 
 What function would I use if I wanted to see a list of all of the column names in covid_19_colleges?
 
@@ -362,4 +362,128 @@ covid_19_states %>%
   select(cases) %>%
 #  _____()
 ```
+
+# Two Rectangular Datasets for Covid-19 County Counts
+
+```{r}
+covid_19_county_nyt <- read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
+covid_19_county_hopkins <- read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")
+```
+
+
+## In each of these datasets, what makes each row unique? Check whether you are correct.
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_county_nyt %>% 
+#  select(FILL VARIABLES HERE) %>%
+#  n_distinct()
+
+#Check the number of rows
+#number_rows <- covid_19_county_nyt %>% nrows()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+
+```{r}
+number_of_distinct_rows <- 
+  covid_19_county_hopkins %>% 
+#  select(FILL VARIABLES HERE]) %>%
+#  n_distinct()
+
+#Check the number of rows
+#number_rows <- covid_19_county_hopkins %>% nrows()
+
+#Check if the number of distinct rows matches the number of rows in the dataset
+number_of_distinct_rows == number_rows
+```
+
+## How are these two rectangular datasets structured differently? Consider what are observations and what are variables in each dataset. Record notes on this in the space below.
+
+---
+
+WRITE NOTES HERE
+
+---
+
+## What counts as a case in each dataset? 
+
+Refer to [this Readme](https://github.com/nytimes/covid-19-data) for the New York Times dataset and [this Readme](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series) for the Johns Hopkins dataset. How do these two datasets define a "case" differently?
+
+---
+
+WRITE NOTES HERE
+
+---
+
+## What are some socio-political factors that might impact the counts of confirmed cases? In what ways are these case counts an example of numero-politics?
+
+---
+
+WRITE NOTES HERE
+
+---
+
+```{r}
+#ONLY RUN THIS CODE ONCE.
+library(lubridate)
+
+#Converts date column into a date format
+covid_19_county_nyt$date <- ymd(covid_19_county_nyt$date)
+```
+
+Below I'm going to restructure the Johns-Hopkins data so that it matches the format of the New York Times data. Don't worry about how this code works for now. You will not be asked to do this in homework assignmnents.
+
+```{r}
+#ONLY RUN THIS CODE ONCE.
+
+covid_19_county_hopkins_tidy <-
+  covid_19_county_hopkins %>%
+  gather(key = "Case.Date", value = "Cases", -UID, -iso2, -iso3, -code3, -FIPS, - Admin2, -Province_State, -Country_Region, -Lat, -Long_, -Combined_Key) %>%
+  mutate(Case.Date = str_remove(Case.Date, pattern = "X")) %>%
+  mutate(Case.Date = mdy(Case.Date))
+```
+
+Now we are going to plot the Covid-19 cases in Yolo County over time. To do that we are going to use two functions from the Tidyverse - filter and ggplot.
+
+Filter allows us to refer to a specific set of observations in our dataset. The filter() function allows us to extract from the dataset only the observations that meet a certain criteria. You can think of select() as a way to subset columns and filter() as a way to subset rows. We are first going to filter our data to the rows referring to Yolo County (which has a fips code for 6113).
+
+Then we are going to use ggplot to plot the cases in the cases in the data. ggplot is a function for producing plots in R. We will be using it a whole lot in this course. Whenever we call ggplot, we need to provide the function with the variables we wish to plot and the axes along which to plot those variables. We also need to indicate what type of plot we'd like ggplot to produce. 
+
+```{r}
+covid_19_county_nyt %>%
+  filter(fips == 6113) %>% #Filter to Yolo County
+  ggplot(aes(x = date, y = cases, group = 1)) + #Plot date on the x axis and cases on the y axis
+  geom_line() #Produce a line plot
+```
+
+```{r}
+covid_19_county_hopkins_tidy %>%
+  filter(UID == 84006113) %>%
+  ggplot(aes(x = Case.Date, y = Cases, group = 1)) + geom_line()
+```
+
+## What are the differences between these two plots? Why might there be differences?
+
+---
+
+WRITE NOTES HERE
+
+---
+
+## Which of these datasets do you consider more "accurate"?
+
+---
+
+WRITE NOTES HERE
+
+---
+
+Challenge: See if you can plot the case counts for Sacramento County in the code block below.
+
+```{r}
+
+```
+
 

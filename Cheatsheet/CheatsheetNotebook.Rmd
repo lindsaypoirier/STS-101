@@ -71,53 +71,54 @@ values_by_state_date____Value
 values_by_state_date %>% _____(Value) #We will primarily use this method in this course.
 ```
 
-## What functions can I apply to discrete/continuous numeric variables/columns/vectors?
+## What functions can I apply to discrete/continuous numeric variables/columns?
 
-### Examples of functions that can be applied to numeric vectors
+### Examples of functions that can be applied to numeric columns/variables
 
-* min() : Returns the minimum value in the column vector
-* max() : Returns the maximum value in the column vector
-* sum() : Returns a sum of all of the values in the column vector
-* mean() : Returns the man of all of the values in the column vector
-* median() : Returns the median value in the column vector
-* sd() : Returns the standard deviation in the column vector
-* var() : Returns the variance in the column vector
+* min() : Returns the minimum value in the column
+* max() : Returns the maximum value in the column
+* sum() : Returns a sum of all of the values in the column
+* mean() : Returns the man of all of the values in the column
+* median() : Returns the median value in the column
+* sd() : Returns the standard deviation in the column
+* var() : Returns the variance in the column
 
 > An NA in a cell of a data frame indicates that there is missing data, and we need to tell R explicitly how to handle missing data when we call the mathematical operations above. To do that we place na.rm = TRUE to tell R to remove the NA when performing the calculation. 
 
-We can see the minimum value in the Values column vector above by calling min(). Note though that because there is one cell with a missing value, we have to tell R to remove the NA.
+We can see the minimum value in the Values column above by calling min(). Note though that because there is one cell with a missing value, we have to tell R to remove the NA.
 
 ```{r}
-	#Here is how I find the minimum value in the vector Value
+	#Here is how I find the minimum value in Value
 values_by_state_date %>% 
 		select(Value) %>% 
 		_____(_____)
 ```
 
-We can see the sum of the values in the Values column vector by calling sum(). Again we need to tell R to remove the missing values.
+We can see the sum of the values in the Values column by calling sum(). Again we need to tell R to remove the missing values.
 
 ```{r}
-#Here is how I find the sum of the values in the vector Value
+#Here is how I find the sum of the values in Value
 values_by_state_date %>% 
 		select(Value) %>% 
 		____(_____)
 ```
 
-## What functions can I apply to nominal/ordinal categorical variables/columns/vectors?
+## What functions can I apply to nominal/ordinal categorical variables/columns?
 
-### Examples of functions that can be applied to categorical vectors
+### Examples of functions that can be applied to categorical columns/varialves
 
-* unique() : Returns all of the values in the column vector without duplicates
+* unique() : Returns all of the values in the column without duplicates
 * distinct() : Same as unique, but from tidyverse
-* n_distinct() : Returns the number of distinct values in the column vector
+* n_distinct() : Returns the number of distinct values in the column
 
-We can see the unique values in the Date column vector by calling unique() or distinct(). Note how I see each date exactly once in the output. Unique removes repeating values from the vector.
+We can see the unique values in the Date column by calling unique() or distinct(). Note how I see each date exactly once in the output. Unique removes repeating values from the column.
 
 ```{r}
 values_by_state_date %>% 
 		select(Date) %>% 
 		_____()
 ```
+
 We can see the unique values in the Date and FIPS column by placing them both in select().
 
 ```{r}

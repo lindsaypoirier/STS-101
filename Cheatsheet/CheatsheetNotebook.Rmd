@@ -1,0 +1,148 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+This notebook can be referenced in conjunction with the R Cheatsheet provided as a PDF on Canvas.
+
+A rectangular dataset is a dataset that has an equal number of columns and rows. In R, the data structure for storing rectangular datasets is called a data frame. A data frame has column names in the first row. Let’s call this data frame values_by_state_date. 
+
+> In data science, we refer to rows in rectangular datasets as observations. 
+
+> In data science, we refer to columns in rectangular datasets as variables because they describe observations in the data. In R, columns/variables are technically vectors - a data structure for storing a series of values of the same type (e.g. character, dates, numbers). 
+
+# How did we get this data into R?
+
+The function read.csv reads a data file stored elsewhere (on the Web or on your computer) into a data frame. In this class I will always provide you with the URL to where you can find data. 
+
+```{r}
+#Here we read the comma separated value information at EXAMPLE.csv into the values-by_state_date. Note how we use the ‘<-‘ to assign a set of values to a variable.
+values_by_state_date <- _____("EXAMPLE.csv")
+```
+
+# How does R load functions?
+
+Some functions that we apply in R are available by default. However, in this class a number of functions we will use come from packages that we will need to add on. I will always tell you what packages we need for each assignment and set of lecture exercises. You can load those packages using the library function.
+
+```{r}
+#Here we load the tidyverse package so that R knows that we will be using those functions 
+_____(tidyverse)
+```
+
+# How do I apply functions to the data frame?
+
+In this class we will apply functions to our data frame using what is called a pipe: ‘%>%’. The pipe is available through the Tidyverse package. We first call the data frame and then use the pipe to tell R that we are about to call a function like this: data_frame %>% function_name() 
+
+### What functions allow me to glimpse over the data frame?
+
+* str() : Provides an overview of the structures of the data frame, including column names and data types
+* head() : Displays the first six rows of the data frame
+* dim() : Displays the number of rows in the data frame and the number of columns in the data frame
+* nrow() : Displays the number of rows in the data frame
+* ncol() : Displays the number of columns in the data frame
+* View() : Opens the data frame as a spreadsheet in a new window
+* colnames() : Displays the data frame’s column names
+
+Examples:
+
+```{r}
+#Here I check the dimensions of the data frame above.
+values_by_state_date _____ ____()
+```
+
+We see 4 and 4 because there are 4 rows in the data frame and 4 columns in the data frame. These are the data frame’s dimensions.
+
+```{r}
+#Here I check the column names of the data frame above.
+values_by_state_date %>% _____()
+```
+
+This returns the column names of our dataset. We very often need to know the column names of a dataset so that we can refer to them in functions. 
+
+## How can I refer to specific columns (or variables) in R?
+
+We can refer to the column highlighted above in R by referencing the data frame and the variable name and placing a ‘$’ in between them. Alternatively, we can refer to specific variables using the select() function from the Tidyverse package. Both lines of code below will return the same output.
+
+```{r}
+	#Here I reference the entire last column in the data frame above. Note that because R is case-sensitive, it is important that the only capital letter below is ‘V’ in reference to the column name.
+values_by_state_date____Value
+values_by_state_date %>% _____(Value) #We will primarily use this method in this course.
+```
+
+## What functions can I apply to discrete/continuous numeric variables/columns/vectors?
+
+### Examples of functions that can be applied to numeric vectors
+
+* min() : Returns the minimum value in the column vector
+* max() : Returns the maximum value in the column vector
+* sum() : Returns a sum of all of the values in the column vector
+* mean() : Returns the man of all of the values in the column vector
+* median() : Returns the median value in the column vector
+* sd() : Returns the standard deviation in the column vector
+* var() : Returns the variance in the column vector
+
+> An NA in a cell of a data frame indicates that there is missing data, and we need to tell R explicitly how to handle missing data when we call the mathematical operations above. To do that we place na.rm = TRUE to tell R to remove the NA when performing the calculation. 
+
+We can see the minimum value in the Values column vector above by calling min(). Note though that because there is one cell with a missing value, we have to tell R to remove the NA.
+
+```{r}
+	#Here is how I find the minimum value in the vector Value
+values_by_state_date %>% 
+		select(Value) %>% 
+		_____(_____)
+```
+
+We can see the sum of the values in the Values column vector by calling sum(). Again we need to tell R to remove the missing values.
+
+```{r}
+#Here is how I find the sum of the values in the vector Value
+values_by_state_date %>% 
+		select(Value) %>% 
+		____(_____)
+```
+
+## What functions can I apply to nominal/ordinal categorical variables/columns/vectors?
+
+### Examples of functions that can be applied to categorical vectors
+
+* unique() : Returns all of the values in the column vector without duplicates
+* distinct() : Same as unique, but from tidyverse
+* n_distinct() : Returns the number of distinct values in the column vector
+
+We can see the unique values in the Date column vector by calling unique() or distinct(). Note how I see each date exactly once in the output. Unique removes repeating values from the vector.
+
+```{r}
+values_by_state_date %>% 
+		select(Date) %>% 
+		_____()
+```
+We can see the unique values in the Date and FIPS column by placing them both in select().
+
+```{r}
+values_by_state_date %>% 
+		select(_____, _____) %>% 
+		distinct()
+```
+
+## How do I refer to each observation/row in the data frame?
+
+At the outset, we want to figure out which variables in the dataset can serve as identifiers for each row. This identifier or combination of identifiers should not repeat in the dataset. Otherwise we won’t know what makes one row different from another row! 
+
+There are four rows in the above dataset. What does each row refer to? We can see above that each row refers to a state and date. But remember that when we have the option to use a numeric ID, we always should. FIPS are numeric IDs for state names, so we will use that to identify each row. Note how in the last function in this page, the number of rows in which Date and FIPS are distinct is equal to the number of rows in the dataset (4).
+
+We can check whether FIPS and Date uniquely identify each row by checking whether the number of rows where Date and FIPS are distinct is equal the number of rows in the data frame.
+
+```{r}
+values_by_state_date %>% 
+		select(Date, FIPS) %>% 
+		____()
+```
+
+Does this equal the number of rows in the dataset? How could you check?
+
+```{r}
+values_by_state_date %>% _____()
+```
+

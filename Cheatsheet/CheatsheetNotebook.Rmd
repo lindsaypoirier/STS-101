@@ -19,7 +19,7 @@ The function read.csv reads a data file stored elsewhere (on the Web or on your 
 
 ```{r}
 #Here we read the comma separated value information at EXAMPLE.csv into the values-by_state_date. Note how we use the ‘<-‘ to assign a set of values to a variable.
-values_by_state_date <- _____("EXAMPLE.csv")
+values_by_state_date <- read.csv("EXAMPLE.csv")
 ```
 
 # How does R load functions?
@@ -28,7 +28,7 @@ Some functions that we apply in R are available by default. However, in this cla
 
 ```{r}
 #Here we load the tidyverse package so that R knows that we will be using those functions 
-_____(tidyverse)
+library(tidyverse)
 ```
 
 # How do I apply functions to the data frame?
@@ -49,14 +49,14 @@ Examples:
 
 ```{r}
 #Here I check the dimensions of the data frame above.
-values_by_state_date _____ ____()
+values_by_state_date %>% dim()
 ```
 
 We see 4 and 4 because there are 4 rows in the data frame and 4 columns in the data frame. These are the data frame’s dimensions.
 
 ```{r}
 #Here I check the column names of the data frame above.
-values_by_state_date %>% _____()
+values_by_state_date %>% colnames()
 ```
 
 This returns the column names of our dataset. We very often need to know the column names of a dataset so that we can refer to them in functions. 
@@ -67,8 +67,8 @@ We can refer to the column highlighted above in R by referencing the data frame 
 
 ```{r}
 	#Here I reference the entire last column in the data frame above. Note that because R is case-sensitive, it is important that the only capital letter below is ‘V’ in reference to the column name.
-values_by_state_date____Value
-values_by_state_date %>% _____(Value) #We will primarily use this method in this course.
+values_by_state_date$Value
+values_by_state_date %>% select(Value) #We will primarily use this method in this course.
 ```
 
 ## What functions can I apply to discrete/continuous numeric variables/columns?
@@ -91,7 +91,7 @@ We can see the minimum value in the Values column above by calling min(). Note t
 	#Here is how I find the minimum value in Value
 values_by_state_date %>% 
 		select(Value) %>% 
-		_____(_____)
+		min(na.rm = TRUE)
 ```
 
 We can see the sum of the values in the Values column by calling sum(). Again we need to tell R to remove the missing values.
@@ -100,7 +100,7 @@ We can see the sum of the values in the Values column by calling sum(). Again we
 #Here is how I find the sum of the values in Value
 values_by_state_date %>% 
 		select(Value) %>% 
-		____(_____)
+		sum(na.rm = TRUE)
 ```
 
 ## What functions can I apply to nominal/ordinal categorical variables/columns?
@@ -116,14 +116,14 @@ We can see the unique values in the Date column by calling unique() or distinct(
 ```{r}
 values_by_state_date %>% 
 		select(Date) %>% 
-		_____()
+		unique()
 ```
 
 We can see the unique values in the Date and FIPS column by placing them both in select().
 
 ```{r}
 values_by_state_date %>% 
-		select(_____, _____) %>% 
+		select(Date, FIPS) %>% 
 		distinct()
 ```
 
@@ -138,12 +138,78 @@ We can check whether FIPS and Date uniquely identify each row by checking whethe
 ```{r}
 values_by_state_date %>% 
 		select(Date, FIPS) %>% 
-		____()
+		n_distinct()
 ```
 
 Does this equal the number of rows in the dataset? How could you check?
 
 ```{r}
-values_by_state_date %>% _____()
+values_by_state_date %>% nrow()
 ```
+
+## How can I count the number of times each categorical value appears in a variable?
+
+To count the number of times each categorical value appears in a variable/column, we can use the function count(), placing the name of the column in the parentheses like this: data_frame %>% count(Variable)
+
+```{r}
+values_by_state_date %>% 
+		count(State)
+```
+> Note how R created a new column called n, which in this context is a shorthand for count
+
+## Shorthand for select() %>% function() : summarize(function()) 
+
+Above, we selected a variable and then performed a function on that variable, using select() %>% function(). There is a shorthand way to do this, using the function summarize() like this:
+
+data_frame %>% summarize(FUNCTION(VARIABLE))
+
+Sometimes it is helpful to assign the value we calculated to a new variable name. We can do this by: 
+
+data_frame %>% summarize(NEW_VARIABLE = FUNCTION(VARIABLE))
+
+## What if I wanted to perform operations on only certain rows/observations in the data?
+
+To perform operations on only certain rows/observations in the data, you can use the function filter(). This function filters the data to rows that meet a particular criteria. When calling this function, you will put the criteria the rows should meet in the parentheses (see below).The format for calling filter() is as follows: 
+
+data_frame %>% filter(CRITERIA)
+
+You can test whether rows meet both of two criteria by placing an & between the criteria in the parentheses. You can test whether rows meet either criteria by placing a | between the criteria in the parentheses.
+
+### Examples of criteria that can be tested in filter()
+
+* filter(VARIABLE == VALUE) : Returns the row if the value in a column is equal to a provided value
+> Note: When filtering to a string, the string must be in “ ”.
+* filter(VARIABLE  > VALUE) : Returns the row if the value in a column is greater than a provided value
+* filter(VARIABLE  < VALUE) : Returns the row if the value in a column is less than a provided value
+* filter(VARIABLE  >= VALUE) : Returns the row if the value in a column is greater than or equal to a provided value
+* filter(VARIABLE  <= VALUE) : Returns the row if the value in a column is less than or equal to a provided value
+* filter(VARIABLE != VALUE) : Returns the row if the value in a column is not equal to a provided value
+* filter(VARIABLE %in% c(VALUE1, VALUE2) : Returns the row if the value in a column is in a specified list of values
+* filter(is.na(VARIABLE)) : Returns the row if the value in a column is NA
+* filter(!is.na(VARIABLE)) : Returns the row if the value in a column is not NA
+
+```{r}
+values_by_state_date %>% 
+		filter(State == "AL")
+```
+```{r}
+values_by_state_date %>% 
+		filter(Value > 1000 & Value < 3500)
+```
+```{r}
+values_by_state_date %>% 
+		filter(is.na(Value))
+```
+```{r}
+values_by_state_date %>% 
+		filter(Value == max(Value, na.rm = TRUE))
+```
+
+```{r}
+values_by_state_date %>% 
+		filter(State == "AL") %>% 
+		summarize(AL_sum = sum(Value, na.rm = TRUE))
+```
+
+
 

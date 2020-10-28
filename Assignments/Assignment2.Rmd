@@ -1,0 +1,228 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# STS 101 Homework Assignment 2: Filter and Facet
+
+## Overview
+
+In this assignment, starting with a plot that summarizes something about colleges in the US, you will drill down into the data, exploring interesting details that we may miss when only looking at the summarized data. You will do this using two techniques we learned in class this week: filter() and facet().
+
+## Purpose
+
+The primary goal of this assignment is to provide you with an opportunity to practice exploratory data analysis and to reflect on the kinds of details that may be glossed over when examining data at a broader scale. However, this assignment will also assess your understanding of:
+
+* the difference between categorical and numeric variables
+* how to read a data dictionary
+* how to interpret plots and provide descriptive titles and labels
+* how to adjust and run R code in the context of RStudio
+
+## Instructions
+
+Follow my instructions outside of the R snippets that indicate what you should do within the R snippets. Be sure to run code in the order that I present them below. If you run code snippets out of order, you should start at the beginning re-running previously run snippets. Note that there are three parts 
+
+## Part one: Getting Started
+
+### Load packages
+
+Fill in the line below and run the code below to load the packages we will need to complete this assignment.
+
+```{r}
+_____(tidyverse)
+```
+
+### Import data into R and read into data frame
+
+Fill in the line below and run the code below to read the College Scorecard data into the variable scorecard. It may take a few moments for this file to load.
+
+```{r}
+#Read in the csv.
+scorecard <- _____("https://data.ed.gov/dataset/9dc70e6b-8426-4d71-b9d5-70ce6094a3f4/resource/823ac095-bdfc-41b0-b508-4e8fc3110082/download/most-recent-cohorts-all-data-elements-1.csv")
+```
+
+### Data Cleaning
+
+Run the code below to get the data into a format we can work with. You do not need to understand how this code works for the purposes of this course. However, I've indicated what the code is doing in the comments (green text starting with '#') if you'd like to follow along. 
+
+```{r}
+#Convert all values entered as "NULL" or "PrivacySuppressed" to NAs. 
+is.na(scorecard) <- scorecard == "NULL"
+is.na(scorecard) <- scorecard == "PrivacySuppressed" #Note that all instances of PrivacySuppressed will be changed to NA.
+
+#Convert columns 12 - 1899 to numeric.
+for(i in c(11:1986)){
+  scorecard[,i]<-as.numeric(scorecard[,i])
+}
+```
+Fill in the line below and run the function below to check out the first six rows of the data.
+
+```{r}
+scorecard %>% _____()
+```
+
+Fill in the line below and run the code below to check out the dimensions of the data.
+
+```{r}
+scorecard %>% _____()
+```
+From this we can see something important - that there are 1986 columns in this dataset. That's a whole lot of columns! In fact, that's way more than any other dataset I've worked with in R. This means that, if we want to find the name of a specific column in the dataset, using the function colnames() is probably not our best option. That would take up a HUGE portion of our screen, and we would have to scan over close to 2000 column names to find what we are looking for. Instead, I would recommend referring to the data dictionary for this dataset, which is linked in Assignment 1, or here: https://collegescorecard.ed.gov/data/documentation/ In the institution_data_dictionary tab, you will find the column names for each column in the dataset in the column called VARIABLE NAME. You will find the possible values for this variable in the column VALUES, and you will find what these values refer to in the column LABEL.
+
+## Part two: Title, Label, and Caption Plot
+
+Below I have created three plots using the scorecard data. For *one* of the plots below, add a descriptive title and labels on the x and y axes. Then add a caption that, in 100 words, summarizes what the plot is showing us empirically. In other words, in the caption, you should summarize some things that you learn about colleges in the US from the plot. Be specific. You might consider what might be written as a newspaper headline from this plot. Also be sure to add context to your labels. (Hint: This data only represents data from 2018-2019). *At the very bottom of this document, I've included a section called Frequently Asked Questions, outlining the answers to some questions you may have when interpreting these plots. I encourage you to check those out if you are feeling stuck in this section.* 
+
+### Plot one
+ 
+If you select this plot, run this code and then follow the instructions above to add a title, labels, and caption to the plot. 
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(HIGHDEG), y = ADM_RATE)) + 
+  geom_bar(stat = "summary", fun = "median")
+```
+### Plot two
+
+If you select this plot, run this code and then follow the instructions above to add a title, labels, and caption to the plot. 
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(REGION), y = UGDS)) + 
+  geom_bar(stat = "summary", fun = "sum") +
+  scale_y_continuous(labels = scales::comma)
+```
+### Plot three 
+
+If you select this plot, run this code and then follow the instructions above to add a title, labels, and caption to the plot. 
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(CONTROL), y = TUITIONFEE_IN)) + 
+  geom_bar(stat = "summary", fun = "mean") 
+```
+## Part three: Filter and Facet
+
+In this section of the assignment, you are going to stick with the same plot that you examined in Part One. You are going to use the filter() function and the fact_wrap() argument in ggplot to drill down into the data. 
+
+Copy and paste the code used to produce the plot you selected above here:
+
+```{r}
+#Paste plot code here. 
+```
+
+Now below, FACET the plot by a categorical variable using the facet_wrap() argument in R. I've provided you with skeleton code below to help with this.
+
+> Note that because almost all of the categorical data in Scorecard are encoded in the data as numbers that refer to specific labels, we need to tell R to treat those variables as factors using as.factor(). You'll see that I added this in the code below for you already. If you have questions about why I added this, see Frequently Asked Questions below. 
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(_____), y = _____)) + 
+  geom_bar(stat = "summary", fun = "_____") +
+  facet_wrap(~as.factor(_____)) +
+  labs(title = "_____", x = "_____", y = "_____", caption = "_____")
+```
+
+Scan over the faceted plots, and then select one panel you wish to explore further. Copy and paste the code from directly above, removing the FACET and adding a FILTER function in order to filter the plot to the panel you selected. Adjust the title, and in the caption, indicate WHY you selected this panel and summarize one thing that you learned from filtering.
+
+```{r}
+scorecard %>%
+  filter(_____ == ______) %>%
+  ggplot(aes(x = as.factor(_____), y = _____)) + 
+  geom_bar(stat = "summary", fun = "_____") +
+  labs(title = "_____", x = "_____", y = "_____", caption = "_____")
+```
+
+Copy and paste the plot you just created and FACET the new filtered plot by a second categorical variable by adding a facet_wrap() argument. 
+
+```{r}
+#Compose code here
+```
+
+Scan over the faceted plots, and then select one panel you wish to explore further. Copy and paste the code from directly above, removing the FACET and adding a second criteria in your FILTER function in order to filter the plot to the panel you selected. Adjust the title, and in the caption, indicate WHY you selected this panel and summarize one thing that you learned from filtering. (Note that you should now be testing for two criteria in your filter function.)
+
+```{r}
+
+```
+
+Copy and paste the plot you just created and FACET the new filtered plot by a second categorical variable by adding a facet_wrap() argument. 
+
+```{r}
+
+```
+
+Scan over the faceted plots, and then select one panel you wish to explore further. Copy and paste the code from directly above, removing the FACET and adding a third criteria in your FILTER function in order to filter the plot to the panel you selected. Adjust the title, and in the caption, indicate WHY you selected this panel and summarize one thing that you learned from filtering. (Note that you should now be testing for three criteria in your filter function.)
+
+```{r}
+
+```
+
+## Part four: Reflection
+
+In 100-300 words below, reflect on what you learned in your exploratory data analysis. What did you learn from the first plot and how does it differ from what you learned in your subsequent plots? What details might we miss when only viewing summaries of data? Why might it be important to zoom in on certain details in the data? When might it be important to zoom back out?
+
+> Write Reflection here in 100-300 words. 
+
+--- ASSIGNMENT ENDS HERE ---
+
+
+## Frequently Asked Questions
+
+### What does as.factor() do?
+
+Below you are going to see that I place some of our variables inside the function as.factor(). What does this mean? as.factor() tells R to treat this variable as a *category* even if it wasn't imported as a category. Consider, for example, the variable PREDDEG. We can check if R considers this a string, a number, or a date by referring to the column and applying the function class(). Run the code below.
+
+```{r}
+scorecard$PREDDEG %>% class()
+```
+
+We can see that R is treating PREDDEG as a *numeric* variable. When we check the data dictionary though we see that PREDDEG is a categorical variable that refers to the predominant undergraduate degree awarded. So why is R treating it as a number? Let's use a function we have already learned to see why. Run the code below to see the distinct values that appear in the PREDDEG column.
+
+```{r}
+scorecard %>% select(PREDDEG) %>% distinct()
+```
+
+See how numbers appear. We learned from assignment 1 that these numbers are codes that are associated with certain labels in the data dictionary:  0 Not classified 1 Predominantly certificate-degree granting 2 Predominantly associate's-degree granting 3 Predominantly bachelor's-degree granting 4 Entirely graduate-degree granting. But the data dictionary is an entirely separate document, so R does not know this! All it knows is that a bunch of numbers were imported into R in this column, and so by default, it is treating the column as numeric. We need to tell R that to treat these numbers as categories that refer to something and not as numeric values that we might perform mathematical operations on. To do this, we are going to place the variable in the function as.factor().
+
+### How do I add titles, labels, and captions to plots in R?
+
+We have been talking about how, with the Tidyverse, we can string functions together with a pipe '%>%'. This is sort of like a conjunction for R code, saying "and then do....". We can call our data frame and then use a pipe to connect functions for filtering the data, selecting variables, summarizing the data, etc. We can also use a pipe to connect our data frame to plot the data using ggplot like this.
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + geom_bar()
+```
+
+It is important to note that that all of the code we need to create a plot with the package *ggplot* is treated as *one* function. This means that we need a different way to string together arguments within the ggplot function. For this we will use a '+'. You can adjust many things regarding your plot using the '+' and stringing on additional arguments. For example, we can adjust the plot above to include a title by placing a '+' after geom_bar() and then adding the argument labs(title = "TITLE"):
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + 
+  geom_bar() +
+  labs(title = "This is the TITLE I've given this chart")
+```
+
+In the labs arguments, we can also set the x axis, the y axis, and the caption. This is what you will need to do in Part Two of the assignment.
+
+```{r fig.height=3, fig.width=6}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + geom_bar() +
+  labs(title = "This is the TITLE I've given this chart", x = "Is this institution currently operating?", y = "Count of institutions", caption = "This plot counts the number of institutions in the US that were currently operating in 2018. \n We can see that, while most institutions were operating (1), there are also some institutions in the dataset that were not operating (0).")
+```
+
+### My caption is long and is showing up all on one line, so I can only see part of my caption in the plot. How do I start a new line in my caption?
+
+To start a new line in a caption (and in many other coding languages) you can place the following in the caption where you would like to start a new line: \n Check out how I did this in the plot above, placing \n between "...operating in 2018." and "We can see that..."
+
+### What does + scale_y_continuous(labels = scales::comma) do?
+
+I added this code to the second plot below, because the numbers on the y axis are so large that without this code, ggplot displayed them in scientific notation by default. I added this code to force ggplot to display the numbers on the y axis in comma notation instead of scientific notation.
+
+### When I create the plot, I'm getting a warning that x rows containing non-finite values were removed? What does this mean?
+
+This means that there were NAs in those rows in the dataset for the variables we are displaying on the plot. We can see in some of the plots that this data has a lot of NAs! For instance, in the first plot, over 2/3 of the colleges are removed from consideration because there is data missing in either HIGHDEG or ADM_RATE. This is something we want to take into consideration when interpreting plots. 
+
+
+
+

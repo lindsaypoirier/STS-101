@@ -1,0 +1,86 @@
+---
+title: "Categories and Filtering"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+## Categories and Filtering
+
+## Load packages
+
+```{r}
+_____(tidyverse)
+```
+
+## Import data into R and read into data frame
+
+It may take a few moments for this file to load.
+
+```{r}
+#Read in the csv.
+tri_2019 <- _____("https://raw.githubusercontent.com/lindsaypoirier/STS-101/master/Data/TRI/TRI_2019_US.csv")
+```
+
+## Review
+
+How can I see the first six rows of this data?
+
+How can I check the dimensions of this data?
+
+How can I check the column names of this data?
+
+What does each observation (row) in this dataset refer to? : 
+
+How can I check the distinct chemicals in this dataset?
+
+How can I check the distinct facilities in this dataset?
+
+How can I check the distinct industry codes in this dataset?
+
+## New Material
+
+### Count
+
+What if I wanted to know how many times each chemical appeared in the dataset? What does this number tell me?
+
+What if I wanted to know how many times each facility appeared in the dataset? What does this number tell me?
+
+### Filter
+
+How can I find all of the facilities in zip code 95616?
+
+How can I find all of the facilities that have released more than 1000 pounds of any chemical?
+
+How can I find all of the facilities with NA values in Total Releases?
+
+How can I find the facility with the max total releases of any chemical?
+
+### Summarize
+
+How can I calculate the total releases across all facilities and chemicals?
+
+How can I calculate the total releases of Benzene?
+
+How can I calculate the total releases in zip code 95616 of any chemical?
+
+How can I calculate the total releases of Lead in Califoria?
+
+How can I calculate the total releases of any chemical by the Petroleum industry?
+
+### ggplot
+
+How can I plot the total releases by carcinogen vs. non-carcinogen?
+
+> Be sure to add a title, labels, and a caption.
+
+How can I plot the total releases by industry?
+
+> Note: Will need + coord_flip() and + scale_y_continuous(labels = scales::comma)
+
+How can I plot the total releases by industry code?
+
+How can I divide that plot by carcinogen and non-carcinogen chemicals?
+
+## Data Exploration
+

@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Key Functions by Class
+
+## October 22, 2020
+
+* library(_____)
+* read.csv(_____)
+* head()
+* dim()
+* colnames()
+* select(_____)
+* distinct()
+* mathematical operations (max(), min(), sum(), mean(), median(), etc.)
+
+## October 29, 2020
+
+* count(_____)
+* filter(_____)
+  * ==
+  * <
+  * >
+  * <=
+  * >=
+  * !=
+  * is.na
+  * !is.na
+  * max()
+* summarize(_____)
+  * sum
+  * mean
+  * max
+  * min
+  * median
+  * mean
+* ggplot(aes(____)) + geom_bar(_____)
+  * stat = "summary"
+  * fun = "sum"
+* facet_wrap(~_____)
+* as.factor(_____)

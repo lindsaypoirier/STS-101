@@ -210,6 +210,9 @@ values_by_state_date %>%
 		filter(State == "AL") %>% 
 		summarize(AL_sum = sum(Value, na.rm = TRUE))
 ```
-
+```{r}
+values_by_state_date %>%
+  arrange(Value)
+```
 
 

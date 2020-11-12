@@ -1,0 +1,57 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Arrange, Group By, Summarize
+
+## Load packages
+
+```{r}
+_____(tidyverse)
+```
+
+## Import data into R and read into data frame
+
+It may take a few moments for this file to load.
+
+```{r}
+#Read in the csv.
+tri_2019 <- _____("https://raw.githubusercontent.com/lindsaypoirier/STS-101/master/Data/TRI/TRI_2019_US.csv")
+```
+
+## Review
+
+How can I filter to California TRI facilities?
+
+How can I plot the total releases in California TRI facilities by county?
+
+How can I plot the total releases in California TRI facilities by county, divided by industry?
+
+### Summarize
+
+How can I calculate the total releases across all facilities and chemicals?
+
+How can I calculate the total releases of Benzene?
+
+How can I calculate the total releases in zip code 95616 of any chemical?
+
+How can I calculate the total releases of Lead in California?
+
+How can I calculate the total releases of any chemical by the Petroleum industry?
+
+## Group by
+
+How can I calculate the total releases per industry?
+
+How can I calculate the total releases per chemical?
+
+## Arrange
+
+How can I order the plots above so that releases descrease from most to least?
+
+## Top n
+
+How can I find the top three most polluting facilities in the dataset?

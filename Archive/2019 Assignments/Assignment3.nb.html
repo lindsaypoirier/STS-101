@@ -11,7 +11,7 @@
 
 
 
-<title>R Notebook</title>
+<title>R Homework 3</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1743,368 +1743,204 @@ summary {
 
 
 
-<h1 class="title toc-ignore">R Notebook</h1>
+<h1 class="title toc-ignore">R Homework 3</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<p>This notebook can be referenced in conjunction with the R Cheatsheet provided as a PDF on Canvas.</p>
-<p>A rectangular dataset is a dataset that has an equal number of columns and rows. In R, the data structure for storing rectangular datasets is called a data frame. A data frame has column names in the first row. Let’s call this data frame values_by_state_date.</p>
-<blockquote>
-<p>In data science, we refer to rows in rectangular datasets as observations.</p>
-</blockquote>
-<blockquote>
-<p>In data science, we refer to columns in rectangular datasets as variables because they describe observations in the data. In R, columns/variables are technically vectors - a data structure for storing a series of values of the same type (e.g. character, dates, numbers).</p>
-</blockquote>
-<div id="how-did-we-get-this-data-into-r" class="section level1">
-<h1>How did we get this data into R?</h1>
-<p>The function read.csv reads a data file stored elsewhere (on the Web or on your computer) into a data frame. In this class I will always provide you with the URL to where you can find data.</p>
+<p>Run the code chunk below to load the tidyverse library.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0hlcmUgd2UgcmVhZCB0aGUgY29tbWEgc2VwYXJhdGVkIHZhbHVlIGluZm9ybWF0aW9uIGF0IEVYQU1QTEUuY3N2IGludG8gdGhlIHZhbHVlcy1ieV9zdGF0ZV9kYXRlLiBOb3RlIGhvdyB3ZSB1c2UgdGhlIOKAmDwt4oCYIHRvIGFzc2lnbiBhIHNldCBvZiB2YWx1ZXMgdG8gYSB2YXJpYWJsZS5cbnZhbHVlc19ieV9zdGF0ZV9kYXRlIDwtIHJlYWQuY3N2KFwiRVhBTVBMRS5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>#Here we read the comma separated value information at EXAMPLE.csv into the values-by_state_date. Note how we use the ‘&lt;-‘ to assign a set of values to a variable.
-values_by_state_date &lt;- read.csv(&quot;EXAMPLE.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiaW5jb21wbGV0ZSBmaW5hbCBsaW5lIGZvdW5kIGJ5IHJlYWRUYWJsZUhlYWRlciBvbiAnRVhBTVBMRS5jc3YnXG4ifQ== -->
-<pre><code>incomplete final line found by readTableHeader on &#39;EXAMPLE.csv&#39;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="how-does-r-load-functions" class="section level1">
-<h1>How does R load functions?</h1>
-<p>Some functions that we apply in R are available by default. However, in this class a number of functions we will use come from packages that we will need to add on. I will always tell you what packages we need for each assignment and set of lecture exercises. You can load those packages using the library function.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0hlcmUgd2UgbG9hZCB0aGUgdGlkeXZlcnNlIHBhY2thZ2Ugc28gdGhhdCBSIGtub3dzIHRoYXQgd2Ugd2lsbCBiZSB1c2luZyB0aG9zZSBmdW5jdGlvbnMgXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmBgYCJ9 -->
-<pre class="r"><code>#Here we load the tidyverse package so that R knows that we will be using those functions 
-library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHNjYWxlcylcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+library(scales)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="how-do-i-apply-functions-to-the-data-frame" class="section level1">
-<h1>How do I apply functions to the data frame?</h1>
-<p>In this class we will apply functions to our data frame using what is called a pipe: ‘%&gt;%’. The pipe is available through the Tidyverse package. We first call the data frame and then use the pipe to tell R that we are about to call a function like this: data_frame %&gt;% function_name()</p>
-<div id="what-functions-allow-me-to-glimpse-over-the-data-frame" class="section level3">
-<h3>What functions allow me to glimpse over the data frame?</h3>
+<p>Run the code chunk below to create the scorecard dataframe. Don’t worry about the the “NAs introduced by coercion” listed below.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlYWQgaW4gdGhlIGNzdi5cbnNjb3JlY2FyZCA8LSByZWFkLmNzdihcIlNjb3JlY2FyZC9NRVJHRUQyMDE3XzE4X1BQLmNzdlwiLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5cbiNDb252ZXJ0IGFsbCB2YWx1ZXMgZW50ZXJlZCBhcyBcIk5VTExcIiB0byBOQXMuIFxuaXMubmEoc2NvcmVjYXJkKSA8LSBzY29yZWNhcmQgPT0gXCJOVUxMXCJcblxuI0NvbnZlcnQgY29sdW1ucyAxMiAtIDE4OTkgdG8gbnVtZXJpYy5cbmZvcihpIGluIGMoMTI6MTg5OSkpe1xuICBzY29yZWNhcmRbLGldPC1hcy5udW1lcmljKHNjb3JlY2FyZFssaV0pXG59XG5gYGAifQ== -->
+<pre class="r"><code>#Read in the csv.
+scorecard &lt;- read.csv(&quot;Scorecard/MERGED2017_18_PP.csv&quot;, stringsAsFactors = FALSE)
+
+#Convert all values entered as &quot;NULL&quot; to NAs. 
+is.na(scorecard) &lt;- scorecard == &quot;NULL&quot;
+
+#Convert columns 12 - 1899 to numeric.
+for(i in c(12:1899)){
+  scorecard[,i]&lt;-as.numeric(scorecard[,i])
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Part I. Practice Problems</p>
+<ol style="list-style-type: decimal">
+<li>In which 4-year institutions with an undergraduate enrollment of over 300 did more than 95% of full-time first-time degree-seeking undergraduate students complete their degree within 150% of normal time? Display the institution name, the 150% completion rate, the number of full-time first-time degree-seeking undergraduates in the corresponding completion year cohort, and the total undergraduate enrollment.</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NvcmVjYXJkICU+JSBcbiAgX19fX18oX19fX18gPiBfX19fXyAmIF9fX19fID09IF9fX19fICYgX19fX18gPiBfX19fXykgJT4lXG4gIF9fX19fKF9fX19fLCBfX19fXywgX19fX18sIF9fX19fKVxuYGBgIn0= -->
+<pre class="r"><code>scorecard %&gt;% 
+  _____(_____ &gt; _____ &amp; _____ == _____ &amp; _____ &gt; _____) %&gt;%
+  _____(_____, _____, _____, _____)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: decimal">
+<li>What are the names, cities, states, and undergraduate enrollments of institutions in “college towns” - those universities with an undergraduate enrollment of over 20,000 that are also in a city or suburb with a population of less than 100,000? How many college towns are in each state?</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xpc3QgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudHMgb2YgY29sbGVnZSB0b3duc1xuc2NvcmVjYXJkICU+JSBcbiAgZmlsdGVyKChfX19fXyA9PSBfX19fXyB8IF9fX19fID09IF9fX19fKSAmIChfX19fXyA+IF9fX19fKSkgJT4lIFxuICBfX19fXyhfX19fXywgX19fX18sIF9fX19fLCBfX19fXykgI0xpc3RcblxuI0NhbGN1bGF0ZSB0aGUgbnVtYmVyIG9mIGNvbGxlZ2UgdG93bnMgaW4gZWFjaCBzdGF0ZVxuc2NvcmVjYXJkICU+JSBcbiAgX19fX18gJT4lICNjb3B5IGZpbHRlciBzdGF0ZW1lbnQgYWJvdmVcbiAgX19fX18oX19fX18pICU+JSBcbiAgX19fX18odG90YWwgPSBfX19fXylcbmBgYCJ9 -->
+<pre class="r"><code>#List the names, cities, states, and undergraduate enrollments of college towns
+scorecard %&gt;% 
+  filter((_____ == _____ | _____ == _____) &amp; (_____ &gt; _____)) %&gt;% 
+  _____(_____, _____, _____, _____) #List
+
+#Calculate the number of college towns in each state
+scorecard %&gt;% 
+  _____ %&gt;% #copy filter statement above
+  _____(_____) %&gt;% 
+  _____(total = _____)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="3" style="list-style-type: decimal">
+<li>What are the names, cities, states, and undergraduate enrollments of the institution with the largest undergraduate enrollment in each region? What are the names, cities, states, and admission rates for the institution wtih the lowest admission rate in each state?</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xpc3QgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudHMgb2YgdGhlIGluc3RpdHV0aW9uIHdpdGggdGhlIGxhcmdlc3QgdW5kZXJncmFkdWF0ZSBlbnJvbGxtZW50IGluIGVhY2ggcmVnaW9uXG5zY29yZWNhcmQgJT4lIFxuICBfX19fXyhfX19fXykgJT4lXG4gIF9fX19fKF9fX19fID09IF9fX19fKF9fX19fLCBuYS5ybSA9IFRSVUUpKSAlPiVcbiAgdW5ncm91cCgpICU+JVxuICBfX19fXyhfX19fXywgX19fX18sIF9fX19fLCBfX19fXylcblxuI0ZvbGxvd2luZyBzYW1lIGxvZ2ljIGFzIGFib3ZlIGxpc3QgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIGFkbWlzc2lvbiByYXRlcyBmb3IgdGhlIGluc3RpdHV0aW9uIHd0aWggdGhlIGxvd2VzdCBhZG1pc3Npb24gcmF0ZSBpbiBlYWNoIHN0YXRlXG5zY29yZWNhcmQgJT4lXG4gIF9fX19fICU+JVxuICBfX19fXyAlPiUgXG4gIHVuZ3JvdXAoKSAlPiVcbiAgX19fX19cbmBgYCJ9 -->
+<pre class="r"><code>#List the names, cities, states, and undergraduate enrollments of the institution with the largest undergraduate enrollment in each region
+scorecard %&gt;% 
+  _____(_____) %&gt;%
+  _____(_____ == _____(_____, na.rm = TRUE)) %&gt;%
+  ungroup() %&gt;%
+  _____(_____, _____, _____, _____)
+
+#Following same logic as above list the names, cities, states, and admission rates for the institution wtih the lowest admission rate in each state
+scorecard %&gt;%
+  _____ %&gt;%
+  _____ %&gt;% 
+  ungroup() %&gt;%
+  _____</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="4" style="list-style-type: decimal">
+<li>How many public institutions are there in each state? Which state has the greatest number of public institutions?</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NhbGN1bGF0ZSBob3cgbWFueSBwdWJsaWMgaW5zdGl0dXRpb25zIGFyZSBpbiBlYWNoIHN0YXRlXG5zY29yZWNhcmQgJT4lXG4gIF9fX19fKF9fX19fXyA9PSBfX19fXykgJT4lIFxuICBfX19fXyhfX19fXykgJT4lXG4gIF9fX19fKHB1YmxpY3NjaG9vbHMgPSBfX19fXylcblxuI0FkZCB0d28gbGluZXMgdG8gdGhlIGNvZGUgYWJvdmUgdG8gZmlsdGVyIHRoZSByZXN1bHRlIHRvIHRoZSBzdGF0ZSB3aXRoIHRoZSBncmVhdGVzdCBudW1iZXIgb2YgcHVibGljIGluc3RpdHV0aW9uc1xuc2NvcmVjYXJkICU+JVxuICBfX19fXyAlPiUgI2NvcHkgZnJvbSBhYm92ZVxuICBfX19fXyAlPiUgI2NvcHkgZnJvbSBhYm92ZVxuICBfX19fXyAlPiUgI2NvcHkgZnJvbSBhYm92ZVxuICBfX19fXyAlPiVcbiAgX19fX18oX19fX18gPT0gX19fX18oX19fX18pKVxuYGBgIn0= -->
+<pre class="r"><code>#Calculate how many public institutions are in each state
+scorecard %&gt;%
+  _____(______ == _____) %&gt;% 
+  _____(_____) %&gt;%
+  _____(publicschools = _____)
+
+#Add two lines to the code above to filter the resulte to the state with the greatest number of public institutions
+scorecard %&gt;%
+  _____ %&gt;% #copy from above
+  _____ %&gt;% #copy from above
+  _____ %&gt;% #copy from above
+  _____ %&gt;%
+  _____(_____ == _____(_____))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Part II. Metric Fixation</p>
+<p>In part two of this assignment, you will design a metric for designating the “best universities for _____”. For instance, your metric may designate the “best universities for undergraduate women”, or the “best universities for Psychology majors”. As an example below, I will use the metric: “best universities for Social Science Professors under 30”</p>
+<ol style="list-style-type: decimal">
+<li>Select five variables in the scorecard dataset that you believe should be used to assess the quality of the university in relation to your selected group. List these five variables below and note whether they are nominal, ordinal, disrete, or continuous variables. For example:</li>
+</ol>
 <ul>
-<li>str() : Provides an overview of the structures of the data frame, including column names and data types</li>
-<li>head() : Displays the first six rows of the data frame</li>
-<li>dim() : Displays the number of rows in the data frame and the number of columns in the data frame</li>
-<li>nrow() : Displays the number of rows in the data frame</li>
-<li>ncol() : Displays the number of columns in the data frame</li>
-<li>View() : Opens the data frame as a spreadsheet in a new window</li>
-<li>colnames() : Displays the data frame’s column names</li>
+<li>ex: Average Faculty Salary (AVGFACSAL) / Continuous</li>
+<li>ex: Control (CONTROL) / Nominal</li>
+<li>ex: Percentage of Degrees Awarded in Social Sciences (PCIP45) / Continuous</li>
+<li>ex: Number of graduate students (GRADS) / Discrete</li>
+<li>ex: Locale (LOCALE2) / Nominal</li>
 </ul>
-<p>Examples:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0hlcmUgSSBjaGVjayB0aGUgZGltZW5zaW9ucyBvZiB0aGUgZGF0YSBmcmFtZSBhYm92ZS5cbnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSBkaW0oKVxuYGBgIn0= -->
-<pre class="r"><code>#Here I check the dimensions of the data frame above.
-values_by_state_date %&gt;% dim()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQgNFxuIn0= -->
-<pre><code>[1] 4 4</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>We see 4 and 4 because there are 4 rows in the data frame and 4 columns in the data frame. These are the data frame’s dimensions.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0hlcmUgSSBjaGVjayB0aGUgY29sdW1uIG5hbWVzIG9mIHRoZSBkYXRhIGZyYW1lIGFib3ZlLlxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIGNvbG5hbWVzKClcbmBgYCJ9 -->
-<pre class="r"><code>#Here I check the column names of the data frame above.
-values_by_state_date %&gt;% colnames()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiRGF0ZVwiICBcIlN0YXRlXCIgXCJGSVBTXCIgIFwiVmFsdWVcIlxuIn0= -->
-<pre><code>[1] &quot;Date&quot;  &quot;State&quot; &quot;FIPS&quot;  &quot;Value&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>This returns the column names of our dataset. We very often need to know the column names of a dataset so that we can refer to them in functions.</p>
-</div>
-<div id="how-can-i-refer-to-specific-columns-or-variables-in-r" class="section level2">
-<h2>How can I refer to specific columns (or variables) in R?</h2>
-<p>We can refer to the column highlighted above in R by referencing the data frame and the variable name and placing a ‘$’ in between them. Alternatively, we can refer to specific variables using the select() function from the Tidyverse package. Both lines of code below will return the same output.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXHQjSGVyZSBJIHJlZmVyZW5jZSB0aGUgZW50aXJlIGxhc3QgY29sdW1uIGluIHRoZSBkYXRhIGZyYW1lIGFib3ZlLiBOb3RlIHRoYXQgYmVjYXVzZSBSIGlzIGNhc2Utc2Vuc2l0aXZlLCBpdCBpcyBpbXBvcnRhbnQgdGhhdCB0aGUgb25seSBjYXBpdGFsIGxldHRlciBiZWxvdyBpcyDigJhW4oCZIGluIHJlZmVyZW5jZSB0byB0aGUgY29sdW1uIG5hbWUuXG52YWx1ZXNfYnlfc3RhdGVfZGF0ZSRWYWx1ZVxuYGBgIn0= -->
-<pre class="r"><code>    #Here I reference the entire last column in the data frame above. Note that because R is case-sensitive, it is important that the only capital letter below is ‘V’ in reference to the column name.
-values_by_state_date$Value</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM0MzIgMzU0NiAgMjMzICAgTkFcbiJ9 -->
-<pre><code>[1] 3432 3546  233   NA</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIHNlbGVjdChWYWx1ZSkgI1dlIHdpbGwgcHJpbWFyaWx5IHVzZSB0aGlzIG1ldGhvZCBpbiB0aGlzIGNvdXJzZS5cbmBgYCJ9 -->
-<pre class="r"><code>values_by_state_date %&gt;% select(Value) #We will primarily use this method in this course.</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NCwibmNvbCI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBRUTZDTUJCYzBHb2swWkQ0RHJnWUV4NWdmSUJSdzdWQ0ZXSnREWlRvMFhmNkF6K0JicUUxMmtQYjNlbk83TXhtbFM2Q05BQ0FBUXoxVGZBQ3N0dXVvd1JnNkdQajRjZEV2M2Y4bm5jQXdCUVB6azhMUEUrc1h3L04reWNRUVMrc3hpTDhCZmVVTjh5Wm5GVHlGdHRwTGUzM2NuckZ2MlRHYWUxS0JqbFZORDVXeU1ldWRTaGplVldsRkVqeXRYbmlrTDNLQWNKR2FDZDVsQldOT0VmTFJHOHdxY0hZODNwcjM5cnJkL3B2bzBXTTFvaUpVeW1ZTmMvcGdYSFR6REJ5bHppK1ZxVlFOZ3FpZGF5a29uWXV5Q1MzU0JjTzJnK1g5aVJydEFFQUFBPT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Value"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"3432"},{"1":"3546"},{"1":"233"},{"1":"NA"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="what-functions-can-i-apply-to-discretecontinuous-numeric-variablescolumns" class="section level2">
-<h2>What functions can I apply to discrete/continuous numeric variables/columns?</h2>
-<div id="examples-of-functions-that-can-be-applied-to-numeric-columnsvariables" class="section level3">
-<h3>Examples of functions that can be applied to numeric columns/variables</h3>
+<div id="list-your-five-variables-below" class="section level2">
+<h2>LIST YOUR FIVE VARIABLES BELOW</h2>
 <ul>
-<li>min() : Returns the minimum value in the column</li>
-<li>max() : Returns the maximum value in the column</li>
-<li>sum() : Returns a sum of all of the values in the column</li>
-<li>mean() : Returns the man of all of the values in the column</li>
-<li>median() : Returns the median value in the column</li>
-<li>sd() : Returns the standard deviation in the column</li>
-<li>var() : Returns the variance in the column</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
-<blockquote>
-<p>An NA in a cell of a data frame indicates that there is missing data, and we need to tell R explicitly how to handle missing data when we call the mathematical operations above. To do that we place na.rm = TRUE to tell R to remove the NA when performing the calculation.</p>
-</blockquote>
-<p>We can see the minimum value in the Values column above by calling min(). Note though that because there is one cell with a missing value, we have to tell R to remove the NA.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXHQjSGVyZSBpcyBob3cgSSBmaW5kIHRoZSBtaW5pbXVtIHZhbHVlIGluIFZhbHVlXG52YWx1ZXNfYnlfc3RhdGVfZGF0ZSAlPiUgXG5cdFx0c2VsZWN0KFZhbHVlKSAlPiUgXG5cdFx0bWluKG5hLnJtID0gVFJVRSlcbmBgYCJ9 -->
-<pre class="r"><code>    #Here is how I find the minimum value in Value
-values_by_state_date %&gt;% 
-        select(Value) %&gt;% 
-        min(na.rm = TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIzM1xuIn0= -->
-<pre><code>[1] 233</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>We can see the sum of the values in the Values column by calling sum(). Again we need to tell R to remove the missing values.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0hlcmUgaXMgaG93IEkgZmluZCB0aGUgc3VtIG9mIHRoZSB2YWx1ZXMgaW4gVmFsdWVcbnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSBcblx0XHRzZWxlY3QoVmFsdWUpICU+JSBcblx0XHRzdW0obmEucm0gPSBUUlVFKVxuYGBgIn0= -->
-<pre class="r"><code>#Here is how I find the sum of the values in Value
-values_by_state_date %&gt;% 
-        select(Value) %&gt;% 
-        sum(na.rm = TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDcyMTFcbiJ9 -->
-<pre><code>[1] 7211</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: decimal">
+<li>For each of these variables, determine how the values would impact the score of the university according to your metric.</li>
+</ol>
+<p>For Continuous or Discrete variables determine whether higher values will <em>positively</em> or <em>negatively</em> impact the score of the university in your metric. For example: - ex: Average Faculty Salary Score: higher salaries will positively impact the score - ex: Percentage of Degrees Awarded in Social Sciences: higher percentages will positively impact the score - ex: Number of graduate students: higher numbers will positively impact the score</p>
+<p>For Nominal or Ordinal variables, list the desired value. (Note: For the sake of simplicity, we will only be selecting one desired value from the variable here. Some of you may wish to rank a series of values for a variable. If this is the case, I’m happy to go over how to do this in office hours.) - ex: Control: Public Universities (1) - ex: Locale: Mid-size City (2)</p>
 </div>
-</div>
-<div id="what-functions-can-i-apply-to-nominalordinal-categorical-variablescolumns" class="section level2">
-<h2>What functions can I apply to nominal/ordinal categorical variables/columns?</h2>
-<div id="examples-of-functions-that-can-be-applied-to-categorical-columnsvarialves" class="section level3">
-<h3>Examples of functions that can be applied to categorical columns/varialves</h3>
+<div id="list-your-five-determinations-below" class="section level2">
+<h2>LIST YOUR FIVE DETERMINATIONS BELOW</h2>
 <ul>
-<li>unique() : Returns all of the values in the column without duplicates</li>
-<li>distinct() : Same as unique, but from tidyverse</li>
-<li>n_distinct() : Returns the number of distinct values in the column</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
-<p>We can see the unique values in the Date column by calling unique() or distinct(). Note how I see each date exactly once in the output. Unique removes repeating values from the column.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Calculate the top ten universities according to your metric. I will provide most of the code for this. Here is an example:</li>
+</ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdHNlbGVjdChEYXRlKSAlPiUgXG5cdFx0dW5pcXVlKClcbmBgYCJ9 -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        select(Date) %&gt;% 
-        unique()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NvcmVjYXJkX3JhbmtlZCA8LSBzY29yZWNhcmQgJT4lXG4gIG11dGF0ZShyYW5rZWQgPSAoKHJlc2NhbGUoUENJUDQ1KSoyKSArIHJlc2NhbGUoQVZHRkFDU0FMKSArIHJlc2NhbGUoR1JBRFMpKSlcblxuc2NvcmVjYXJkX3JhbmtlZCAlPiUgXG4gIGZpbHRlcihDT05UUk9MID09IDEgJiBMT0NBTEUgPT0gMTIpICU+JSBcbiAgc2VsZWN0KElOU1ROTSwgQVZHRkFDU0FMLCBQQ0lQNDUsIEdSQURTLCByYW5rZWQpICU+JSBcbiAgdG9wX24oMTAsIHJhbmtlZCkgJT4lIFxuICBhcnJhbmdlKGRlc2MocmFua2VkKSlcbmBgYCJ9 -->
+<pre class="r"><code>scorecard_ranked &lt;- scorecard %&gt;%
+  mutate(ranked = ((rescale(PCIP45)*2) + rescale(AVGFACSAL) + rescale(GRADS)))
+
+scorecard_ranked %&gt;% 
+  filter(CONTROL == 1 &amp; LOCALE == 12) %&gt;% 
+  select(INSTNM, AVGFACSAL, PCIP45, GRADS, ranked) %&gt;% 
+  top_n(10, ranked) %&gt;% 
+  arrange(desc(ranked))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVEwUXFDTUJTOUxsY2tGRUxmb1dGQzlBSFNCMFNCcjh0V1NiYUZUdXJyclR2ZGl2YmczRG4zbm52UDJTN0wweUFQQUdBRXZqNHBIa0FQKzIyMEFmQUpBZzhMVS8xL1lYblJFd0FoZnNRVXhzbHl0VXpTSDBvMStoZFR3ZTY4TVVKTCtobFQzR21jMXZJWjIrWlp2MlhZU055SlJjVWFkMkp3WW9yRjV4cjFpRHBITXBFUFZVcUJJcUp6VUVmczFRNFJ0a0k3T1VYRnRSVzNhSjNvRGNhT1ord1phOSs3Tit3a2J6T0wybWZoNGxJS2JzMVg3TWdyQStZWXVVOGNQK3BTS0JzRjJTWldVakhiRnhTeXNrd2ZEcm9QVHNxclhiOEJBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"1/2/13","_rn_":"1"},{"1":"1/3/13","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>We can see the unique values in the Date and FIPS column by placing them both in select().</p>
+<p>ENTER YOUR VARIABLES AND VALUES BELOW</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdHNlbGVjdChEYXRlLCBGSVBTKSAlPiUgXG5cdFx0ZGlzdGluY3QoKVxuYGBgIn0= -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        select(Date, FIPS) %&gt;% 
-        distinct()</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NvcmVjYXJkX3JhbmtlZCA8LSBzY29yZWNhcmQgJT4lXG4gIG11dGF0ZShyYW5rZWQgPSAocmVzY2FsZShfX19fXykgKyByZXNjYWxlKF9fX19fKSAtIHJlc2NhbGUoX19fX18pKSAjRmlsbCBpbiB5b3VyIGRpc2NyZXRlIGFuZCBjb250aW51b3VzIHZhcmlhYmxlcyBoZXJlLiBGaXJzdCBhZGQgdGhlIHJlc2NhbGVkIHZhcmlhYmxlcyBpbiB3aGljaCBoaWdoZXIgdmFsdWVzIHdpbGwgcG9zaXRpdmVseSBpbXBhY3QgdGhlIHNjb3JlICh5b3UgbWF5IG5lZWQgdG8gYWRkIG1vcmUpIGFuZCB0aGVuIHN1YnRyYWN0IHRoZSByZXNjYWxlZCB2YXJpYWJsZXMgaW4gd2hpY2ggaGlnaGVyIHZhbHVlcyB3aWxsIG5lZ2F0aXZlbHkgaW1wYWN0IHRoZSBzY29yZSAoaWYgeW91IGRvbid0IGhhdmUgYW55LCB0aGVuIHJlbW92ZSB0aGUgc3VidHJhY3Rpb24gcGFydCBhYm92ZS4pIFRoaXMgd2lsbCBjcmVhdGUgYSBuZXcgY29sdW1uIGluIHRoZSBkYXRhc2V0IHRoYXQgcmFua3MgZWFjaCB1bml2ZXJzaXR5IGFjY29yZGluZyB0byB0aGUgbnVtZXJpYyB2YWx1ZXMgaW4geW91ciBtZXRyaWMuIE5vdGUgdGhhdCB5b3UgbWF5IHdlaWdodCB2YXJpYWJsZXMgZGlmZmVyZW50bHkgKGFzIEkgaGF2ZSB3aXRoIFBDSVA0NSBpbiB0aGUgZXhhbXBsZSBhYm92ZSBieSBtdWx0aXBseWluZyBieSBhIHdlaWdodDsgdGhpcyBpcyBub3QgcmVxdWlyZWQpXG5cbnNjb3JlY2FyZF9yYW5rZWQgJT4lIFxuICBmaWx0ZXIoX19fX18gPT0gX19fX18gJiBfX19fXyA9PSBfX19fXykgJT4lICNGaWxsIGluIHlvdXIgb3JkaW5hbCB2YXJpYWJsZXMgaGVyZSBhbmQgdGhlIGRlc2lyZWQgdmFsdWVzLiAoRGVwZW5kaW5nIG9uIGhvdyBtYW55IG5vbWluYWwgdmFyaWFibGVzIHlvdSBjaG9zZSwgeW91IG1heSBuZWVkIHRvIHJlbW92ZSB0aGUgc2Vjb25kIGNvbmRpdGlvbiBvciBhZGQgbW9yZSBjb25kaXRpb25zKVxuICBzZWxlY3QoSU5TVE5NLCBfX19fXywgX19fX18sIF9fX19fLCBfX19fXywgX19fX18sIHJhbmtlZCkgJT4lICNGaWxsIGluIHlvdXIgZml2ZSB2YWx1ZXNcbiAgdG9wX24oMTAsIHJhbmtlZCkgJT4lICNUaGlzIHdpbGwgZXh0cmFjdCB1bml2ZXJzaXRpZXMgd2l0aCB0aGUgaGlnaGVzdCBzY29yZXMgaW4gcmFua2VkXG4gIGFycmFuZ2UoZGVzYyhyYW5rZWQpKVxuYGBgIn0= -->
+<pre class="r"><code>scorecard_ranked &lt;- scorecard %&gt;%
+  mutate(ranked = (rescale(_____) + rescale(_____) - rescale(_____)) #Fill in your discrete and continuous variables here. First add the rescaled variables in which higher values will positively impact the score (you may need to add more) and then subtract the rescaled variables in which higher values will negatively impact the score (if you don&#39;t have any, then remove the subtraction part above.) This will create a new column in the dataset that ranks each university according to the numeric values in your metric. Note that you may weight variables differently (as I have with PCIP45 in the example above by multiplying by a weight; this is not required)
+
+scorecard_ranked %&gt;% 
+  filter(_____ == _____ &amp; _____ == _____) %&gt;% #Fill in your ordinal variables here and the desired values. (Depending on how many nominal variables you chose, you may need to remove the second condition or add more conditions)
+  select(INSTNM, _____, _____, _____, _____, _____, ranked) %&gt;% #Fill in your five values
+  top_n(10, ranked) %&gt;% #This will extract universities with the highest scores in ranked
+  arrange(desc(ranked))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NCwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUEyMVFZV3VETUJBOXM2UkZvYU93MzZHaXd1Z1BLRUsvalc2RGZzMnNiV1V1S1JycFB1Nlh0N3RvanRFdzRlTGR1N3g3ZWJkZDc0cG9Gd0hBQTNCN0NqeEF2TCtWOFFxQU15d0NiSVQyLzQzdEowd3N1TVRncmpITDBqek5pcitxdUt2KzZRRXNScjRkUHNWc2lqdEJvZVJYM1RzeDVrQytscWFtdk55OHZIcWtzTk9YaEloV2hmM0ErSEYvZXRYS25xWVRHTzJsa2NtaFF6NVdWNDh5MTJmVGFJVWtadmNnUEhMUWVjQnlVUFlsKzdnNkRlb3pmczZ0Z2pNTTdubUJXd1RsYk5Ka056ZEwwT3BxZFd3VU9SZXQvS2hiVnp5aTVkRnhjdTRhWmNnS29uMWl0SkYwTDZwMFM4aG9EcTYvMWc1UE5mOEJBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1/2/13","2":"1"},{"1":"1/3/13","2":"1"},{"1":"1/2/13","2":"6"},{"1":"1/3/13","2":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-</div>
-<div id="how-do-i-refer-to-each-observationrow-in-the-data-frame" class="section level2">
-<h2>How do I refer to each observation/row in the data frame?</h2>
-<p>At the outset, we want to figure out which variables in the dataset can serve as identifiers for each row. This identifier or combination of identifiers should not repeat in the dataset. Otherwise we won’t know what makes one row different from another row!</p>
-<p>There are four rows in the above dataset. What does each row refer to? We can see above that each row refers to a state and date. But remember that when we have the option to use a numeric ID, we always should. FIPS are numeric IDs for state names, so we will use that to identify each row. Note how in the last function in this page, the number of rows in which Date and FIPS are distinct is equal to the number of rows in the dataset (4).</p>
-<p>We can check whether FIPS and Date uniquely identify each row by checking whether the number of rows where Date and FIPS are distinct is equal the number of rows in the data frame.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdHNlbGVjdChEYXRlLCBGSVBTKSAlPiUgXG5cdFx0bl9kaXN0aW5jdCgpXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        select(Date, FIPS) %&gt;% 
-        n_distinct()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
-<pre><code>[1] 4</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Does this equal the number of rows in the dataset? How could you check?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIG5yb3coKVxuYGBgIn0= -->
-<pre class="r"><code>values_by_state_date %&gt;% nrow()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
-<pre><code>[1] 4</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="how-can-i-count-the-number-of-times-each-categorical-value-appears-in-a-variable" class="section level2">
-<h2>How can I count the number of times each categorical value appears in a variable?</h2>
-<p>To count the number of times each categorical value appears in a variable/column, we can use the function count(), placing the name of the column in the parentheses like this: data_frame %&gt;% count(Variable)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGNvdW50KFN0YXRlKVxuYGBgIn0= -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        count(State)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUEyMVBUUStDTUF3dHlEU1FhRWo4SFhBeEdxOUU0OG1USHduWENhaEUzQWpNNks5WE8xd1RYVHlzYTEvN1h2czJ5M1FTcEFFQTlNRFRrV0VBdHQrdG9qbUE1MkxoWU1QWC93UGJZMHcwR0hiL3ArRW1hOG9XQ2NhaG1USHZSNFFKZmkxYVM0QnRGVmNGclJFV3hXL2tQU1lhYVR2L3RMT0t0NlJOWUpCenhlTmpnM3lzbmhabElHdFZTb0VrVnp0akZ0bHBMQ0M4Q1gxSkhtWG5tN2hFczZuZVlNNEJjNTQ1N1R2WE85MlgwV0pHcTErSVV5bklOcXY0b2FoTU1VTExuZU80YmtxaHlBcWliYXlrNGpRWFpMSWlwRE1IenpkM2dUYyswUUVBQUE9PSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["State"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"AL","2":"2"},{"1":"CA","2":"2"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<blockquote>
-<p>Note how R created a new column called n, which in this context is a shorthand for count</p>
-</blockquote>
-</div>
-<div id="shorthand-for-select-function-summarizefunction" class="section level2">
-<h2>Shorthand for select() %&gt;% function() : summarize(function())</h2>
-<p>Above, we selected a variable and then performed a function on that variable, using select() %&gt;% function(). There is a shorthand way to do this, using the function summarize() like this:</p>
-<p>data_frame %&gt;% summarize(FUNCTION(VARIABLE))</p>
-<p>Sometimes it is helpful to assign the value we calculated to a new variable name. We can do this by:</p>
-<p>data_frame %&gt;% summarize(NEW_VARIABLE = FUNCTION(VARIABLE))</p>
-</div>
-<div id="what-if-i-wanted-to-perform-operations-on-only-certain-rowsobservations-in-the-data" class="section level2">
-<h2>What if I wanted to perform operations on only certain rows/observations in the data?</h2>
-<p>To perform operations on only certain rows/observations in the data, you can use the function filter(). This function filters the data to rows that meet a particular criteria. When calling this function, you will put the criteria the rows should meet in the parentheses (see below).The format for calling filter() is as follows:</p>
-<p>data_frame %&gt;% filter(CRITERIA)</p>
-<p>You can test whether rows meet both of two criteria by placing an &amp; between the criteria in the parentheses. You can test whether rows meet either criteria by placing a | between the criteria in the parentheses.</p>
-<div id="examples-of-criteria-that-can-be-tested-in-filter" class="section level3">
-<h3>Examples of criteria that can be tested in filter()</h3>
+<p><strong>IMPORTANT NOTE</strong>: If you get the following error: no non-missing arguments to min; returning Infno non-missing arguments to max; returning -Infno non-missing arguments to max; returning -Inf[1] &lt;0 rows&gt; (or 0-length row.names)</p>
+<p>It means that you have selected a variable in which data was not collected for that year. This happens in data science. We rely on variables for which we may just not have data available. If this happens, please note that variable below, and remove it from your metric above. Missing data: -</p>
+<ol start="4" style="list-style-type: decimal">
+<li>List four stakeholders that might be interested in this metric. For each write a setence explaining their interest in the metric, as well as a sentence explaining what motivates this interest.</li>
+</ol>
 <ul>
-<li>filter(VARIABLE == VALUE) : Returns the row if the value in a column is equal to a provided value &gt; Note: When filtering to a string, the string must be in “ ”.</li>
-<li>filter(VARIABLE &gt; VALUE) : Returns the row if the value in a column is greater than a provided value</li>
-<li>filter(VARIABLE &lt; VALUE) : Returns the row if the value in a column is less than a provided value</li>
-<li>filter(VARIABLE &gt;= VALUE) : Returns the row if the value in a column is greater than or equal to a provided value</li>
-<li>filter(VARIABLE &lt;= VALUE) : Returns the row if the value in a column is less than or equal to a provided value</li>
-<li>filter(VARIABLE != VALUE) : Returns the row if the value in a column is not equal to a provided value</li>
-<li>filter(VARIABLE %in% c(VALUE1, VALUE2) : Returns the row if the value in a column is in a specified list of values</li>
-<li>filter(is.na(VARIABLE)) : Returns the row if the value in a column is NA</li>
-<li>filter(!is.na(VARIABLE)) : Returns the row if the value in a column is not NA</li>
+<li>ex: Real estate businesses: Real estate businesses would be interested in a metric for best universities for faculty members under 30 because it could forecast where young faculty members may be moving, helping them discern where they may want to build out or renovate new apartment buildings. This interest is profit-motivated.</li>
 </ul>
+</div>
+<div id="list-your-four-stakeholders-and-explanations-below" class="section level2">
+<h2>LIST YOUR FOUR STAKEHOLDERS AND EXPLANATIONS BELOW</h2>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>If universities were to become fixated on this metric, how might it change how they operate, the programs they offer, or the way they serve students? If universities were to begin evolving in order to improve their scores in relation to this metric, what unintended consequences could it have on university faculty, staff, students, or outside community members? How would it impact the data inputs for your metric? Please respond in 200-300 words, referencing specific variables outlined in your metric.</li>
+</ol>
+<p>ENTER YOUR RESPONSE BELOW</p>
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGZpbHRlcihTdGF0ZSA9PSBcIkFMXCIpXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        filter(State == &quot;AL&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVEyMG9ETVJDZHhrVHBRcVhnZCt5V3VsQjhGVXBCOEVHc1NsL2pOdHJGbUpUZExQcXRma3gxc3AxcGF4NG1tVE8zYzJZZTU2c3lXMlVBY0FZeXZnb2ZVTTlQaS93R1FBb0VBMHdNNC8rTjZTdDBZdDBZVFZEaWZEcTVua3pMSXlvaitsOGpidTlQUElCUm40dkQ5MFo0dEVIN1NZaVYwNSttcFlHU2duS3VnK0dDWlRnQ3ViaDdXSExpUmR2T0pPT0dqZjhxZU9TcERwSHlWbGEzek12QmJLMkRMdDRhN0VlMFMxb3UvRGJVM21HVGlKZFNTZk9nU1FManprVWw2N3phZE80am44MGlBOGtCa2tmU0RyN2NjNHBmbXFYNDhNYTkxKzV3RTZ0ZmpTVndpU3YzR3hmYnBuYUJWOEZvV3dRZk5OZGxsYmNjNlplRDNSL25FbGswSVFJQUFBPT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[3],"type":["int"],"align":["right"]},{"label":["Value"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1/2/13","2":"AL","3":"1","4":"3432"},{"1":"1/3/13","2":"AL","3":"1","4":"3546"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGZpbHRlcihWYWx1ZSA+IDEwMDAgJiBWYWx1ZSA8IDM1MDApXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        filter(Value &gt; 1000 &amp; Value &lt; 3500)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUEyMVFiV3ZDTUJBK3UwU3hVQkg4SFcxeHd1WlhRWVRCUGd4ZlJyL0dtczJ5TENsdGl2djE2cVVtc3d2N2tNdmRjL2ZjeTdOZVpyTXdDd0hnQVlpeEZBM1EzWFlWendGSWdFRVBFMFB6LzJCNmdvNnBHM2NTL1duNm1FNW5IaG9zWHRGR0xYSjcxbytPWG1NcTJUZXZMWjFZa0N5WjVxNWdvKzhCV2IyOGJWemluWW1HZSsyR2xUb2xybVZuL3QrWnVXQjE3YTBjSHBobXlVZUZYSXpPSG1XZ1NsMG9pYVRBcUVBOWNxL3lnSEVqelJhSE9EODI4aXQrZWpZVDdEcnd2elJHV2pNenVOaGUxRW5NNVdjaGYvVVFiTStGRFVaNGJudHRVbGFGMU80VVJPdEVLODFjWFpncjRaRDJPRGhmQVZpVStGZjlBUUFBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[3],"type":["int"],"align":["right"]},{"label":["Value"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1/2/13","2":"AL","3":"1","4":"3432"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGZpbHRlcihpcy5uYShWYWx1ZSkpXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        filter(is.na(Value))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFUV3ZDUUJDZHhGM0ZRSXZnNzBoRUF1SlZLa0p2cFZieHVzYTFEYTY3a214b2ovM2wxdGwweHpaN21ZODM4OTU4dkM1M2ViSkxBS0FIekZtT0J2am1iWlhPQVZpTVNZU0ZvZk5mV0I1ajRQcEcvd3I5NlNTZlRQTUFqWjhXYUI5YUJIc28vbmI2WFdHdXhWblduczQ4eUpiQ1NtcFkyNytFclo1ZjFsVFlDdFhJUUc1WW1jK01KR2wrRk00c2xLanJZT1hrSUt6SWpoVnlNYnNHbElHNTJOSm9KTVh1Q3p3Z1IxVUFqQnJ0dGppa3hVZWpUK2xzN2liNGRhQzcyajFtdnpQakg2L0Y2Y1ZTdjVmNi9nOGw5bEw1NUJIUGJhL05MbFdwTFoyQ2FKMVpZd1gxSllWUmhMVEh3ZlVHcjhpVFRmMEJBQUE9In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[3],"type":["int"],"align":["right"]},{"label":["Value"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1/3/13","2":"CA","3":"6","4":"NA"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGZpbHRlcihWYWx1ZSA9PSBtYXgoVmFsdWUsIG5hLnJtID0gVFJVRSkpXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        filter(Value == max(Value, na.rm = TRUE))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUEyMVEyNHJDTUJBZGE2SllVQVMvbzFYcHcrNnJJSUxnZzNoWmZJMDE3cGJOSnRLbTZMZjZNZXFrSnVvR0h6S1pPVE5uTG1jeDNpVGhKZ1NBT2hCaktScWc2OVVrK2dRZ0FRWTFUTFRNZjhKMER4MVQxMzFKTkliOXBEOU1QRFFZemRDMksrVCtyTjgrZTQycFpIKzhzSFJpUVRKbW1ydUNwWDRHWkRLZEwxM2lpNG1TZSsxYXVUckdydVhML1A4elU4R0t3bHM1M0RITjRuMk9YSXd1SHFXcERqcFRFa21CVVlGNjVGcnVBZDFTbWkxMlVmcFR5dC9vWTJBbTJIWGd2VFJHV2pNenVOcGUxRW5NNVhjbUgzb0l0dVhDQmgwOHQ3bzJQdVNaMU80VVJJdFlLODFjWFpncTRaRHFPTGpjQUo3VFZMRDlBUUFBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[3],"type":["int"],"align":["right"]},{"label":["Value"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1/3/13","2":"AL","3":"1","4":"3546"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIFxuXHRcdGZpbHRlcihTdGF0ZSA9PSBcIkFMXCIpICU+JSBcblx0XHRzdW1tYXJpemUoQUxfc3VtID0gc3VtKFZhbHVlLCBuYS5ybSA9IFRSVUUpKVxuYGBgIn0= -->
-<pre class="r"><code>values_by_state_date %&gt;% 
-        filter(State == &quot;AL&quot;) %&gt;% 
-        summarize(AL_sum = sum(Value, na.rm = TRUE))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBzUTZDTUJBOWtHcG9vaUZ4OUJ0ZzBFRlhqWEZ5TXBxd21RcW9SR2dKbE9qWG8xZHNFKzNRYSsvZGU5ZjNEdHQ0UVdNS0FBUHdWQ1ZZZ0p5T3UzQUY0TG5ZT0RqdzFmM0M4YlFIQU1iZmU3YXhTSVN6TW12d0VmeUF3L1grM0xTbFJmVnI4WXdNWGU5VDUzOWZVckRHM2tkVEpsbDByVkdMWFdkSlJxS1N1ZUFvY3BWYllvbWQyZ0tDbGlzWGFaamNXLzRJbDNQMWc3WUQvOVpzbSs1Yjd5SW1hY1p2T2MrTStZSmRza0kzRTR6YnA0MnFPdWZTUkVHMGlhU1F6UEJvSWdxRDlPR2crd0M0ZWRkZHBRRUFBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["AL_sum"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"6978"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lXG4gIGFycmFuZ2UoVmFsdWUpXG5gYGAifQ== -->
-<pre class="r"><code>values_by_state_date %&gt;%
-  arrange(Value)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NCwibmNvbCI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUEzVlJTMDdETUJDZG1EaFZJL0dST0VkU2xRaUpiVVZWQ1lrRm9xWHExcVNHUmhpblNoekJrbk55QXk1Um1FbHNhRnl4c0QxdmZ1L04rSDY2eXVKVkRBQkhFTkxOOFFMK3NKZ2xWd0FoUXhCZ1lFanZPNGJQMGFDOHMvYnRBdEY0ZERFYVovK2g3QkQxNjluMXhGbVQyME1Mb3dESGxqZHFCWFVuMnZOL29ibkI4L2xCK3Z2Q3VSYXZzdlpJdzZrdzBpWE16UjhJWnpkM2N4ZFlDdFZJcjkyd0t0OVMxNUw0V2NkSk92cTh1UksxNDNYT2VDMk1TSjhxckVlMDgwb0c1ZFlVcGNZaVJwdm1YbkZRZVk3VFJwT1NkWkp2R3YyU1hCS0IzUTVZZFlIZDBKNU5sT3pidHVMdWI2UitMdlR2U3BSNGxNcUNFNXk0SFRqZFZvVTJiaEwwMXFrcGpYQjVjVjRxNTJsbmc5MFArcFRRbVdBQ0FBQT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Date"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["FIPS"],"name":[3],"type":["int"],"align":["right"]},{"label":["Value"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1/2/13","2":"CA","3":"6","4":"233"},{"1":"1/2/13","2":"AL","3":"1","4":"3432"},{"1":"1/3/13","2":"AL","3":"1","4":"3546"},{"1":"1/3/13","2":"CA","3":"6","4":"NA"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-</div>
-</div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCmVkaXRvcl9vcHRpb25zOiAKICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lCi0tLQoKVGhpcyBub3RlYm9vayBjYW4gYmUgcmVmZXJlbmNlZCBpbiBjb25qdW5jdGlvbiB3aXRoIHRoZSBSIENoZWF0c2hlZXQgcHJvdmlkZWQgYXMgYSBQREYgb24gQ2FudmFzLgoKQSByZWN0YW5ndWxhciBkYXRhc2V0IGlzIGEgZGF0YXNldCB0aGF0IGhhcyBhbiBlcXVhbCBudW1iZXIgb2YgY29sdW1ucyBhbmQgcm93cy4gSW4gUiwgdGhlIGRhdGEgc3RydWN0dXJlIGZvciBzdG9yaW5nIHJlY3Rhbmd1bGFyIGRhdGFzZXRzIGlzIGNhbGxlZCBhIGRhdGEgZnJhbWUuIEEgZGF0YSBmcmFtZSBoYXMgY29sdW1uIG5hbWVzIGluIHRoZSBmaXJzdCByb3cuIExldOKAmXMgY2FsbCB0aGlzIGRhdGEgZnJhbWUgdmFsdWVzX2J5X3N0YXRlX2RhdGUuIAoKPiBJbiBkYXRhIHNjaWVuY2UsIHdlIHJlZmVyIHRvIHJvd3MgaW4gcmVjdGFuZ3VsYXIgZGF0YXNldHMgYXMgb2JzZXJ2YXRpb25zLiAKCj4gSW4gZGF0YSBzY2llbmNlLCB3ZSByZWZlciB0byBjb2x1bW5zIGluIHJlY3Rhbmd1bGFyIGRhdGFzZXRzIGFzIHZhcmlhYmxlcyBiZWNhdXNlIHRoZXkgZGVzY3JpYmUgb2JzZXJ2YXRpb25zIGluIHRoZSBkYXRhLiBJbiBSLCBjb2x1bW5zL3ZhcmlhYmxlcyBhcmUgdGVjaG5pY2FsbHkgdmVjdG9ycyAtIGEgZGF0YSBzdHJ1Y3R1cmUgZm9yIHN0b3JpbmcgYSBzZXJpZXMgb2YgdmFsdWVzIG9mIHRoZSBzYW1lIHR5cGUgKGUuZy4gY2hhcmFjdGVyLCBkYXRlcywgbnVtYmVycykuIAoKIyBIb3cgZGlkIHdlIGdldCB0aGlzIGRhdGEgaW50byBSPwoKVGhlIGZ1bmN0aW9uIHJlYWQuY3N2IHJlYWRzIGEgZGF0YSBmaWxlIHN0b3JlZCBlbHNld2hlcmUgKG9uIHRoZSBXZWIgb3Igb24geW91ciBjb21wdXRlcikgaW50byBhIGRhdGEgZnJhbWUuIEluIHRoaXMgY2xhc3MgSSB3aWxsIGFsd2F5cyBwcm92aWRlIHlvdSB3aXRoIHRoZSBVUkwgdG8gd2hlcmUgeW91IGNhbiBmaW5kIGRhdGEuIAoKYGBge3J9CiNIZXJlIHdlIHJlYWQgdGhlIGNvbW1hIHNlcGFyYXRlZCB2YWx1ZSBpbmZvcm1hdGlvbiBhdCBFWEFNUExFLmNzdiBpbnRvIHRoZSB2YWx1ZXMtYnlfc3RhdGVfZGF0ZS4gTm90ZSBob3cgd2UgdXNlIHRoZSDigJg8LeKAmCB0byBhc3NpZ24gYSBzZXQgb2YgdmFsdWVzIHRvIGEgdmFyaWFibGUuCnZhbHVlc19ieV9zdGF0ZV9kYXRlIDwtIHJlYWQuY3N2KCJFWEFNUExFLmNzdiIpCmBgYAoKIyBIb3cgZG9lcyBSIGxvYWQgZnVuY3Rpb25zPwoKU29tZSBmdW5jdGlvbnMgdGhhdCB3ZSBhcHBseSBpbiBSIGFyZSBhdmFpbGFibGUgYnkgZGVmYXVsdC4gSG93ZXZlciwgaW4gdGhpcyBjbGFzcyBhIG51bWJlciBvZiBmdW5jdGlvbnMgd2Ugd2lsbCB1c2UgY29tZSBmcm9tIHBhY2thZ2VzIHRoYXQgd2Ugd2lsbCBuZWVkIHRvIGFkZCBvbi4gSSB3aWxsIGFsd2F5cyB0ZWxsIHlvdSB3aGF0IHBhY2thZ2VzIHdlIG5lZWQgZm9yIGVhY2ggYXNzaWdubWVudCBhbmQgc2V0IG9mIGxlY3R1cmUgZXhlcmNpc2VzLiBZb3UgY2FuIGxvYWQgdGhvc2UgcGFja2FnZXMgdXNpbmcgdGhlIGxpYnJhcnkgZnVuY3Rpb24uCgpgYGB7cn0KI0hlcmUgd2UgbG9hZCB0aGUgdGlkeXZlcnNlIHBhY2thZ2Ugc28gdGhhdCBSIGtub3dzIHRoYXQgd2Ugd2lsbCBiZSB1c2luZyB0aG9zZSBmdW5jdGlvbnMgCmxpYnJhcnkodGlkeXZlcnNlKQpgYGAKCiMgSG93IGRvIEkgYXBwbHkgZnVuY3Rpb25zIHRvIHRoZSBkYXRhIGZyYW1lPwoKSW4gdGhpcyBjbGFzcyB3ZSB3aWxsIGFwcGx5IGZ1bmN0aW9ucyB0byBvdXIgZGF0YSBmcmFtZSB1c2luZyB3aGF0IGlzIGNhbGxlZCBhIHBpcGU6IOKAmCU+JeKAmS4gVGhlIHBpcGUgaXMgYXZhaWxhYmxlIHRocm91Z2ggdGhlIFRpZHl2ZXJzZSBwYWNrYWdlLiBXZSBmaXJzdCBjYWxsIHRoZSBkYXRhIGZyYW1lIGFuZCB0aGVuIHVzZSB0aGUgcGlwZSB0byB0ZWxsIFIgdGhhdCB3ZSBhcmUgYWJvdXQgdG8gY2FsbCBhIGZ1bmN0aW9uIGxpa2UgdGhpczogZGF0YV9mcmFtZSAlPiUgZnVuY3Rpb25fbmFtZSgpIAoKIyMjIFdoYXQgZnVuY3Rpb25zIGFsbG93IG1lIHRvIGdsaW1wc2Ugb3ZlciB0aGUgZGF0YSBmcmFtZT8KCiogc3RyKCkgOiBQcm92aWRlcyBhbiBvdmVydmlldyBvZiB0aGUgc3RydWN0dXJlcyBvZiB0aGUgZGF0YSBmcmFtZSwgaW5jbHVkaW5nIGNvbHVtbiBuYW1lcyBhbmQgZGF0YSB0eXBlcwoqIGhlYWQoKSA6IERpc3BsYXlzIHRoZSBmaXJzdCBzaXggcm93cyBvZiB0aGUgZGF0YSBmcmFtZQoqIGRpbSgpIDogRGlzcGxheXMgdGhlIG51bWJlciBvZiByb3dzIGluIHRoZSBkYXRhIGZyYW1lIGFuZCB0aGUgbnVtYmVyIG9mIGNvbHVtbnMgaW4gdGhlIGRhdGEgZnJhbWUKKiBucm93KCkgOiBEaXNwbGF5cyB0aGUgbnVtYmVyIG9mIHJvd3MgaW4gdGhlIGRhdGEgZnJhbWUKKiBuY29sKCkgOiBEaXNwbGF5cyB0aGUgbnVtYmVyIG9mIGNvbHVtbnMgaW4gdGhlIGRhdGEgZnJhbWUKKiBWaWV3KCkgOiBPcGVucyB0aGUgZGF0YSBmcmFtZSBhcyBhIHNwcmVhZHNoZWV0IGluIGEgbmV3IHdpbmRvdwoqIGNvbG5hbWVzKCkgOiBEaXNwbGF5cyB0aGUgZGF0YSBmcmFtZeKAmXMgY29sdW1uIG5hbWVzCgpFeGFtcGxlczoKCmBgYHtyfQojSGVyZSBJIGNoZWNrIHRoZSBkaW1lbnNpb25zIG9mIHRoZSBkYXRhIGZyYW1lIGFib3ZlLgp2YWx1ZXNfYnlfc3RhdGVfZGF0ZSAlPiUgZGltKCkKYGBgCgpXZSBzZWUgNCBhbmQgNCBiZWNhdXNlIHRoZXJlIGFyZSA0IHJvd3MgaW4gdGhlIGRhdGEgZnJhbWUgYW5kIDQgY29sdW1ucyBpbiB0aGUgZGF0YSBmcmFtZS4gVGhlc2UgYXJlIHRoZSBkYXRhIGZyYW1l4oCZcyBkaW1lbnNpb25zLgoKYGBge3J9CiNIZXJlIEkgY2hlY2sgdGhlIGNvbHVtbiBuYW1lcyBvZiB0aGUgZGF0YSBmcmFtZSBhYm92ZS4KdmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIGNvbG5hbWVzKCkKYGBgCgpUaGlzIHJldHVybnMgdGhlIGNvbHVtbiBuYW1lcyBvZiBvdXIgZGF0YXNldC4gV2UgdmVyeSBvZnRlbiBuZWVkIHRvIGtub3cgdGhlIGNvbHVtbiBuYW1lcyBvZiBhIGRhdGFzZXQgc28gdGhhdCB3ZSBjYW4gcmVmZXIgdG8gdGhlbSBpbiBmdW5jdGlvbnMuIAoKIyMgSG93IGNhbiBJIHJlZmVyIHRvIHNwZWNpZmljIGNvbHVtbnMgKG9yIHZhcmlhYmxlcykgaW4gUj8KCldlIGNhbiByZWZlciB0byB0aGUgY29sdW1uIGhpZ2hsaWdodGVkIGFib3ZlIGluIFIgYnkgcmVmZXJlbmNpbmcgdGhlIGRhdGEgZnJhbWUgYW5kIHRoZSB2YXJpYWJsZSBuYW1lIGFuZCBwbGFjaW5nIGEg4oCYJOKAmSBpbiBiZXR3ZWVuIHRoZW0uIEFsdGVybmF0aXZlbHksIHdlIGNhbiByZWZlciB0byBzcGVjaWZpYyB2YXJpYWJsZXMgdXNpbmcgdGhlIHNlbGVjdCgpIGZ1bmN0aW9uIGZyb20gdGhlIFRpZHl2ZXJzZSBwYWNrYWdlLiBCb3RoIGxpbmVzIG9mIGNvZGUgYmVsb3cgd2lsbCByZXR1cm4gdGhlIHNhbWUgb3V0cHV0LgoKYGBge3J9CgkjSGVyZSBJIHJlZmVyZW5jZSB0aGUgZW50aXJlIGxhc3QgY29sdW1uIGluIHRoZSBkYXRhIGZyYW1lIGFib3ZlLiBOb3RlIHRoYXQgYmVjYXVzZSBSIGlzIGNhc2Utc2Vuc2l0aXZlLCBpdCBpcyBpbXBvcnRhbnQgdGhhdCB0aGUgb25seSBjYXBpdGFsIGxldHRlciBiZWxvdyBpcyDigJhW4oCZIGluIHJlZmVyZW5jZSB0byB0aGUgY29sdW1uIG5hbWUuCnZhbHVlc19ieV9zdGF0ZV9kYXRlJFZhbHVlCnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSBzZWxlY3QoVmFsdWUpICNXZSB3aWxsIHByaW1hcmlseSB1c2UgdGhpcyBtZXRob2QgaW4gdGhpcyBjb3Vyc2UuCmBgYAoKIyMgV2hhdCBmdW5jdGlvbnMgY2FuIEkgYXBwbHkgdG8gZGlzY3JldGUvY29udGludW91cyBudW1lcmljIHZhcmlhYmxlcy9jb2x1bW5zPwoKIyMjIEV4YW1wbGVzIG9mIGZ1bmN0aW9ucyB0aGF0IGNhbiBiZSBhcHBsaWVkIHRvIG51bWVyaWMgY29sdW1ucy92YXJpYWJsZXMKCiogbWluKCkgOiBSZXR1cm5zIHRoZSBtaW5pbXVtIHZhbHVlIGluIHRoZSBjb2x1bW4KKiBtYXgoKSA6IFJldHVybnMgdGhlIG1heGltdW0gdmFsdWUgaW4gdGhlIGNvbHVtbgoqIHN1bSgpIDogUmV0dXJucyBhIHN1bSBvZiBhbGwgb2YgdGhlIHZhbHVlcyBpbiB0aGUgY29sdW1uCiogbWVhbigpIDogUmV0dXJucyB0aGUgbWFuIG9mIGFsbCBvZiB0aGUgdmFsdWVzIGluIHRoZSBjb2x1bW4KKiBtZWRpYW4oKSA6IFJldHVybnMgdGhlIG1lZGlhbiB2YWx1ZSBpbiB0aGUgY29sdW1uCiogc2QoKSA6IFJldHVybnMgdGhlIHN0YW5kYXJkIGRldmlhdGlvbiBpbiB0aGUgY29sdW1uCiogdmFyKCkgOiBSZXR1cm5zIHRoZSB2YXJpYW5jZSBpbiB0aGUgY29sdW1uCgo+IEFuIE5BIGluIGEgY2VsbCBvZiBhIGRhdGEgZnJhbWUgaW5kaWNhdGVzIHRoYXQgdGhlcmUgaXMgbWlzc2luZyBkYXRhLCBhbmQgd2UgbmVlZCB0byB0ZWxsIFIgZXhwbGljaXRseSBob3cgdG8gaGFuZGxlIG1pc3NpbmcgZGF0YSB3aGVuIHdlIGNhbGwgdGhlIG1hdGhlbWF0aWNhbCBvcGVyYXRpb25zIGFib3ZlLiBUbyBkbyB0aGF0IHdlIHBsYWNlIG5hLnJtID0gVFJVRSB0byB0ZWxsIFIgdG8gcmVtb3ZlIHRoZSBOQSB3aGVuIHBlcmZvcm1pbmcgdGhlIGNhbGN1bGF0aW9uLiAKCldlIGNhbiBzZWUgdGhlIG1pbmltdW0gdmFsdWUgaW4gdGhlIFZhbHVlcyBjb2x1bW4gYWJvdmUgYnkgY2FsbGluZyBtaW4oKS4gTm90ZSB0aG91Z2ggdGhhdCBiZWNhdXNlIHRoZXJlIGlzIG9uZSBjZWxsIHdpdGggYSBtaXNzaW5nIHZhbHVlLCB3ZSBoYXZlIHRvIHRlbGwgUiB0byByZW1vdmUgdGhlIE5BLgoKYGBge3J9CgkjSGVyZSBpcyBob3cgSSBmaW5kIHRoZSBtaW5pbXVtIHZhbHVlIGluIFZhbHVlCnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSAKCQlzZWxlY3QoVmFsdWUpICU+JSAKCQltaW4obmEucm0gPSBUUlVFKQpgYGAKCldlIGNhbiBzZWUgdGhlIHN1bSBvZiB0aGUgdmFsdWVzIGluIHRoZSBWYWx1ZXMgY29sdW1uIGJ5IGNhbGxpbmcgc3VtKCkuIEFnYWluIHdlIG5lZWQgdG8gdGVsbCBSIHRvIHJlbW92ZSB0aGUgbWlzc2luZyB2YWx1ZXMuCgpgYGB7cn0KI0hlcmUgaXMgaG93IEkgZmluZCB0aGUgc3VtIG9mIHRoZSB2YWx1ZXMgaW4gVmFsdWUKdmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIAoJCXNlbGVjdChWYWx1ZSkgJT4lIAoJCXN1bShuYS5ybSA9IFRSVUUpCmBgYAoKIyMgV2hhdCBmdW5jdGlvbnMgY2FuIEkgYXBwbHkgdG8gbm9taW5hbC9vcmRpbmFsIGNhdGVnb3JpY2FsIHZhcmlhYmxlcy9jb2x1bW5zPwoKIyMjIEV4YW1wbGVzIG9mIGZ1bmN0aW9ucyB0aGF0IGNhbiBiZSBhcHBsaWVkIHRvIGNhdGVnb3JpY2FsIGNvbHVtbnMvdmFyaWFsdmVzCgoqIHVuaXF1ZSgpIDogUmV0dXJucyBhbGwgb2YgdGhlIHZhbHVlcyBpbiB0aGUgY29sdW1uIHdpdGhvdXQgZHVwbGljYXRlcwoqIGRpc3RpbmN0KCkgOiBTYW1lIGFzIHVuaXF1ZSwgYnV0IGZyb20gdGlkeXZlcnNlCiogbl9kaXN0aW5jdCgpIDogUmV0dXJucyB0aGUgbnVtYmVyIG9mIGRpc3RpbmN0IHZhbHVlcyBpbiB0aGUgY29sdW1uCgpXZSBjYW4gc2VlIHRoZSB1bmlxdWUgdmFsdWVzIGluIHRoZSBEYXRlIGNvbHVtbiBieSBjYWxsaW5nIHVuaXF1ZSgpIG9yIGRpc3RpbmN0KCkuIE5vdGUgaG93IEkgc2VlIGVhY2ggZGF0ZSBleGFjdGx5IG9uY2UgaW4gdGhlIG91dHB1dC4gVW5pcXVlIHJlbW92ZXMgcmVwZWF0aW5nIHZhbHVlcyBmcm9tIHRoZSBjb2x1bW4uCgpgYGB7cn0KdmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIAoJCXNlbGVjdChEYXRlKSAlPiUgCgkJdW5pcXVlKCkKYGBgCgpXZSBjYW4gc2VlIHRoZSB1bmlxdWUgdmFsdWVzIGluIHRoZSBEYXRlIGFuZCBGSVBTIGNvbHVtbiBieSBwbGFjaW5nIHRoZW0gYm90aCBpbiBzZWxlY3QoKS4KCmBgYHtyfQp2YWx1ZXNfYnlfc3RhdGVfZGF0ZSAlPiUgCgkJc2VsZWN0KERhdGUsIEZJUFMpICU+JSAKCQlkaXN0aW5jdCgpCmBgYAoKIyMgSG93IGRvIEkgcmVmZXIgdG8gZWFjaCBvYnNlcnZhdGlvbi9yb3cgaW4gdGhlIGRhdGEgZnJhbWU/CgpBdCB0aGUgb3V0c2V0LCB3ZSB3YW50IHRvIGZpZ3VyZSBvdXQgd2hpY2ggdmFyaWFibGVzIGluIHRoZSBkYXRhc2V0IGNhbiBzZXJ2ZSBhcyBpZGVudGlmaWVycyBmb3IgZWFjaCByb3cuIFRoaXMgaWRlbnRpZmllciBvciBjb21iaW5hdGlvbiBvZiBpZGVudGlmaWVycyBzaG91bGQgbm90IHJlcGVhdCBpbiB0aGUgZGF0YXNldC4gT3RoZXJ3aXNlIHdlIHdvbuKAmXQga25vdyB3aGF0IG1ha2VzIG9uZSByb3cgZGlmZmVyZW50IGZyb20gYW5vdGhlciByb3chIAoKVGhlcmUgYXJlIGZvdXIgcm93cyBpbiB0aGUgYWJvdmUgZGF0YXNldC4gV2hhdCBkb2VzIGVhY2ggcm93IHJlZmVyIHRvPyBXZSBjYW4gc2VlIGFib3ZlIHRoYXQgZWFjaCByb3cgcmVmZXJzIHRvIGEgc3RhdGUgYW5kIGRhdGUuIEJ1dCByZW1lbWJlciB0aGF0IHdoZW4gd2UgaGF2ZSB0aGUgb3B0aW9uIHRvIHVzZSBhIG51bWVyaWMgSUQsIHdlIGFsd2F5cyBzaG91bGQuIEZJUFMgYXJlIG51bWVyaWMgSURzIGZvciBzdGF0ZSBuYW1lcywgc28gd2Ugd2lsbCB1c2UgdGhhdCB0byBpZGVudGlmeSBlYWNoIHJvdy4gTm90ZSBob3cgaW4gdGhlIGxhc3QgZnVuY3Rpb24gaW4gdGhpcyBwYWdlLCB0aGUgbnVtYmVyIG9mIHJvd3MgaW4gd2hpY2ggRGF0ZSBhbmQgRklQUyBhcmUgZGlzdGluY3QgaXMgZXF1YWwgdG8gdGhlIG51bWJlciBvZiByb3dzIGluIHRoZSBkYXRhc2V0ICg0KS4KCldlIGNhbiBjaGVjayB3aGV0aGVyIEZJUFMgYW5kIERhdGUgdW5pcXVlbHkgaWRlbnRpZnkgZWFjaCByb3cgYnkgY2hlY2tpbmcgd2hldGhlciB0aGUgbnVtYmVyIG9mIHJvd3Mgd2hlcmUgRGF0ZSBhbmQgRklQUyBhcmUgZGlzdGluY3QgaXMgZXF1YWwgdGhlIG51bWJlciBvZiByb3dzIGluIHRoZSBkYXRhIGZyYW1lLgoKYGBge3J9CnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSAKCQlzZWxlY3QoRGF0ZSwgRklQUykgJT4lIAoJCW5fZGlzdGluY3QoKQpgYGAKCkRvZXMgdGhpcyBlcXVhbCB0aGUgbnVtYmVyIG9mIHJvd3MgaW4gdGhlIGRhdGFzZXQ/IEhvdyBjb3VsZCB5b3UgY2hlY2s/CgpgYGB7cn0KdmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIG5yb3coKQpgYGAKCiMjIEhvdyBjYW4gSSBjb3VudCB0aGUgbnVtYmVyIG9mIHRpbWVzIGVhY2ggY2F0ZWdvcmljYWwgdmFsdWUgYXBwZWFycyBpbiBhIHZhcmlhYmxlPwoKVG8gY291bnQgdGhlIG51bWJlciBvZiB0aW1lcyBlYWNoIGNhdGVnb3JpY2FsIHZhbHVlIGFwcGVhcnMgaW4gYSB2YXJpYWJsZS9jb2x1bW4sIHdlIGNhbiB1c2UgdGhlIGZ1bmN0aW9uIGNvdW50KCksIHBsYWNpbmcgdGhlIG5hbWUgb2YgdGhlIGNvbHVtbiBpbiB0aGUgcGFyZW50aGVzZXMgbGlrZSB0aGlzOiBkYXRhX2ZyYW1lICU+JSBjb3VudChWYXJpYWJsZSkKCmBgYHtyfQp2YWx1ZXNfYnlfc3RhdGVfZGF0ZSAlPiUgCgkJY291bnQoU3RhdGUpCmBgYAo+IE5vdGUgaG93IFIgY3JlYXRlZCBhIG5ldyBjb2x1bW4gY2FsbGVkIG4sIHdoaWNoIGluIHRoaXMgY29udGV4dCBpcyBhIHNob3J0aGFuZCBmb3IgY291bnQKCiMjIFNob3J0aGFuZCBmb3Igc2VsZWN0KCkgJT4lIGZ1bmN0aW9uKCkgOiBzdW1tYXJpemUoZnVuY3Rpb24oKSkgCgpBYm92ZSwgd2Ugc2VsZWN0ZWQgYSB2YXJpYWJsZSBhbmQgdGhlbiBwZXJmb3JtZWQgYSBmdW5jdGlvbiBvbiB0aGF0IHZhcmlhYmxlLCB1c2luZyBzZWxlY3QoKSAlPiUgZnVuY3Rpb24oKS4gVGhlcmUgaXMgYSBzaG9ydGhhbmQgd2F5IHRvIGRvIHRoaXMsIHVzaW5nIHRoZSBmdW5jdGlvbiBzdW1tYXJpemUoKSBsaWtlIHRoaXM6CgpkYXRhX2ZyYW1lICU+JSBzdW1tYXJpemUoRlVOQ1RJT04oVkFSSUFCTEUpKQoKU29tZXRpbWVzIGl0IGlzIGhlbHBmdWwgdG8gYXNzaWduIHRoZSB2YWx1ZSB3ZSBjYWxjdWxhdGVkIHRvIGEgbmV3IHZhcmlhYmxlIG5hbWUuIFdlIGNhbiBkbyB0aGlzIGJ5OiAKCmRhdGFfZnJhbWUgJT4lIHN1bW1hcml6ZShORVdfVkFSSUFCTEUgPSBGVU5DVElPTihWQVJJQUJMRSkpCgojIyBXaGF0IGlmIEkgd2FudGVkIHRvIHBlcmZvcm0gb3BlcmF0aW9ucyBvbiBvbmx5IGNlcnRhaW4gcm93cy9vYnNlcnZhdGlvbnMgaW4gdGhlIGRhdGE/CgpUbyBwZXJmb3JtIG9wZXJhdGlvbnMgb24gb25seSBjZXJ0YWluIHJvd3Mvb2JzZXJ2YXRpb25zIGluIHRoZSBkYXRhLCB5b3UgY2FuIHVzZSB0aGUgZnVuY3Rpb24gZmlsdGVyKCkuIFRoaXMgZnVuY3Rpb24gZmlsdGVycyB0aGUgZGF0YSB0byByb3dzIHRoYXQgbWVldCBhIHBhcnRpY3VsYXIgY3JpdGVyaWEuIFdoZW4gY2FsbGluZyB0aGlzIGZ1bmN0aW9uLCB5b3Ugd2lsbCBwdXQgdGhlIGNyaXRlcmlhIHRoZSByb3dzIHNob3VsZCBtZWV0IGluIHRoZSBwYXJlbnRoZXNlcyAoc2VlIGJlbG93KS5UaGUgZm9ybWF0IGZvciBjYWxsaW5nIGZpbHRlcigpIGlzIGFzIGZvbGxvd3M6IAoKZGF0YV9mcmFtZSAlPiUgZmlsdGVyKENSSVRFUklBKQoKWW91IGNhbiB0ZXN0IHdoZXRoZXIgcm93cyBtZWV0IGJvdGggb2YgdHdvIGNyaXRlcmlhIGJ5IHBsYWNpbmcgYW4gJiBiZXR3ZWVuIHRoZSBjcml0ZXJpYSBpbiB0aGUgcGFyZW50aGVzZXMuIFlvdSBjYW4gdGVzdCB3aGV0aGVyIHJvd3MgbWVldCBlaXRoZXIgY3JpdGVyaWEgYnkgcGxhY2luZyBhIHwgYmV0d2VlbiB0aGUgY3JpdGVyaWEgaW4gdGhlIHBhcmVudGhlc2VzLgoKIyMjIEV4YW1wbGVzIG9mIGNyaXRlcmlhIHRoYXQgY2FuIGJlIHRlc3RlZCBpbiBmaWx0ZXIoKQoKKiBmaWx0ZXIoVkFSSUFCTEUgPT0gVkFMVUUpIDogUmV0dXJucyB0aGUgcm93IGlmIHRoZSB2YWx1ZSBpbiBhIGNvbHVtbiBpcyBlcXVhbCB0byBhIHByb3ZpZGVkIHZhbHVlCj4gTm90ZTogV2hlbiBmaWx0ZXJpbmcgdG8gYSBzdHJpbmcsIHRoZSBzdHJpbmcgbXVzdCBiZSBpbiDigJwg4oCdLgoqIGZpbHRlcihWQVJJQUJMRSAgPiBWQUxVRSkgOiBSZXR1cm5zIHRoZSByb3cgaWYgdGhlIHZhbHVlIGluIGEgY29sdW1uIGlzIGdyZWF0ZXIgdGhhbiBhIHByb3ZpZGVkIHZhbHVlCiogZmlsdGVyKFZBUklBQkxFICA8IFZBTFVFKSA6IFJldHVybnMgdGhlIHJvdyBpZiB0aGUgdmFsdWUgaW4gYSBjb2x1bW4gaXMgbGVzcyB0aGFuIGEgcHJvdmlkZWQgdmFsdWUKKiBmaWx0ZXIoVkFSSUFCTEUgID49IFZBTFVFKSA6IFJldHVybnMgdGhlIHJvdyBpZiB0aGUgdmFsdWUgaW4gYSBjb2x1bW4gaXMgZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIGEgcHJvdmlkZWQgdmFsdWUKKiBmaWx0ZXIoVkFSSUFCTEUgIDw9IFZBTFVFKSA6IFJldHVybnMgdGhlIHJvdyBpZiB0aGUgdmFsdWUgaW4gYSBjb2x1bW4gaXMgbGVzcyB0aGFuIG9yIGVxdWFsIHRvIGEgcHJvdmlkZWQgdmFsdWUKKiBmaWx0ZXIoVkFSSUFCTEUgIT0gVkFMVUUpIDogUmV0dXJucyB0aGUgcm93IGlmIHRoZSB2YWx1ZSBpbiBhIGNvbHVtbiBpcyBub3QgZXF1YWwgdG8gYSBwcm92aWRlZCB2YWx1ZQoqIGZpbHRlcihWQVJJQUJMRSAlaW4lIGMoVkFMVUUxLCBWQUxVRTIpIDogUmV0dXJucyB0aGUgcm93IGlmIHRoZSB2YWx1ZSBpbiBhIGNvbHVtbiBpcyBpbiBhIHNwZWNpZmllZCBsaXN0IG9mIHZhbHVlcwoqIGZpbHRlcihpcy5uYShWQVJJQUJMRSkpIDogUmV0dXJucyB0aGUgcm93IGlmIHRoZSB2YWx1ZSBpbiBhIGNvbHVtbiBpcyBOQQoqIGZpbHRlcighaXMubmEoVkFSSUFCTEUpKSA6IFJldHVybnMgdGhlIHJvdyBpZiB0aGUgdmFsdWUgaW4gYSBjb2x1bW4gaXMgbm90IE5BCgpgYGB7cn0KdmFsdWVzX2J5X3N0YXRlX2RhdGUgJT4lIAoJCWZpbHRlcihTdGF0ZSA9PSAiQUwiKQpgYGAKYGBge3J9CnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSAKCQlmaWx0ZXIoVmFsdWUgPiAxMDAwICYgVmFsdWUgPCAzNTAwKQpgYGAKYGBge3J9CnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSAKCQlmaWx0ZXIoaXMubmEoVmFsdWUpKQpgYGAKYGBge3J9CnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JSAKCQlmaWx0ZXIoVmFsdWUgPT0gbWF4KFZhbHVlLCBuYS5ybSA9IFRSVUUpKQpgYGAKCmBgYHtyfQp2YWx1ZXNfYnlfc3RhdGVfZGF0ZSAlPiUgCgkJZmlsdGVyKFN0YXRlID09ICJBTCIpICU+JSAKCQlzdW1tYXJpemUoQUxfc3VtID0gc3VtKFZhbHVlLCBuYS5ybSA9IFRSVUUpKQpgYGAKYGBge3J9CnZhbHVlc19ieV9zdGF0ZV9kYXRlICU+JQogIGFycmFuZ2UoVmFsdWUpCmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBIb21ld29yayAzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKZWRpdG9yX29wdGlvbnM6IAogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUKLS0tCgpSdW4gdGhlIGNvZGUgY2h1bmsgYmVsb3cgdG8gbG9hZCB0aGUgdGlkeXZlcnNlIGxpYnJhcnkuCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShzY2FsZXMpCmBgYAoKClJ1biB0aGUgY29kZSBjaHVuayBiZWxvdyB0byBjcmVhdGUgdGhlIHNjb3JlY2FyZCBkYXRhZnJhbWUuIERvbid0IHdvcnJ5IGFib3V0IHRoZSB0aGUgIk5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uIiBsaXN0ZWQgYmVsb3cuIApgYGB7cn0KI1JlYWQgaW4gdGhlIGNzdi4Kc2NvcmVjYXJkIDwtIHJlYWQuY3N2KCJTY29yZWNhcmQvTUVSR0VEMjAxN18xOF9QUC5jc3YiLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCgojQ29udmVydCBhbGwgdmFsdWVzIGVudGVyZWQgYXMgIk5VTEwiIHRvIE5Bcy4gCmlzLm5hKHNjb3JlY2FyZCkgPC0gc2NvcmVjYXJkID09ICJOVUxMIgoKI0NvbnZlcnQgY29sdW1ucyAxMiAtIDE4OTkgdG8gbnVtZXJpYy4KZm9yKGkgaW4gYygxMjoxODk5KSl7CiAgc2NvcmVjYXJkWyxpXTwtYXMubnVtZXJpYyhzY29yZWNhcmRbLGldKQp9CmBgYAoKUGFydCBJLiBQcmFjdGljZSBQcm9ibGVtcyAKCjEuIEluIHdoaWNoIDQteWVhciBpbnN0aXR1dGlvbnMgd2l0aCBhbiB1bmRlcmdyYWR1YXRlIGVucm9sbG1lbnQgb2Ygb3ZlciAzMDAgZGlkIG1vcmUgdGhhbiA5NSUgb2YgZnVsbC10aW1lIGZpcnN0LXRpbWUgZGVncmVlLXNlZWtpbmcgdW5kZXJncmFkdWF0ZSBzdHVkZW50cyBjb21wbGV0ZSB0aGVpciBkZWdyZWUgd2l0aGluIDE1MCUgb2Ygbm9ybWFsIHRpbWU/IERpc3BsYXkgdGhlIGluc3RpdHV0aW9uIG5hbWUsIHRoZSAxNTAlIGNvbXBsZXRpb24gcmF0ZSwgdGhlIG51bWJlciBvZiBmdWxsLXRpbWUgZmlyc3QtdGltZSBkZWdyZWUtc2Vla2luZyB1bmRlcmdyYWR1YXRlcyBpbiB0aGUgY29ycmVzcG9uZGluZyBjb21wbGV0aW9uIHllYXIgY29ob3J0LCBhbmQgdGhlIHRvdGFsIHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudC4KCmBgYHtyfQpzY29yZWNhcmQgJT4lIAogIF9fX19fKF9fX19fID4gX19fX18gJiBfX19fXyA9PSBfX19fXyAmIF9fX19fID4gX19fX18pICU+JQogIF9fX19fKF9fX19fLCBfX19fXywgX19fX18sIF9fX19fKQpgYGAKCjIuIFdoYXQgYXJlIHRoZSBuYW1lcywgY2l0aWVzLCBzdGF0ZXMsIGFuZCB1bmRlcmdyYWR1YXRlIGVucm9sbG1lbnRzIG9mIGluc3RpdHV0aW9ucyBpbiAiY29sbGVnZSB0b3ducyIgLSB0aG9zZSB1bml2ZXJzaXRpZXMgd2l0aCBhbiB1bmRlcmdyYWR1YXRlIGVucm9sbG1lbnQgb2Ygb3ZlciAyMCwwMDAgdGhhdCBhcmUgYWxzbyBpbiBhIGNpdHkgb3Igc3VidXJiIHdpdGggYSBwb3B1bGF0aW9uIG9mIGxlc3MgdGhhbiAxMDAsMDAwPyBIb3cgbWFueSBjb2xsZWdlIHRvd25zIGFyZSBpbiBlYWNoIHN0YXRlPwpgYGB7cn0KI0xpc3QgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudHMgb2YgY29sbGVnZSB0b3ducwpzY29yZWNhcmQgJT4lIAogIGZpbHRlcigoX19fX18gPT0gX19fX18gfCBfX19fXyA9PSBfX19fXykgJiAoX19fX18gPiBfX19fXykpICU+JSAKICBfX19fXyhfX19fXywgX19fX18sIF9fX19fLCBfX19fXykgI0xpc3QKCiNDYWxjdWxhdGUgdGhlIG51bWJlciBvZiBjb2xsZWdlIHRvd25zIGluIGVhY2ggc3RhdGUKc2NvcmVjYXJkICU+JSAKICBfX19fXyAlPiUgI2NvcHkgZmlsdGVyIHN0YXRlbWVudCBhYm92ZQogIF9fX19fKF9fX19fKSAlPiUgCiAgX19fX18odG90YWwgPSBfX19fXykKYGBgCjMuIFdoYXQgYXJlIHRoZSBuYW1lcywgY2l0aWVzLCBzdGF0ZXMsIGFuZCB1bmRlcmdyYWR1YXRlIGVucm9sbG1lbnRzIG9mIHRoZSBpbnN0aXR1dGlvbiB3aXRoIHRoZSBsYXJnZXN0IHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudCBpbiBlYWNoIHJlZ2lvbj8gV2hhdCBhcmUgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIGFkbWlzc2lvbiByYXRlcyBmb3IgdGhlIGluc3RpdHV0aW9uIHd0aWggdGhlIGxvd2VzdCBhZG1pc3Npb24gcmF0ZSBpbiBlYWNoIHN0YXRlPwoKYGBge3J9CiNMaXN0IHRoZSBuYW1lcywgY2l0aWVzLCBzdGF0ZXMsIGFuZCB1bmRlcmdyYWR1YXRlIGVucm9sbG1lbnRzIG9mIHRoZSBpbnN0aXR1dGlvbiB3aXRoIHRoZSBsYXJnZXN0IHVuZGVyZ3JhZHVhdGUgZW5yb2xsbWVudCBpbiBlYWNoIHJlZ2lvbgpzY29yZWNhcmQgJT4lIAogIF9fX19fKF9fX19fKSAlPiUKICBfX19fXyhfX19fXyA9PSBfX19fXyhfX19fXywgbmEucm0gPSBUUlVFKSkgJT4lCiAgdW5ncm91cCgpICU+JQogIF9fX19fKF9fX19fLCBfX19fXywgX19fX18sIF9fX19fKQoKI0ZvbGxvd2luZyBzYW1lIGxvZ2ljIGFzIGFib3ZlIGxpc3QgdGhlIG5hbWVzLCBjaXRpZXMsIHN0YXRlcywgYW5kIGFkbWlzc2lvbiByYXRlcyBmb3IgdGhlIGluc3RpdHV0aW9uIHd0aWggdGhlIGxvd2VzdCBhZG1pc3Npb24gcmF0ZSBpbiBlYWNoIHN0YXRlCnNjb3JlY2FyZCAlPiUKICBfX19fXyAlPiUKICBfX19fXyAlPiUgCiAgdW5ncm91cCgpICU+JQogIF9fX19fCmBgYAoKNC4gSG93IG1hbnkgcHVibGljIGluc3RpdHV0aW9ucyBhcmUgdGhlcmUgaW4gZWFjaCBzdGF0ZT8gV2hpY2ggc3RhdGUgaGFzIHRoZSBncmVhdGVzdCBudW1iZXIgb2YgcHVibGljIGluc3RpdHV0aW9ucz8gCmBgYHtyfQojQ2FsY3VsYXRlIGhvdyBtYW55IHB1YmxpYyBpbnN0aXR1dGlvbnMgYXJlIGluIGVhY2ggc3RhdGUKc2NvcmVjYXJkICU+JQogIF9fX19fKF9fX19fXyA9PSBfX19fXykgJT4lIAogIF9fX19fKF9fX19fKSAlPiUKICBfX19fXyhwdWJsaWNzY2hvb2xzID0gX19fX18pCgojQWRkIHR3byBsaW5lcyB0byB0aGUgY29kZSBhYm92ZSB0byBmaWx0ZXIgdGhlIHJlc3VsdGUgdG8gdGhlIHN0YXRlIHdpdGggdGhlIGdyZWF0ZXN0IG51bWJlciBvZiBwdWJsaWMgaW5zdGl0dXRpb25zCnNjb3JlY2FyZCAlPiUKICBfX19fXyAlPiUgI2NvcHkgZnJvbSBhYm92ZQogIF9fX19fICU+JSAjY29weSBmcm9tIGFib3ZlCiAgX19fX18gJT4lICNjb3B5IGZyb20gYWJvdmUKICBfX19fXyAlPiUKICBfX19fXyhfX19fXyA9PSBfX19fXyhfX19fXykpCmBgYAogUGFydCBJSS4gTWV0cmljIEZpeGF0aW9uCiAKSW4gcGFydCB0d28gb2YgdGhpcyBhc3NpZ25tZW50LCB5b3Ugd2lsbCBkZXNpZ24gYSBtZXRyaWMgZm9yIGRlc2lnbmF0aW5nIHRoZSAiYmVzdCB1bml2ZXJzaXRpZXMgZm9yIF9fX19fICIuIEZvciBpbnN0YW5jZSwgeW91ciBtZXRyaWMgbWF5IGRlc2lnbmF0ZSB0aGUgImJlc3QgdW5pdmVyc2l0aWVzIGZvciB1bmRlcmdyYWR1YXRlIHdvbWVuIiwgb3IgdGhlICJiZXN0IHVuaXZlcnNpdGllcyBmb3IgUHN5Y2hvbG9neSBtYWpvcnMiLiBBcyBhbiBleGFtcGxlIGJlbG93LCBJIHdpbGwgdXNlIHRoZSBtZXRyaWM6ICJiZXN0IHVuaXZlcnNpdGllcyBmb3IgU29jaWFsIFNjaWVuY2UgUHJvZmVzc29ycyB1bmRlciAzMCIKCgoxLiBTZWxlY3QgZml2ZSB2YXJpYWJsZXMgaW4gdGhlIHNjb3JlY2FyZCBkYXRhc2V0IHRoYXQgeW91IGJlbGlldmUgc2hvdWxkIGJlIHVzZWQgdG8gYXNzZXNzIHRoZSBxdWFsaXR5IG9mIHRoZSB1bml2ZXJzaXR5IGluIHJlbGF0aW9uIHRvIHlvdXIgc2VsZWN0ZWQgZ3JvdXAuIExpc3QgdGhlc2UgZml2ZSB2YXJpYWJsZXMgYmVsb3cgYW5kIG5vdGUgd2hldGhlciB0aGV5IGFyZSBub21pbmFsLCBvcmRpbmFsLCBkaXNyZXRlLCBvciBjb250aW51b3VzIHZhcmlhYmxlcy4gRm9yIGV4YW1wbGU6CgotIGV4OiBBdmVyYWdlIEZhY3VsdHkgU2FsYXJ5IChBVkdGQUNTQUwpIC8gQ29udGludW91cwotIGV4OiBDb250cm9sIChDT05UUk9MKSAvIE5vbWluYWwKLSBleDogUGVyY2VudGFnZSBvZiBEZWdyZWVzIEF3YXJkZWQgaW4gU29jaWFsIFNjaWVuY2VzIChQQ0lQNDUpIC8gQ29udGludW91cwotIGV4OiBOdW1iZXIgb2YgZ3JhZHVhdGUgc3R1ZGVudHMgKEdSQURTKSAvIERpc2NyZXRlCi0gZXg6IExvY2FsZSAoTE9DQUxFMikgLyBOb21pbmFsCgpMSVNUIFlPVVIgRklWRSBWQVJJQUJMRVMgQkVMT1cKLSAKLQotIAotIAotIAoKMi4gRm9yIGVhY2ggb2YgdGhlc2UgdmFyaWFibGVzLCBkZXRlcm1pbmUgaG93IHRoZSB2YWx1ZXMgd291bGQgaW1wYWN0IHRoZSBzY29yZSBvZiB0aGUgdW5pdmVyc2l0eSBhY2NvcmRpbmcgdG8geW91ciBtZXRyaWMuIAoKRm9yIENvbnRpbnVvdXMgb3IgRGlzY3JldGUgdmFyaWFibGVzIGRldGVybWluZSB3aGV0aGVyIGhpZ2hlciB2YWx1ZXMgd2lsbCAqcG9zaXRpdmVseSogb3IgKm5lZ2F0aXZlbHkqIGltcGFjdCB0aGUgc2NvcmUgb2YgdGhlIHVuaXZlcnNpdHkgaW4geW91ciBtZXRyaWMuIEZvciBleGFtcGxlOiAKLSBleDogQXZlcmFnZSBGYWN1bHR5IFNhbGFyeSBTY29yZTogaGlnaGVyIHNhbGFyaWVzIHdpbGwgcG9zaXRpdmVseSBpbXBhY3QgdGhlIHNjb3JlCi0gZXg6IFBlcmNlbnRhZ2Ugb2YgRGVncmVlcyBBd2FyZGVkIGluIFNvY2lhbCBTY2llbmNlczogaGlnaGVyIHBlcmNlbnRhZ2VzIHdpbGwgcG9zaXRpdmVseSBpbXBhY3QgdGhlIHNjb3JlCi0gZXg6IE51bWJlciBvZiBncmFkdWF0ZSBzdHVkZW50czogaGlnaGVyIG51bWJlcnMgd2lsbCBwb3NpdGl2ZWx5IGltcGFjdCB0aGUgc2NvcmUKCkZvciBOb21pbmFsIG9yIE9yZGluYWwgdmFyaWFibGVzLCBsaXN0IHRoZSBkZXNpcmVkIHZhbHVlLiAoTm90ZTogRm9yIHRoZSBzYWtlIG9mIHNpbXBsaWNpdHksIHdlIHdpbGwgb25seSBiZSBzZWxlY3Rpbmcgb25lIGRlc2lyZWQgdmFsdWUgZnJvbSB0aGUgdmFyaWFibGUgaGVyZS4gU29tZSBvZiB5b3UgbWF5IHdpc2ggdG8gcmFuayBhIHNlcmllcyBvZiB2YWx1ZXMgZm9yIGEgdmFyaWFibGUuIElmIHRoaXMgaXMgdGhlIGNhc2UsIEknbSBoYXBweSB0byBnbyBvdmVyIGhvdyB0byBkbyB0aGlzIGluIG9mZmljZSBob3Vycy4pCi0gZXg6IENvbnRyb2w6IFB1YmxpYyBVbml2ZXJzaXRpZXMgKDEpIAotIGV4OiBMb2NhbGU6IE1pZC1zaXplIENpdHkgKDIpCgpMSVNUIFlPVVIgRklWRSBERVRFUk1JTkFUSU9OUyBCRUxPVwotIAotIAotIAotIAotIAoKMy4gQ2FsY3VsYXRlIHRoZSB0b3AgdGVuIHVuaXZlcnNpdGllcyBhY2NvcmRpbmcgdG8geW91ciBtZXRyaWMuIEkgd2lsbCBwcm92aWRlIG1vc3Qgb2YgdGhlIGNvZGUgZm9yIHRoaXMuIEhlcmUgaXMgYW4gZXhhbXBsZToKYGBge3J9CnNjb3JlY2FyZF9yYW5rZWQgPC0gc2NvcmVjYXJkICU+JQogIG11dGF0ZShyYW5rZWQgPSAoKHJlc2NhbGUoUENJUDQ1KSoyKSArIHJlc2NhbGUoQVZHRkFDU0FMKSArIHJlc2NhbGUoR1JBRFMpKSkKCnNjb3JlY2FyZF9yYW5rZWQgJT4lIAogIGZpbHRlcihDT05UUk9MID09IDEgJiBMT0NBTEUgPT0gMTIpICU+JSAKICBzZWxlY3QoSU5TVE5NLCBBVkdGQUNTQUwsIFBDSVA0NSwgR1JBRFMsIHJhbmtlZCkgJT4lIAogIHRvcF9uKDEwLCByYW5rZWQpICU+JSAKICBhcnJhbmdlKGRlc2MocmFua2VkKSkKYGBgCgpFTlRFUiBZT1VSIFZBUklBQkxFUyBBTkQgVkFMVUVTIEJFTE9XCmBgYHtyfQpzY29yZWNhcmRfcmFua2VkIDwtIHNjb3JlY2FyZCAlPiUKICBtdXRhdGUocmFua2VkID0gKHJlc2NhbGUoX19fX18pICsgcmVzY2FsZShfX19fXykgLSByZXNjYWxlKF9fX19fKSkgI0ZpbGwgaW4geW91ciBkaXNjcmV0ZSBhbmQgY29udGludW91cyB2YXJpYWJsZXMgaGVyZS4gRmlyc3QgYWRkIHRoZSByZXNjYWxlZCB2YXJpYWJsZXMgaW4gd2hpY2ggaGlnaGVyIHZhbHVlcyB3aWxsIHBvc2l0aXZlbHkgaW1wYWN0IHRoZSBzY29yZSAoeW91IG1heSBuZWVkIHRvIGFkZCBtb3JlKSBhbmQgdGhlbiBzdWJ0cmFjdCB0aGUgcmVzY2FsZWQgdmFyaWFibGVzIGluIHdoaWNoIGhpZ2hlciB2YWx1ZXMgd2lsbCBuZWdhdGl2ZWx5IGltcGFjdCB0aGUgc2NvcmUgKGlmIHlvdSBkb24ndCBoYXZlIGFueSwgdGhlbiByZW1vdmUgdGhlIHN1YnRyYWN0aW9uIHBhcnQgYWJvdmUuKSBUaGlzIHdpbGwgY3JlYXRlIGEgbmV3IGNvbHVtbiBpbiB0aGUgZGF0YXNldCB0aGF0IHJhbmtzIGVhY2ggdW5pdmVyc2l0eSBhY2NvcmRpbmcgdG8gdGhlIG51bWVyaWMgdmFsdWVzIGluIHlvdXIgbWV0cmljLiBOb3RlIHRoYXQgeW91IG1heSB3ZWlnaHQgdmFyaWFibGVzIGRpZmZlcmVudGx5IChhcyBJIGhhdmUgd2l0aCBQQ0lQNDUgaW4gdGhlIGV4YW1wbGUgYWJvdmUgYnkgbXVsdGlwbHlpbmcgYnkgYSB3ZWlnaHQ7IHRoaXMgaXMgbm90IHJlcXVpcmVkKQoKc2NvcmVjYXJkX3JhbmtlZCAlPiUgCiAgZmlsdGVyKF9fX19fID09IF9fX19fICYgX19fX18gPT0gX19fX18pICU+JSAjRmlsbCBpbiB5b3VyIG9yZGluYWwgdmFyaWFibGVzIGhlcmUgYW5kIHRoZSBkZXNpcmVkIHZhbHVlcy4gKERlcGVuZGluZyBvbiBob3cgbWFueSBub21pbmFsIHZhcmlhYmxlcyB5b3UgY2hvc2UsIHlvdSBtYXkgbmVlZCB0byByZW1vdmUgdGhlIHNlY29uZCBjb25kaXRpb24gb3IgYWRkIG1vcmUgY29uZGl0aW9ucykKICBzZWxlY3QoSU5TVE5NLCBfX19fXywgX19fX18sIF9fX19fLCBfX19fXywgX19fX18sIHJhbmtlZCkgJT4lICNGaWxsIGluIHlvdXIgZml2ZSB2YWx1ZXMKICB0b3BfbigxMCwgcmFua2VkKSAlPiUgI1RoaXMgd2lsbCBleHRyYWN0IHVuaXZlcnNpdGllcyB3aXRoIHRoZSBoaWdoZXN0IHNjb3JlcyBpbiByYW5rZWQKICBhcnJhbmdlKGRlc2MocmFua2VkKSkKYGBgCgoKKipJTVBPUlRBTlQgTk9URSoqOiBJZiB5b3UgZ2V0IHRoZSBmb2xsb3dpbmcgZXJyb3I6Cm5vIG5vbi1taXNzaW5nIGFyZ3VtZW50cyB0byBtaW47IHJldHVybmluZyBJbmZubyBub24tbWlzc2luZyBhcmd1bWVudHMgdG8gbWF4OyByZXR1cm5pbmcgLUluZm5vIG5vbi1taXNzaW5nIGFyZ3VtZW50cyB0byBtYXg7IHJldHVybmluZyAtSW5mWzFdIDwwIHJvd3M+IChvciAwLWxlbmd0aCByb3cubmFtZXMpCgpJdCBtZWFucyB0aGF0IHlvdSBoYXZlIHNlbGVjdGVkIGEgdmFyaWFibGUgaW4gd2hpY2ggZGF0YSB3YXMgbm90IGNvbGxlY3RlZCBmb3IgdGhhdCB5ZWFyLiBUaGlzIGhhcHBlbnMgaW4gZGF0YSBzY2llbmNlLiBXZSByZWx5IG9uIHZhcmlhYmxlcyBmb3Igd2hpY2ggd2UgbWF5IGp1c3Qgbm90IGhhdmUgZGF0YSBhdmFpbGFibGUuIElmIHRoaXMgaGFwcGVucywgcGxlYXNlIG5vdGUgdGhhdCB2YXJpYWJsZSBiZWxvdywgYW5kIHJlbW92ZSBpdCBmcm9tIHlvdXIgbWV0cmljIGFib3ZlLiAKTWlzc2luZyBkYXRhOgotIAoKCjQuIExpc3QgZm91ciBzdGFrZWhvbGRlcnMgdGhhdCBtaWdodCBiZSBpbnRlcmVzdGVkIGluIHRoaXMgbWV0cmljLiBGb3IgZWFjaCB3cml0ZSBhIHNldGVuY2UgZXhwbGFpbmluZyB0aGVpciBpbnRlcmVzdCBpbiB0aGUgbWV0cmljLCBhcyB3ZWxsIGFzIGEgc2VudGVuY2UgZXhwbGFpbmluZyB3aGF0IG1vdGl2YXRlcyB0aGlzIGludGVyZXN0LiAgCgotIGV4OiBSZWFsIGVzdGF0ZSBidXNpbmVzc2VzOiBSZWFsIGVzdGF0ZSBidXNpbmVzc2VzIHdvdWxkIGJlIGludGVyZXN0ZWQgaW4gYSBtZXRyaWMgZm9yIGJlc3QgdW5pdmVyc2l0aWVzIGZvciBmYWN1bHR5IG1lbWJlcnMgdW5kZXIgMzAgYmVjYXVzZSBpdCBjb3VsZCBmb3JlY2FzdCB3aGVyZSB5b3VuZyBmYWN1bHR5IG1lbWJlcnMgbWF5IGJlIG1vdmluZywgaGVscGluZyB0aGVtIGRpc2Nlcm4gd2hlcmUgdGhleSBtYXkgd2FudCB0byBidWlsZCBvdXQgb3IgcmVub3ZhdGUgbmV3IGFwYXJ0bWVudCBidWlsZGluZ3MuIFRoaXMgaW50ZXJlc3QgaXMgcHJvZml0LW1vdGl2YXRlZC4gCgpMSVNUIFlPVVIgRk9VUiBTVEFLRUhPTERFUlMgQU5EIEVYUExBTkFUSU9OUyBCRUxPVwotIAotCi0gCi0gCgo1LiBJZiB1bml2ZXJzaXRpZXMgd2VyZSB0byBiZWNvbWUgZml4YXRlZCBvbiB0aGlzIG1ldHJpYywgaG93IG1pZ2h0IGl0IGNoYW5nZSBob3cgdGhleSBvcGVyYXRlLCB0aGUgcHJvZ3JhbXMgdGhleSBvZmZlciwgb3IgdGhlIHdheSB0aGV5IHNlcnZlIHN0dWRlbnRzPyBJZiB1bml2ZXJzaXRpZXMgd2VyZSB0byBiZWdpbiBldm9sdmluZyBpbiBvcmRlciB0byBpbXByb3ZlIHRoZWlyIHNjb3JlcyBpbiByZWxhdGlvbiB0byB0aGlzIG1ldHJpYywgd2hhdCB1bmludGVuZGVkIGNvbnNlcXVlbmNlcyBjb3VsZCBpdCBoYXZlIG9uIHVuaXZlcnNpdHkgZmFjdWx0eSwgc3RhZmYsIHN0dWRlbnRzLCBvciBvdXRzaWRlIGNvbW11bml0eSBtZW1iZXJzPyBIb3cgd291bGQgaXQgaW1wYWN0IHRoZSBkYXRhIGlucHV0cyBmb3IgeW91ciBtZXRyaWM/IFBsZWFzZSByZXNwb25kIGluIDIwMC0zMDAgd29yZHMsIHJlZmVyZW5jaW5nIHNwZWNpZmljIHZhcmlhYmxlcyBvdXRsaW5lZCBpbiB5b3VyIG1ldHJpYy4gCgpFTlRFUiBZT1VSIFJFU1BPTlNFIEJFTE9XCgo=</div>
 
 
 
@@ -2151,7 +1987,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("CheatsheetNotebook.Rmd");
+  window.initializeSourceEmbed("Assignment3.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

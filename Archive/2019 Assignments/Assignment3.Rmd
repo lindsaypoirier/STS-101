@@ -1,6 +1,8 @@
 ---
 title: "R Homework 3"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
 Run the code chunk below to load the tidyverse library.

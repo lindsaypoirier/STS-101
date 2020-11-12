@@ -1,0 +1,96 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Arrange, Group By, Summarize
+
+## Load packages
+
+```{r}
+_____(tidyverse)
+```
+
+## Import data into R and read into data frame
+
+It may take a few moments for this file to load.
+
+```{r}
+#Read in the csv.
+sqf_2018 <- read.csv("https://www1.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2016.csv") 
+sqf_2018_race_cat <- read.csv("https://raw.githubusercontent.com/lindsaypoirier/STS-101/master/Data/SQF/sqf_race_categories.csv") 
+```
+
+```{r}
+sqf_2018 <- sqf_2018 %>% left_join(sqf_2018_race_cat, by = "race")
+```
+
+Added variables for 1) weapon found, 2) arrestsumm, 3) forceused
+
+```{r}
+sqf_2018 <- 
+  sqf_2018 %>%
+  mutate(wpnfound=ifelse((pistol=="Y"|riflshot=="Y"|asltweap=="Y"|knifcuti=="Y"|machgun=="Y"|othrweap=="Y"),"Y","N"))
+
+sqf_2018 <- 
+  sqf_2018 %>%
+  mutate(arrestsumm=ifelse((sumissue=="Y"|arstmade=="Y"),"Y","N"))
+
+sqf_2018 <- 
+  sqf_2018 %>%
+  mutate(forceused=ifelse((pf_hands=="Y"|pf_wall=="Y"|pf_grnd=="Y"|pf_drwep=="Y"|pf_ptwep=="Y"|pf_baton=="Y"|pf_hcuff=="Y"|pf_pepsp=="Y"|pf_other=="Y"),"Y","N"))
+
+```
+
+### Summarize
+
+What was the age of the oldest individual stopped? What was the age of the youngest individual stopped?
+
+In 2018, how many stops in which an individual was frisked resulted in a weapon found? What percentage of the frisk stops resulted in a weapon found?
+
+How many stops occurred in 2018?
+
+In 2018, how many stops involved a frisk? 
+
+In 2018, for how many stops was the officer uniformed? 
+
+In 2018, how many stops resulted in an arrest or summons? What percentage of the total stops resulted in an arrest or summons?
+
+In 2018, how many stopped individuals refused to present identification?
+
+## Group by
+
+How many individuals of each race were stopped in 2018?
+
+How many individuals of each sex were stopped in 2018?
+
+How many individuals of each sex were stopped in instances where force was used?
+
+For each racial group represented in the dataset, what were the 1) total number of frisks, 2) total numbers of stops, and 3) percentage of stops that resulted in a frisk.
+
+For each racial group represented in the dataset, what were the 1) total number of instances a weapon was found, 2) total numbers of stops, and 3) percentage of stops that resulted in a weapon found.
+
+## Arrange
+
+How can I order the plots above so that releases decrease from most to least?
+
+## Top n
+
+Which police precinct had the greatest number of stops? Was this the same precinct with the greatest number of frisks?
+
+## How do we plot this?
+
+Plot NYPD Stops by Age in 2018
+
+Plot NYPD Stops by Age 100+ in 2018
+
+Plot Percent Stops Resulting in Frisk by Race in 2018
+
+Plot Stops Resulting in Frisk by Race in 2018
+
+Plot Percent Frisks Resulting in Weapon Found by Race in 2018
+
+Plot Frisks Resulting in Weapon Found by Race in 2018
+

@@ -37,7 +37,7 @@ editor_options:
 * facet_wrap(~_____)
 * as.factor(_____)
 
-## November 5, 2020
+## November 12, 2020
 
 * summarize(_____)
   * sum
@@ -50,3 +50,4 @@ editor_options:
 * arrange(_____)
   * arrange(desc(_____))
 * top_n(_____, _____)
+* ggplot(aes(____)) + geom_bar(_____)

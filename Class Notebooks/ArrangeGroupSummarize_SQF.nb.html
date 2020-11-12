@@ -1749,75 +1749,96 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="key-functions-by-class" class="section level1">
-<h1>Key Functions by Class</h1>
-<div id="october-22-2020" class="section level2">
-<h2>October 22, 2020</h2>
-<ul>
-<li>library(_____)</li>
-<li>read.csv(_____)</li>
-<li>head()</li>
-<li>dim()</li>
-<li>colnames()</li>
-<li>select(_____)</li>
-<li>distinct()</li>
-<li>mathematical operations (max(), min(), sum(), mean(), median(), etc.)</li>
-</ul>
+<div id="arrange-group-by-summarize" class="section level1">
+<h1>Arrange, Group By, Summarize</h1>
+<div id="load-packages" class="section level2">
+<h2>Load packages</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuX19fX18odGlkeXZlcnNlKVxuYGBgIn0= -->
+<pre class="r"><code>_____(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-<div id="october-29-2020" class="section level2">
-<h2>October 29, 2020</h2>
-<ul>
-<li>count(_____)</li>
-<li>filter(_____)
-<ul>
-<li>==</li>
-<li>&lt;</li>
-<li><blockquote>
+<div id="import-data-into-r-and-read-into-data-frame" class="section level2">
+<h2>Import data into R and read into data frame</h2>
+<p>It may take a few moments for this file to load.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlYWQgaW4gdGhlIGNzdi5cbnNxZl8yMDE4IDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly93d3cxLm55Yy5nb3YvYXNzZXRzL255cGQvZG93bmxvYWRzL2V4Y2VsL2FuYWx5c2lzX2FuZF9wbGFubmluZy9zdG9wLXF1ZXN0aW9uLWZyaXNrL3NxZi0yMDE2LmNzdlwiKSBcbnNxZl8yMDE4X3JhY2VfY2F0IDwtIHJlYWQuY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2xpbmRzYXlwb2lyaWVyL1NUUy0xMDEvbWFzdGVyL0RhdGEvU1FGL3NxZl9yYWNlX2NhdGVnb3JpZXMuY3N2XCIpIFxuYGBgIn0= -->
+<pre class="r"><code>#Read in the csv.
+sqf_2018 &lt;- read.csv(&quot;https://www1.nyc.gov/assets/nypd/downloads/excel/analysis_and_planning/stop-question-frisk/sqf-2016.csv&quot;) 
+sqf_2018_race_cat &lt;- read.csv(&quot;https://raw.githubusercontent.com/lindsaypoirier/STS-101/master/Data/SQF/sqf_race_categories.csv&quot;) </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3FmXzIwMTggPC0gc3FmXzIwMTggJT4lIGxlZnRfam9pbihzcWZfMjAxOF9yYWNlX2NhdCwgYnkgPSBcInJhY2VcIilcbmBgYCJ9 -->
+<pre class="r"><code>sqf_2018 &lt;- sqf_2018 %&gt;% left_join(sqf_2018_race_cat, by = &quot;race&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Added variables for 1) weapon found, 2) arrestsumm, 3) forceused</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3FmXzIwMTggPC0gXG4gIHNxZl8yMDE4ICU+JVxuICBtdXRhdGUod3BuZm91bmQ9aWZlbHNlKChwaXN0b2w9PVwiWVwifHJpZmxzaG90PT1cIllcInxhc2x0d2VhcD09XCJZXCJ8a25pZmN1dGk9PVwiWVwifG1hY2hndW49PVwiWVwifG90aHJ3ZWFwPT1cIllcIiksXCJZXCIsXCJOXCIpKVxuXG5zcWZfMjAxOCA8LSBcbiAgc3FmXzIwMTggJT4lXG4gIG11dGF0ZShhcnJlc3RzdW1tPWlmZWxzZSgoc3VtaXNzdWU9PVwiWVwifGFyc3RtYWRlPT1cIllcIiksXCJZXCIsXCJOXCIpKVxuXG5zcWZfMjAxOCA8LSBcbiAgc3FmXzIwMTggJT4lXG4gIG11dGF0ZShmb3JjZXVzZWQ9aWZlbHNlKChwZl9oYW5kcz09XCJZXCJ8cGZfd2FsbD09XCJZXCJ8cGZfZ3JuZD09XCJZXCJ8cGZfZHJ3ZXA9PVwiWVwifHBmX3B0d2VwPT1cIllcInxwZl9iYXRvbj09XCJZXCJ8cGZfaGN1ZmY9PVwiWVwifHBmX3BlcHNwPT1cIllcInxwZl9vdGhlcj09XCJZXCIpLFwiWVwiLFwiTlwiKSlcblxuYGBgIn0= -->
+<pre class="r"><code>sqf_2018 &lt;- 
+  sqf_2018 %&gt;%
+  mutate(wpnfound=ifelse((pistol==&quot;Y&quot;|riflshot==&quot;Y&quot;|asltweap==&quot;Y&quot;|knifcuti==&quot;Y&quot;|machgun==&quot;Y&quot;|othrweap==&quot;Y&quot;),&quot;Y&quot;,&quot;N&quot;))
 
-</blockquote></li>
-<li>&lt;=</li>
-<li><blockquote>
-<p>=</p>
-</blockquote></li>
-<li>!=</li>
-<li>is.na</li>
-<li>!is.na</li>
-<li>max()</li>
-</ul></li>
-<li>ggplot(aes(____)) + geom_bar(_____)
-<ul>
-<li>stat = “summary”</li>
-<li>fun = “sum”</li>
-</ul></li>
-<li>facet_wrap(~_____)</li>
-<li>as.factor(_____)</li>
-</ul>
+sqf_2018 &lt;- 
+  sqf_2018 %&gt;%
+  mutate(arrestsumm=ifelse((sumissue==&quot;Y&quot;|arstmade==&quot;Y&quot;),&quot;Y&quot;,&quot;N&quot;))
+
+sqf_2018 &lt;- 
+  sqf_2018 %&gt;%
+  mutate(forceused=ifelse((pf_hands==&quot;Y&quot;|pf_wall==&quot;Y&quot;|pf_grnd==&quot;Y&quot;|pf_drwep==&quot;Y&quot;|pf_ptwep==&quot;Y&quot;|pf_baton==&quot;Y&quot;|pf_hcuff==&quot;Y&quot;|pf_pepsp==&quot;Y&quot;|pf_other==&quot;Y&quot;),&quot;Y&quot;,&quot;N&quot;))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="summarize" class="section level3">
+<h3>Summarize</h3>
+<p>What was the age of the oldest individual stopped? What was the age of the youngest individual stopped?</p>
+<p>In 2018, how many stops in which an individual was frisked resulted in a weapon found? What percentage of the frisk stops resulted in a weapon found?</p>
+<p>How many stops occurred in 2018?</p>
+<p>In 2018, how many stops involved a frisk?</p>
+<p>In 2018, for how many stops was the officer uniformed?</p>
+<p>In 2018, how many stops resulted in an arrest or summons? What percentage of the total stops resulted in an arrest or summons?</p>
+<p>In 2018, how many stopped individuals refused to present identification?</p>
 </div>
-<div id="november-12-2020" class="section level2">
-<h2>November 12, 2020</h2>
-<ul>
-<li>summarize(_____)
-<ul>
-<li>sum</li>
-<li>mean</li>
-<li>max</li>
-<li>min</li>
-<li>median</li>
-<li>mean</li>
-</ul></li>
-<li>group_by(_____)</li>
-<li>arrange(_____)
-<ul>
-<li>arrange(desc(_____))</li>
-</ul></li>
-<li>top_n(_____, _____)</li>
-<li>ggplot(aes(____)) + geom_bar(_____)</li>
-</ul>
+</div>
+<div id="group-by" class="section level2">
+<h2>Group by</h2>
+<p>How many individuals of each race were stopped in 2018?</p>
+<p>How many individuals of each sex were stopped in 2018?</p>
+<p>How many individuals of each sex were stopped in instances where force was used?</p>
+<p>For each racial group represented in the dataset, what were the 1) total number of frisks, 2) total numbers of stops, and 3) percentage of stops that resulted in a frisk.</p>
+<p>For each racial group represented in the dataset, what were the 1) total number of instances a weapon was found, 2) total numbers of stops, and 3) percentage of stops that resulted in a weapon found.</p>
+</div>
+<div id="arrange" class="section level2">
+<h2>Arrange</h2>
+<p>How can I order the plots above so that releases decrease from most to least?</p>
+</div>
+<div id="top-n" class="section level2">
+<h2>Top n</h2>
+<p>Which police precinct had the greatest number of stops? Was this the same precinct with the greatest number of frisks?</p>
+</div>
+<div id="how-do-we-plot-this" class="section level2">
+<h2>How do we plot this?</h2>
+<p>Plot NYPD Stops by Age in 2018</p>
+<p>Plot NYPD Stops by Age 100+ in 2018</p>
+<p>Plot Percent Stops Resulting in Frisk by Race in 2018</p>
+<p>Plot Stops Resulting in Frisk by Race in 2018</p>
+<p>Plot Percent Frisks Resulting in Weapon Found by Race in 2018</p>
+<p>Plot Frisks Resulting in Weapon Found by Race in 2018</p>
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCmVkaXRvcl9vcHRpb25zOiAKICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lCi0tLQoKIyBLZXkgRnVuY3Rpb25zIGJ5IENsYXNzCgojIyBPY3RvYmVyIDIyLCAyMDIwCgoqIGxpYnJhcnkoX19fX18pCiogcmVhZC5jc3YoX19fX18pCiogaGVhZCgpCiogZGltKCkKKiBjb2xuYW1lcygpCiogc2VsZWN0KF9fX19fKQoqIGRpc3RpbmN0KCkKKiBtYXRoZW1hdGljYWwgb3BlcmF0aW9ucyAobWF4KCksIG1pbigpLCBzdW0oKSwgbWVhbigpLCBtZWRpYW4oKSwgZXRjLikKCiMjIE9jdG9iZXIgMjksIDIwMjAKCiogY291bnQoX19fX18pCiogZmlsdGVyKF9fX19fKQogICogPT0KICAqIDwKICAqID4KICAqIDw9CiAgKiA+PQogICogIT0KICAqIGlzLm5hCiAgKiAhaXMubmEKICAqIG1heCgpCiogZ2dwbG90KGFlcyhfX19fKSkgKyBnZW9tX2JhcihfX19fXykKICAqIHN0YXQgPSAic3VtbWFyeSIKICAqIGZ1biA9ICJzdW0iCiogZmFjZXRfd3JhcCh+X19fX18pCiogYXMuZmFjdG9yKF9fX19fKQoKIyMgTm92ZW1iZXIgMTIsIDIwMjAKCiogc3VtbWFyaXplKF9fX19fKQogICogc3VtCiAgKiBtZWFuCiAgKiBtYXgKICAqIG1pbgogICogbWVkaWFuCiAgKiBtZWFuCiogZ3JvdXBfYnkoX19fX18pCiogYXJyYW5nZShfX19fXykKICAqIGFycmFuZ2UoZGVzYyhfX19fXykpCiogdG9wX24oX19fX18sIF9fX19fKQoqIGdncGxvdChhZXMoX19fXykpICsgZ2VvbV9iYXIoX19fX18pCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCmVkaXRvcl9vcHRpb25zOiAKICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lCi0tLQoKIyBBcnJhbmdlLCBHcm91cCBCeSwgU3VtbWFyaXplCgojIyBMb2FkIHBhY2thZ2VzCgpgYGB7cn0KX19fX18odGlkeXZlcnNlKQpgYGAKCiMjIEltcG9ydCBkYXRhIGludG8gUiBhbmQgcmVhZCBpbnRvIGRhdGEgZnJhbWUKCkl0IG1heSB0YWtlIGEgZmV3IG1vbWVudHMgZm9yIHRoaXMgZmlsZSB0byBsb2FkLgoKYGBge3J9CiNSZWFkIGluIHRoZSBjc3YuCnNxZl8yMDE4IDwtIHJlYWQuY3N2KCJodHRwczovL3d3dzEubnljLmdvdi9hc3NldHMvbnlwZC9kb3dubG9hZHMvZXhjZWwvYW5hbHlzaXNfYW5kX3BsYW5uaW5nL3N0b3AtcXVlc3Rpb24tZnJpc2svc3FmLTIwMTYuY3N2IikgCnNxZl8yMDE4X3JhY2VfY2F0IDwtIHJlYWQuY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbGluZHNheXBvaXJpZXIvU1RTLTEwMS9tYXN0ZXIvRGF0YS9TUUYvc3FmX3JhY2VfY2F0ZWdvcmllcy5jc3YiKSAKYGBgCgpgYGB7cn0Kc3FmXzIwMTggPC0gc3FmXzIwMTggJT4lIGxlZnRfam9pbihzcWZfMjAxOF9yYWNlX2NhdCwgYnkgPSAicmFjZSIpCmBgYAoKQWRkZWQgdmFyaWFibGVzIGZvciAxKSB3ZWFwb24gZm91bmQsIDIpIGFycmVzdHN1bW0sIDMpIGZvcmNldXNlZAoKYGBge3J9CnNxZl8yMDE4IDwtIAogIHNxZl8yMDE4ICU+JQogIG11dGF0ZSh3cG5mb3VuZD1pZmVsc2UoKHBpc3RvbD09IlkifHJpZmxzaG90PT0iWSJ8YXNsdHdlYXA9PSJZInxrbmlmY3V0aT09IlkifG1hY2hndW49PSJZInxvdGhyd2VhcD09IlkiKSwiWSIsIk4iKSkKCnNxZl8yMDE4IDwtIAogIHNxZl8yMDE4ICU+JQogIG11dGF0ZShhcnJlc3RzdW1tPWlmZWxzZSgoc3VtaXNzdWU9PSJZInxhcnN0bWFkZT09IlkiKSwiWSIsIk4iKSkKCnNxZl8yMDE4IDwtIAogIHNxZl8yMDE4ICU+JQogIG11dGF0ZShmb3JjZXVzZWQ9aWZlbHNlKChwZl9oYW5kcz09IlkifHBmX3dhbGw9PSJZInxwZl9ncm5kPT0iWSJ8cGZfZHJ3ZXA9PSJZInxwZl9wdHdlcD09IlkifHBmX2JhdG9uPT0iWSJ8cGZfaGN1ZmY9PSJZInxwZl9wZXBzcD09IlkifHBmX290aGVyPT0iWSIpLCJZIiwiTiIpKQoKYGBgCgojIyMgU3VtbWFyaXplCgpXaGF0IHdhcyB0aGUgYWdlIG9mIHRoZSBvbGRlc3QgaW5kaXZpZHVhbCBzdG9wcGVkPyBXaGF0IHdhcyB0aGUgYWdlIG9mIHRoZSB5b3VuZ2VzdCBpbmRpdmlkdWFsIHN0b3BwZWQ/CgpJbiAyMDE4LCBob3cgbWFueSBzdG9wcyBpbiB3aGljaCBhbiBpbmRpdmlkdWFsIHdhcyBmcmlza2VkIHJlc3VsdGVkIGluIGEgd2VhcG9uIGZvdW5kPyBXaGF0IHBlcmNlbnRhZ2Ugb2YgdGhlIGZyaXNrIHN0b3BzIHJlc3VsdGVkIGluIGEgd2VhcG9uIGZvdW5kPwoKSG93IG1hbnkgc3RvcHMgb2NjdXJyZWQgaW4gMjAxOD8KCkluIDIwMTgsIGhvdyBtYW55IHN0b3BzIGludm9sdmVkIGEgZnJpc2s/IAoKSW4gMjAxOCwgZm9yIGhvdyBtYW55IHN0b3BzIHdhcyB0aGUgb2ZmaWNlciB1bmlmb3JtZWQ/IAoKSW4gMjAxOCwgaG93IG1hbnkgc3RvcHMgcmVzdWx0ZWQgaW4gYW4gYXJyZXN0IG9yIHN1bW1vbnM/IFdoYXQgcGVyY2VudGFnZSBvZiB0aGUgdG90YWwgc3RvcHMgcmVzdWx0ZWQgaW4gYW4gYXJyZXN0IG9yIHN1bW1vbnM/CgpJbiAyMDE4LCBob3cgbWFueSBzdG9wcGVkIGluZGl2aWR1YWxzIHJlZnVzZWQgdG8gcHJlc2VudCBpZGVudGlmaWNhdGlvbj8KCiMjIEdyb3VwIGJ5CgpIb3cgbWFueSBpbmRpdmlkdWFscyBvZiBlYWNoIHJhY2Ugd2VyZSBzdG9wcGVkIGluIDIwMTg/CgpIb3cgbWFueSBpbmRpdmlkdWFscyBvZiBlYWNoIHNleCB3ZXJlIHN0b3BwZWQgaW4gMjAxOD8KCkhvdyBtYW55IGluZGl2aWR1YWxzIG9mIGVhY2ggc2V4IHdlcmUgc3RvcHBlZCBpbiBpbnN0YW5jZXMgd2hlcmUgZm9yY2Ugd2FzIHVzZWQ/CgpGb3IgZWFjaCByYWNpYWwgZ3JvdXAgcmVwcmVzZW50ZWQgaW4gdGhlIGRhdGFzZXQsIHdoYXQgd2VyZSB0aGUgMSkgdG90YWwgbnVtYmVyIG9mIGZyaXNrcywgMikgdG90YWwgbnVtYmVycyBvZiBzdG9wcywgYW5kIDMpIHBlcmNlbnRhZ2Ugb2Ygc3RvcHMgdGhhdCByZXN1bHRlZCBpbiBhIGZyaXNrLgoKRm9yIGVhY2ggcmFjaWFsIGdyb3VwIHJlcHJlc2VudGVkIGluIHRoZSBkYXRhc2V0LCB3aGF0IHdlcmUgdGhlIDEpIHRvdGFsIG51bWJlciBvZiBpbnN0YW5jZXMgYSB3ZWFwb24gd2FzIGZvdW5kLCAyKSB0b3RhbCBudW1iZXJzIG9mIHN0b3BzLCBhbmQgMykgcGVyY2VudGFnZSBvZiBzdG9wcyB0aGF0IHJlc3VsdGVkIGluIGEgd2VhcG9uIGZvdW5kLgoKIyMgQXJyYW5nZQoKSG93IGNhbiBJIG9yZGVyIHRoZSBwbG90cyBhYm92ZSBzbyB0aGF0IHJlbGVhc2VzIGRlY3JlYXNlIGZyb20gbW9zdCB0byBsZWFzdD8KCiMjIFRvcCBuCgpXaGljaCBwb2xpY2UgcHJlY2luY3QgaGFkIHRoZSBncmVhdGVzdCBudW1iZXIgb2Ygc3RvcHM/IFdhcyB0aGlzIHRoZSBzYW1lIHByZWNpbmN0IHdpdGggdGhlIGdyZWF0ZXN0IG51bWJlciBvZiBmcmlza3M/CgojIyBIb3cgZG8gd2UgcGxvdCB0aGlzPwoKUGxvdCBOWVBEIFN0b3BzIGJ5IEFnZSBpbiAyMDE4CgpQbG90IE5ZUEQgU3RvcHMgYnkgQWdlIDEwMCsgaW4gMjAxOAoKUGxvdCBQZXJjZW50IFN0b3BzIFJlc3VsdGluZyBpbiBGcmlzayBieSBSYWNlIGluIDIwMTgKClBsb3QgU3RvcHMgUmVzdWx0aW5nIGluIEZyaXNrIGJ5IFJhY2UgaW4gMjAxOAoKUGxvdCBQZXJjZW50IEZyaXNrcyBSZXN1bHRpbmcgaW4gV2VhcG9uIEZvdW5kIGJ5IFJhY2UgaW4gMjAxOAoKUGxvdCBGcmlza3MgUmVzdWx0aW5nIGluIFdlYXBvbiBGb3VuZCBieSBSYWNlIGluIDIwMTgKCg==</div>
 
 
 
@@ -1864,7 +1885,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("ReferenceSheet.Rmd");
+  window.initializeSourceEmbed("ArrangeGroupSummarize_SQF.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

@@ -1,0 +1,306 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# STS 101 Homework Assignment 3: Aggregating and Summarizing
+
+## Overview
+
+In this assignment, you will select a series of indicators from the Scorecard dataset that you may use to determine what kind of college a group of your choosing may prefer to attend. You will produce a series of plots that summarize the values of these indicators for each group, draw some conclusions from the results, and then reflect on how the choice of indicators impacted your research.
+
+## Purpose
+
+The primary goal of this assignment is to get you to think critically about the judgment calls a data analyst makes when selecting indicators and how data and variable availability impacts our ability to answer certain data science questions. However, this assignment will also assess your understanding of:
+
+* the difference between categorical and numeric variables
+* how to read a data dictionary
+* how to define data science questions, establish exploratory methods, and identify indicators
+* how to interpret plots and provide descriptive titles and labels
+* how to identify potentially confounding variables
+* how to adjust and run R code in the context of RStudio
+
+## Instructions
+
+Follow my instructions outside of the R snippets that indicate what you should do within the R snippets. Be sure to run code in the order that I present them below. If you run code snippets out of order, you should start at the beginning re-running previously run snippets. Note that there are four parts to this assignment. *At the very bottom of this document, I've included a section called Frequently Asked Questions, outlining the answers to some questions that may arise when completing this assignment.* 
+
+## Part one: Getting Started
+
+### Load packages
+
+Run the code below.
+
+```{r}
+library(tidyverse)
+```
+
+### Import data into R and read into data frame
+
+Run the code below.
+
+```{r}
+scorecard <- read.csv("https://data.ed.gov/dataset/9dc70e6b-8426-4d71-b9d5-70ce6094a3f4/resource/823ac095-bdfc-41b0-b508-4e8fc3110082/download/most-recent-cohorts-all-data-elements-1.csv")
+```
+
+### Data Cleaning
+
+*YOU DON'T NEED TO CHANGE ANYTHING IN THE CODE BELOW.* Run the code below to get the data into a format we can work with. You do not need to understand how this code works for the purposes of this course. However, I've indicated what the code is doing in the comments (green text starting with '#') if you'd like to follow along. 
+
+```{r}
+#Convert all values entered as "NULL" or "PrivacySuppressed" to NAs. 
+is.na(scorecard) <- scorecard == "NULL"
+is.na(scorecard) <- scorecard == "PrivacySuppressed" #Note that all instances of PrivacySuppressed will be changed to NA.
+
+#Convert columns 12 - 1899 to numeric.
+for(i in c(11:1986)){
+  scorecard[,i]<-as.numeric(scorecard[,i])
+}
+```
+
+## Part two: Select a relevant social group, outline the problem, and select indicators
+
+Imagine that you have been asked to help a certain social group decide what kind of college that they would most like to attend. In this section, you are going to outline four things:
+
+1. What group of people you are helping, or the "relevant social group." You will be selecting this based on your own interest.
+2. Which kinds of college they are trying to choose between. You will select one *categorical variable* in the dataset for this.
+3. A definition of what would indicate a good fit for this social group. You will come up with this definition on your own based on your individual understanding of what would make a college a good fit for this group. It should not necessarily be based on the data available.
+4. Four *numeric variables* in the scorecard dataset that can serve as indicators for whether a college is suitable for this group
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+### Example
+
+Let's say that I'm seeking to help people over the age of 30 interested in returning to college decide whether they want to attend a school that is public, private, or private non-profit. 
+
+1. Relevant social group: *Individuals over 30 looking to return to college*
+2. Categorical variable for kind of college: *CONTROL* : *Control of the institution*
+3. Definition of good fit for this group: *A good fit for this group would be a college that has helped students with family and other day-to-day demands beyond school expand their knowledge, hone their skills, and achieve happiness in their future career.*
+4. Four numeric variable indicators for a school that meets this definition from scorecard:
+
+VARIABLE NAME | DEFINTION | WHY IS THIS VARIABLE RELEVANT? WHAT DOES IT INDICATE?
+---|---|---
+PPTUG_EF | Share of undergraduate, degree-/certificate-seeking students who are part-time | Individuals over 30 may need to work part-time to support families while going to school, so having a larger share of part-time undergraduates may indicate a better fit
+UG25ABV | Percentage of undergraduates aged 25 and above | Individuals over 30 may want to attend a school with other students in similar situations, so having a large percentage of undergraduates aged 25 and above may indicate a better fit
+RET_PT4 | First-time, part-time student retention rate at four-year institutions | An institution with a high retention rate amongst first-time part-time students may indicate a better fit.
+CDR2 | Two-year cohort default rate | An institution with a low default rate can indicate that students are able to manage repayment which may indicate a better fit.
+    
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+### Part two, section a: Complete the following table
+
+In the sections that say FILL VARIABLE, be sure to list the relevant variable name (column E) from the data dictionary. In the sections that say FILL DEFINITION, be sure to list the Name of the Data Element (column A) from the data dictionary. 
+
+1. Relevant social group: *FILL ME*
+2. Categorical variable for kind of college: *FILL VARIABLE* : *FILL DEFINITION*
+3. Definition of good fit for this group: *FILL ME*
+4. Four *numeric* variable indicators for a school that meets this definition from scorecard:
+
+VARIABLE NAME | DEFINTION | WHY IS THIS VARIABLE RELEVANT? WHAT DOES IT INDICATE?
+---|---|---
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE*
+
+### Part two, section b: Check for NA values and adjust indicators
+
+Now check to make sure that we have enough data for each of these indicators by checking the number of NA values for each numeric variable you selected above. Replace the blanks below with each numeric variable selected and then run the code chunk.
+
+```{r}
+#Example:
+#scorecard %>%
+  #summarize(num_na = sum(is.na(PTUG_EF)))
+
+scorecard %>%
+  summarize(num_na = sum(is.na(_____)))
+
+scorecard %>%
+  summarize(num_na = sum(is.na(_____)))
+
+scorecard %>%
+  summarize(num_na = sum(is.na(_____)))
+
+scorecard %>%
+  summarize(num_na = sum(is.na(_____)))
+```
+
+Navigate between the windows above to determine how many NA values are in each of the four columns you selected. If any of the variables you selected have more than 2500 NA values, select different variables. Record your final variables in the table below, along with the number of NAs in each. 
+
+VARIABLE NAME | DEFINTION | WHY IS THIS VARIABLE RELEVANT? WHAT DOES IT INDICATE? | NUM NA
+---|---|---|---
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE* | *FILL NUM NA*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE* | *FILL NUM NA*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE* | *FILL NUM NA*
+*FILL VARIABLE* | *FILL DEFINITION* | *FILL RATIONALE* | *FILL NUM NA*
+
+### Part two, section b: Reflect on the selection of indicators
+
+In 100-300 words reflect on how well these proxy variables can indicate the fit of a college for the social group you identified. In other words, to what extent do these variables, considered together, match your definition of a good fit for this group? What variables about colleges currently are *not* in Scorecard but would have served as better indicators? What variables did you need to throw out because too much data was missing? Did you find yourself wanting to adjust your focus of analysis based on the data that was available? In what ways? What might be the consequences of this?
+
+*FILL RESPONSE HERE* 
+  
+## Part three: Analyze the data
+
+In this section of the assignment, you are going to create a series of boxplots that summarize statistics about how different types of schools stack up in relation to these indicators. You will do so by placing the categorical variable you selected above on the x-axis for *every* plot below, and *each* of the numeric variables in you selected above on the y-axis of *one* of the boxplots below. 
+
+> The following give.n function in the code chunk will calculate the *sample size* of the data represented in the boxplot. This will be displayed as a number at the top of each boxplot indicating how many colleges are included in the boxplot representation. If you notice that this number is considerably low in any given boxplot, this could mean that there are very few colleges with this x-axis value, or that this data is missing for many colleges with this x-axis value. It's important to consider the sample size so that we don't draw generalizations from summarized data that actually represents very few observations.
+
+Run this code to add the give.n function to our environment.
+
+```{r}
+give.n <- function(x){
+   return(c(y = max(x), label = length(x)))
+}
+```
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+### Example
+
+```{r fig.height=3, fig.width=6}
+scorecard %>%
+  ggplot(aes(x = as.factor(CONTROL), y = PPTUG_EF)) + geom_boxplot() + 
+  stat_summary(fun.data = give.n, geom = "text") + 
+  labs(title = "Comparison of Share of Part-Time Students across Colleges in the US by College Control, 2018-2019", 
+       x = "Control of the institution", 
+       y = "Share of undergraduate students who are part-time", 
+       caption = "When you copy this code for your polots, you will fill the caption here. ")
+
+```
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+### Part three, section a: Create boxplots. 
+
+Create four boxplots from the variables you selected. Add a *descriptive* title, x-axis labels, and y-axis labels to each boxplot. A good title for a boxplot might follow this format:
+
+Comparison of [FILL WITH Y-VARIABLE] across [UNIT OF OBSERVATION] by [FILL WITH X-VARIABLE], Dates 
+
+See my first plot above as an example. You can use the definitions you outlined in Part 2, section a as x-axis and y-axis labels. You should also add a caption to the boxplot that, in 50 words, interprets what we see on the boxplot and what it indicates about the fit of each type of college for the relevant social group you outlined. 
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my boxplot above and adjust it by adding the categorical variable you select and the first numeric variable you selected. Add a descriptive title, labels, and a caption. 
+```
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my boxplot above and adjust it by adding the categorical variable you select and the second numeric variable you selected. Add a descriptive title, labels, and a caption.
+```
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my boxplot above and adjust it by adding the categorical variable you select and the third numeric variable you selected. Add a descriptive title, labels, and a caption.
+```
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my boxplot above and adjust it by adding the categorical variable you select and the fourth numeric variable you selected. Add a descriptive title, labels, and a caption.
+```
+
+### Part three, section b: Facet two boxplots.
+
+As we learned in the last assignment, what we see in these plots can differ when we start to zoom into the data in particular ways. In this section of the assignment, you are going to facet *two* of the boxplots that you created above by a categorical variable of your choosing. You should think critically about which variable you facet the plot by. What might be a confounding factor in this analysis? In other words, what variable should we throw into the mix of our analysis due to its potential to impact our findings? For each plot, you should adjust the caption to indicate WHY you selected this variable, and what you learned by faceting that you couldn't see when we were looking at the summarized plot. I provide an example below.
+
+```{r fig.height=3, fig.width=6}
+scorecard %>%
+  ggplot(aes(x = as.factor(CONTROL), y = PPTUG_EF)) + geom_boxplot() + 
+  stat_summary(fun.data = give.n, geom = "text") + 
+  labs(title = "Comparison of Share of Part-Time Students across Colleges in the US by College Control, 2018-2019", 
+       x = "Control of the institution", 
+       y = "Share of undergraduate students who are part-time", 
+       caption = "I chose to facet to this variable because I thought there may be more part-time students in schools that are predominantly certificate-awarding or \n associate's degree-awarding and that this may be a confounding factor in my analysis. \n From the following plots, I can indeed see that for schools that predominantly award bachelor's degrees the share of part-time students in public schools is significantly lower than in my original plot, \n and the share of part-time students in private non-profit schools is a bit higher. \n This may indicate that, in general, a public institution would only be better for individuals over 30 looking to return to college if they are not interested in schools that predominantly award bachelor's degrees.") + 
+  facet_wrap(~as.factor(PREDDEG))
+
+```
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my faceted boxplot above and adjust it by adding the categorical variable you selected and a numeric variable you selected, and a new categorical variable to facet by. Add a descriptive title, labels, and a caption.
+```
+
+```{r fig.height=3, fig.width=6}
+#Copy and paste my faceted boxplot above and adjust it by adding the categorical variable you selected and a numeric variable you selected, and a new categorical variable to facet by. Add a descriptive title, labels, and a caption.
+```
+
+## Part four: Reflection
+
+In 100-300 words below, reflect on what you learned in your exploratory data analysis. Based on your analysis could you tell individuals from your relevant social group which type of college they should attend? What kinds of issues that may be relevant for this social group go unanalyzed because of what's available in the dataset? Connect your reflection to discussions we have been having in class about proxy variables, indicators, and metric fixation. What societal consequences might arise from becoming too fixated on the numbers?
+
+*FILL RESPONSE HERE* 
+
+--- ASSIGNMENT ENDS HERE ---
+
+
+## Frequently Asked Questions
+
+### What does as.factor() do?
+
+Below you are going to see that I place some of our variables inside the function as.factor(). What does this mean? as.factor() tells R to treat this variable as a *category* even if it wasn't imported as a category. Consider, for example, the variable PREDDEG. We can check if R considers this a string, a number, or a date by referring to the column and applying the function class(). Run the code below.
+
+```{r}
+scorecard$PREDDEG %>% class()
+```
+
+We can see that R is treating PREDDEG as a *numeric* variable. When we check the data dictionary though we see that PREDDEG is a categorical variable that refers to the predominant undergraduate degree awarded. So why is R treating it as a number? Let's use a function we have already learned to see why. Run the code below to see the distinct values that appear in the PREDDEG column.
+
+```{r}
+scorecard %>% select(PREDDEG) %>% distinct()
+```
+
+See how numbers appear. We learned from assignment 1 that these numbers are codes that are associated with certain labels in the data dictionary:  0 Not classified 1 Predominantly certificate-degree granting 2 Predominantly associate's-degree granting 3 Predominantly bachelor's-degree granting 4 Entirely graduate-degree granting. But the data dictionary is an entirely separate document, so R does not know this! All it knows is that a bunch of numbers were imported into R in this column, and so by default, it is treating the column as numeric. We need to tell R that to treat these numbers as categories that refer to something and not as numeric values that we might perform mathematical operations on. To do this, we are going to place the variable in the function as.factor().
+
+### How do I add titles, labels, and captions to plots in R?
+
+We have been talking about how, with the Tidyverse, we can string functions together with a pipe '%>%'. This is sort of like a conjunction for R code, saying "and then do....". We can call our data frame and then use a pipe to connect functions for filtering the data, selecting variables, summarizing the data, etc. We can also use a pipe to connect our data frame to plot the data using ggplot like this.
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + geom_bar()
+```
+
+It is important to note that that all of the code we need to create a plot with the package *ggplot* is treated as *one* function. This means that we need a different way to string together arguments within the ggplot function. For this we will use a '+'. You can adjust many things regarding your plot using the '+' and stringing on additional arguments. For example, we can adjust the plot above to include a title by placing a '+' after geom_bar() and then adding the argument labs(title = "TITLE"):
+
+```{r}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + 
+  geom_bar() +
+  labs(title = "This is the TITLE I've given this chart")
+```
+
+In the labs arguments, we can also set the x axis, the y axis, and the caption. This is what you will need to do in Part Two of the assignment.
+
+```{r fig.height=3, fig.width=6}
+scorecard %>%
+  ggplot(aes(x = as.factor(CURROPER))) + geom_bar() +
+  labs(title = "This is the TITLE I've given this chart", x = "Is this institution currently operating?", y = "Count of institutions", caption = "This plot counts the number of institutions in the US that were currently operating in 2018. \n We can see that, while most institutions were operating (1), there are also some institutions in the dataset that were not operating (0).")
+```
+
+### My caption is long and is showing up all on one line, so I can only see part of my caption in the plot. How do I start a new line in my caption?
+
+To start a new line in a caption (and in many other coding languages) you can place the following in the caption where you would like to start a new line: \n Check out how I did this in the plot above, placing \n between "...operating in 2018." and "We can see that..."
+
+### What does + scale_y_continuous(labels = scales::comma) do?
+
+Sometimes the numbers on the y axis are so large that without this code, ggplot displayed them in scientific notation by default. We can add this code to force ggplot to display the numbers on the y axis in comma notation instead of scientific notation.
+
+### When I create the plot, I'm getting a warning that x rows containing non-finite values were removed? What does this mean?
+
+This means that there were NAs in those rows in the dataset for the variables we are displaying on the plot. We can see in some of the plots that this data has a lot of NAs! For instance, in the first plot, over 2/3 of the colleges are removed from consideration because there is data missing in either HIGHDEG or ADM_RATE. This is something we want to take into consideration when interpreting plots. 
+
+### The labels on my x-axis are overlapping, and illegible. What should I do?
+
+If this is happening, we can add + coord_flip() to display the x-axis on the y-axis and vice versa. This often fixes the issue. For example, notice how the labels overlap when I plot states below:
+
+```{r fig.height=3, fig.width=6}
+scorecard %>%
+  ggplot(aes(x = as.factor(STABBR), y = PPTUG_EF)) + geom_boxplot()
+```
+
+I can fix this with + coord_flip(). Note that I might also want to adjust my figure size to account for this. 
+
+```{r fig.height=4, fig.width=4}
+scorecard %>%
+  ggplot(aes(x = as.factor(STABBR), y = PPTUG_EF)) + geom_boxplot() + coord_flip()
+```

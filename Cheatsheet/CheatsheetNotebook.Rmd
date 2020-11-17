@@ -210,9 +210,145 @@ values_by_state_date %>%
 		filter(State == "AL") %>% 
 		summarize(AL_sum = sum(Value, na.rm = TRUE))
 ```
+## How can I plot data in R?
+To plot data, we are going to use ggplot - a package in the Tidyverse that allows us to produce a number of visualizations from a dataset. Just like how we applied functions to data frames, we can tell R to plot data by calling our data frame and stringing the ggplot call to it with a pipe. Together this looks like this:
+
+data_frame %>% ggplot()
+
+However this is not enough information for R to produce a plot. We need to tell ggplot specifically what data in the data frame we would like displayed on the plot. Typically, this means telling R which variable in our dataset (or column) we would like to see on the x-axis and which variable (or column) we would like to see on the y-axis. We will tell R what to plot by referring to these variables inside of the parentheses following the call to ggplot() and more specifically inside another set of parentheses following the letters aes(). Together this looks like this:
+
+data_frame %>% ggplot(aes(x = VARIABLE1, y = VARIABLE2)
+
+In this case, aes() stands for aesthetics and is a way to indicate to R that we are referring to the specific variables in our dataset that we would like to see on the plot. In ggplot, aesthetics are distinct from attributes which are stylistic conventions for how the plot should be displayed (what labels it should have, what colors its bars should be, what size its fonts should be, etc.).
+
+This is still not enough information for R to produce a plot because we haven’t indicated to R what kind of plot we want to produce! To do this, we are going to add a ‘+’ to the end of the call above and then indicate what kind of plot we would like R to produce, such as a bar plot (geom_bar()), a line plot (geom_line()), or a boxplot (geom_boxplot). We will discuss other plots later in the quarter. Together this looks like this:
+
+data_frame %>% ggplot(aes(x = VARIABLE1, y = VARIABLE2) + geom_bar() 
+
+The code above would produce a basic plot in R. There are a number of things that we can add to this code to adjust the style of the plot. To do this we will add another ‘+’ to the end of the call above and then include new code for adjusting the plot’s style. For example, let’s say I wanted to add a title to my plot. I would add a ‘+’ to the end of the code above and then include the argument labs(title = "TITLE") like this (labs() is short of labels):
+
+data_frame %>% ggplot(aes(x = VARIABLE1, y = VARIABLE2) + geom_bar() + labs(title = "TITLE")
+
+> Why are we using ‘+’ to connect things in ggplot and not ‘%>%’? Pipes are used to string together data and functions in R. Because there is so much that can be customized with a plot, ggplot takes a number of arguments (what kind of plot it is, the plot’s title, the way the axis values get displayed, etc.) ggplot and all of the arguments associated with it are *one* function in R. So if we placed pipes between those arguments. R would be expecting a new function when in fact we are supplying it with a new ggplot argument. In ggplot, we use the + to string together arguments that are all part of the same ggplot function. 
+
+## What kinds of plots can I produce in R?
+
+There are lots of plots that you can produce using ggplot. Rather than listing them all here, I would encourage you to view this cheatsheet: https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+
+This week, we will work exclusively with bar charts. A categorical variable will be plotted on the x-axis and a numeric variable will be plotted not the y-axis. The height of the bar will summarize some statistic about the values associated with the categorical variable. This will look like this:
+data_frame %>% ggplot(aes(x = VARIABLE1, y = VARIABLE2) + geom_bar(stat = "summary", fun = "sum")
+
+Let me break that down. We first called our data frame. Then we strung that together with the ggplot function using a pipe. Within the aesthetics we indicated that we wanted VARIABLE1 plotted on the x-axis and VARIABLE2 plotted on the y-axis. We then told ggplot that we wanted to create a bar plot by adding geom_bar(), and more specifically, we wanted to produced a bar plot that summarized the values in the y-axis variable by summing them. So what would this look like with our dataset above. 
+
 ```{r}
-values_by_state_date %>%
-  arrange(Value)
+values_by_state_date %>% 
+  ggplot(aes(x = State, y = Value)) +
+  geom_bar(stat = "summary", fun = "sum") +
+  labs(title = "Sum of Values per State", x = "State", y = "Values")
+```
+This height of the bar represents the sum of the values in AL and in CA respectively. Note that NA values will be removed in plotting by default. R will provide you with a warning indicating how many rows were removed.
+
+> Examples of statistics that we can summarize in fun = "____" include sum, min, max, mean, and meadian. The height of the bar will indicate a summary of these values for each categorical value on the x-axis when this function is applied. 
+
+```{r}
+values_by_state_date %>% 
+		ggplot(aes(x = Date, y = Value)) +
+		geom_bar(stat = "summary", fun = "min") +
+		labs(title = "Minimum Value per Day", x = "Date", y = "Values")
+```
+## What if I wanted to consider a third variable on the plot?
+
+facet_wrap() divides a plot into separate windows, each containing the data filtered to one value in a categorical variable. We will indicate what categorical variable to divide the plots by in the parentheses following facet_wrap, following a '~' like this:
+
+data_frame %>% ggplot(aes(x = VARIABLE1, y = VARIABLE2) + geom_bar(stat = "summary", fun = "sum") + facet_wrap(~VARIABLE3)
+
+```{r}
+values_by_state_date %>% 
+		ggplot(aes(x = Date, y = Value)) +
+		geom_bar(stat = "summary", fun = "min") +
+		facet_wrap(~as.factor(FIPS))
+```
+> What does as.factor do? When we imported this data into R, R saw that all of the values in FIPS were numbers. Because of this R is treating that variable as a numeric variable and assumes that we will use it in mathematical functions. But that number actually is a reference to a state so it is a categorical variable. We can use as.factor() to tell R to treat a numeric variable as a categorical variable. In these plots, we would need to do this in order to plot FIPS on the x-axis or in facet_wrap().
+
+## What are some other ways I can show more than one variable on a bar plot?
+
+In the bar plots we have been producing, we have been supplying a variable to plot on the x-axis and a variable to plot on the y-axis, along with a function to apply to the y-axis values. Another way we can adjust our plots to factor in more categorical data is by setting the fill property inside the aes() call. Setting fill = "___" to a categorical variable in our dataset will associate each value in that categorical variable with a particular color. The stacks of the bar plot will then be filled according to how much of the stack is associated with that variable. So for instance, let’s say we plot the sum of Value on each date, but set the fill to State.
+
+```{r}
+values_by_state_date %>% 
+		ggplot(aes(x = Date, y = Value, fill = State)) +
+		geom_bar(stat = "summary", fun = "sum")
+```
+By default, setting the fill property in a bar chart will produce a stacked bar chart like the one above. However, we can adjust this using the position attribute. To display the colored bars side-by-side, we will set the position to "dodge" like this:
+
+```{r}
+values_by_state_date %>% 
+		ggplot(aes(x = Date, y = Value, fill = State)) +
+		geom_bar(stat = "summary", fun = "sum", position = "dodge")
+```
+We can also display the colored bars as a percentage of the total by setting position attribute to "fill".
+
+```{r}
+values_by_state_date %>% 
+		ggplot(aes(x = Date, y = Value, fill = State)) +
+		geom_bar(stat = "summary", fun = "sum", position = "fill")
+```
+## How can I summarize statistics across groups of values in R?
+
+In R we can group observations in our datasets that share common values, using the function group_by(). group_by() takes a categorical variable in our dataset and groups all of the rows together that share the same value in that categorical variable. Let’s say we wanted to group by State. Because we have two states represented in the State variable (AL and CA), it would group the observations by these two states.
+
+```{r}
+values_by_state_date %>% 
+		group_by(State)
 ```
 
+> Notice that on its own, group_by doesn't show up any differently. This is because we need to apply another function to do something in each group.
+
+On its own group_by() isn’t all that interesting. What makes it interesting is when we start to calculate certain values across these groups using the summarize function. Let’s say that I wanted to know the total Value per State. We would first need to group the rows with common states together as we did above and then calculate the sum of Value in each group.
+
+```{r}
+values_by_state_date %>% 
+		group_by(State) %>%
+		summarize(Total_Value = sum(Value, na.rm = TRUE))
+```
+
+There are a number of statistical functions that you can use in summarize (see page 3) in place of sum. Remember that summarize returns one value for each group - the result of the calculation.
+What if I wanted to filter to the max value in each group?
+
+```{r}
+values_by_state_date %>% 
+		group_by(State) %>%
+		filter(Value == max(Value, na.rm = TRUE))
+```
+We see all of the columns above because we are simply subsetting our data to the row with the max of Value in each state group (i.e. in group AL and group CA).
+When you group_by() in an R call, the data will remain grouped, until you add %>% ungroup().
+
+## How can I sort values?
+
+The arrange() function allows you to sort values in R from least to greatest.
+
+```{r}
+values_by_state_date %>% 
+		group_by(State) %>%
+		summarize(Total_Value = sum(Value, na.rm = TRUE)) %>%
+		arrange(Total_Value)
+```
+
+To sort the values from greatest to least you can place desc( ) inside the arrange() function like this:
+
+```{r}
+values_by_state_date %>%
+  arrange(desc(Value))
+```
+> Note how NA values will appear at the bottom of our sorted list.
+
+## How can I subset to the rows with the top values?
+
+top_n() allows you to filter your data to the rows with the top values in a given variable. You supply top_n() first with the number of rows to return and the variable to find the top value in.
+
+
+```{r}
+values_by_state_date %>% 
+		top_n(2, Value)
+```
 
